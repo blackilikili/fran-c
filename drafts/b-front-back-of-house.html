@@ -1,0 +1,261 @@
+<title>Fran C. Front and Back</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: the page has two rooms. "Front of house" (deep plum, the published work, staged like a gallery) gives way to "Back of house" (pale drafting paper, the workflow and systems drawn as a plan). One fixed look by design, so it does not follow the viewer's theme. */
+:root {
+  color-scheme: dark;
+  --plum: #2A1730;
+  --plum-2: #3A2242;
+  --blush: #F3D9D0;
+  --blush-dim: #C9A9A6;
+  --marigold: #EBA43A;
+  --draft: #EEF0EC;
+  --draft-line: #D5DAD3;
+  --navy: #1E2A3A;
+  --navy-dim: #56627A;
+  --display: "Gloock", "DM Serif Display", Georgia, serif;
+  --body: "Figtree", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+* { box-sizing: border-box; }
+body { background: var(--plum); color: var(--blush); font-family: var(--body); font-size: 17px; line-height: 1.6; }
+.wrap { max-width: 1240px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--marigold); outline-offset: 3px; }
+.mono { font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
+.pending { display: inline-block; border: 1px dashed currentColor; opacity: .75; padding: 2px 7px; font-family: var(--mono); font-size: 11px; letter-spacing: .05em; text-transform: uppercase; }
+
+.draftbar { background: var(--marigold); color: var(--plum); }
+.draftbar .wrap { padding-block: 7px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+header .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding-block: 22px; }
+.logo { font-family: var(--display); font-size: 28px; }
+nav { display: flex; gap: 22px; flex-wrap: wrap; }
+nav a { text-decoration: none; color: var(--blush-dim); }
+nav a:hover { color: var(--marigold); }
+
+/* Hero */
+.hero .wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; padding-block: 48px 96px; align-items: center; }
+.hero h1 { font-family: var(--display); font-weight: 400; font-size: clamp(48px, 7.4vw, 108px); line-height: .98; margin: 0; letter-spacing: -.01em; text-wrap: balance; }
+.hero h1 span { display: block; color: var(--marigold); }
+.hero .lede { max-width: 44ch; margin: 30px 0 22px; color: var(--blush-dim); font-size: 19px; }
+.roles { display: flex; gap: 10px; flex-wrap: wrap; }
+.roles span { background: var(--plum-2); padding: 7px 12px; border-radius: 999px; }
+.stage { position: relative; height: 480px; }
+.card { position: absolute; width: 58%; aspect-ratio: 4 / 5; border-radius: 6px; box-shadow: 0 30px 60px -20px #0009; }
+.card:nth-child(1) { left: 0; top: 40px; transform: rotate(-6deg); }
+.card:nth-child(2) { left: 22%; top: 0; transform: rotate(2deg); z-index: 2; }
+.card:nth-child(3) { right: 0; top: 70px; transform: rotate(8deg); }
+.ph { background: repeating-linear-gradient(135deg, transparent 0 10px, #ffffff0d 10px 11px), var(--plum-2); color: var(--blush-dim); display: flex; align-items: flex-end; padding: 14px; font-family: var(--mono); font-size: 11px; line-height: 1.4; border: 1px solid #ffffff14; }
+
+/* Work */
+.room-label { display: flex; align-items: center; gap: 14px; padding-block: 0 26px; color: var(--marigold); }
+.room-label::after { content: ""; flex: 1; height: 1px; background: currentColor; opacity: .4; }
+.intro { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding-block: 8px 56px; }
+.intro h2 { font-family: var(--display); font-weight: 400; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.02; margin: 0; }
+.intro p { margin: 0; color: var(--blush-dim); max-width: 52ch; }
+
+.group { padding-block: 40px; border-top: 1px solid #ffffff1c; }
+.group-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 26px; }
+.group-head h3 { font-family: var(--display); font-weight: 400; font-size: 34px; margin: 0; }
+.group-head p { margin: 0; color: var(--blush-dim); max-width: 50ch; }
+.tile { display: grid; gap: 12px; align-content: start; }
+.tile .ph { aspect-ratio: 4 / 5; border-radius: 4px; }
+.tile.wide .ph { aspect-ratio: 16 / 10; }
+.tile h4 { font-family: var(--display); font-weight: 400; font-size: 24px; margin: 4px 0 0; }
+.tile p { margin: 0; font-size: 15px; color: var(--blush-dim); }
+.tile .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; color: var(--blush-dim); }
+.g1 { display: grid; grid-template-columns: 1.4fr 1fr; gap: 28px; }
+.g1 .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.g2 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+.g3 { display: grid; grid-template-columns: 1fr 2fr; gap: 28px; align-items: end; }
+.g3 .strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+
+/* Back of house */
+.curtain { background: var(--marigold); color: var(--plum); }
+.curtain .wrap { padding-block: 26px; display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+.curtain h2 { font-family: var(--display); font-weight: 400; font-size: clamp(34px, 5vw, 64px); margin: 0; line-height: 1; }
+.back { color-scheme: light; background-color: var(--draft); color: var(--navy);
+  background-image: linear-gradient(var(--draft-line) 1px, transparent 1px), linear-gradient(90deg, var(--draft-line) 1px, transparent 1px);
+  background-size: 28px 28px; }
+.back .wrap { padding-block: 64px 80px; display: grid; gap: 56px; }
+.back h3 { font-family: var(--display); font-weight: 400; font-size: 34px; margin: 0 0 8px; }
+.back .sub { margin: 0; color: var(--navy-dim); max-width: 60ch; }
+.flow { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0; margin-top: 26px; }
+.node { position: relative; padding: 0 10px; display: grid; gap: 8px; justify-items: start; }
+.node .dot { width: 46px; height: 46px; border-radius: 50%; border: 1.5px solid var(--navy); background: var(--draft); display: grid; place-items: center; font-family: var(--mono); font-size: 12px; position: relative; z-index: 1; }
+.node:not(:last-child)::after { content: ""; position: absolute; top: 23px; left: 56px; right: -10px; border-top: 1.5px dashed var(--navy); }
+.node b { font-family: var(--display); font-weight: 400; font-size: 21px; }
+.node span { font-size: 14px; color: var(--navy-dim); line-height: 1.4; }
+.node.loop .dot { background: var(--marigold); border-color: var(--marigold); }
+.schem { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.5px; background: var(--navy); border: 1.5px solid var(--navy); margin-top: 22px; }
+.schem div { background: var(--draft); padding: 18px 16px 22px; display: grid; gap: 6px; align-content: start; }
+.schem h4 { margin: 0; font-family: var(--mono); font-weight: 500; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; }
+.schem p { margin: 0; font-size: 15px; color: var(--navy-dim); }
+.back .pending { color: var(--navy-dim); }
+
+/* Contact */
+.contact .wrap { padding-block: 80px 96px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: end; }
+.contact h2 { font-family: var(--display); font-weight: 400; font-size: clamp(40px, 6vw, 84px); line-height: 1; margin: 0 0 18px; }
+.contact .email { font-size: clamp(20px, 2.6vw, 30px); user-select: all; overflow-wrap: anywhere; }
+.copy { font: inherit; font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; background: var(--marigold); color: var(--plum); border: 0; padding: 12px 16px; border-radius: 999px; cursor: pointer; }
+footer .wrap { padding-block: 20px; border-top: 1px solid #ffffff1c; color: var(--blush-dim); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+@media (max-width: 900px) {
+  .hero .wrap, .intro, .g1, .g3 { grid-template-columns: 1fr; }
+  .stage { height: 380px; max-width: 460px; }
+  .g2 { grid-template-columns: 1fr 1fr; }
+  .flow { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 28px; }
+  .node:nth-child(3)::after { display: none; }
+  .schem { grid-template-columns: 1fr 1fr; }
+  .contact .wrap { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  .g2 { grid-template-columns: 1fr; }
+  .g3 .strip { grid-template-columns: 1fr 1fr; }
+  .g3 .strip .tile:nth-child(3) { display: none; }
+  .flow { grid-template-columns: 1fr 1fr; }
+  .node::after { display: none; }
+  .schem { grid-template-columns: 1fr; }
+  .stage { height: 300px; }
+}
+</style>
+
+<div class="draftbar mono"><div class="wrap"><span>Draft B · Front &amp; Back of House</span><span>Hatched frames = screenshots pending · dashed tags = facts to confirm</span></div></div>
+
+<header><div class="wrap">
+  <div class="logo">Fran C.</div>
+  <nav class="mono"><a href="#front">The work</a><a href="#back">Behind it</a><a href="#contact">Contact</a></nav>
+</div></header>
+
+<div class="hero"><div class="wrap">
+  <div>
+    <h1>The work you see, <span>and the work behind it.</span></h1>
+    <p class="lede">Content and digital marketing: carousels, short-form video and captions, plus the planning, publishing and marketing systems that keep them moving.</p>
+    <div class="roles mono"><span>Social Media Manager</span><span>Content Editor</span><span>Content Marketing</span></div>
+  </div>
+  <div class="stage" aria-label="Three selected posts">
+    <div class="card ph">Heart Healer · cacao offer</div>
+    <div class="card ph">The Hearty Company · internal compass</div>
+    <div class="card ph">Starrz PR · podcast episode</div>
+  </div>
+</div></div>
+
+<main id="front" class="wrap">
+  <div class="room-label mono">Front of house · Selected content samples</div>
+  <div class="intro">
+    <h2>Six brands, three ways of talking to an audience.</h2>
+    <p>These are published posts from brands Fran has contributed to. The accounts belong to the brands. Each piece is described by what's visible in it; Fran's exact role on each brand is added once confirmed.</p>
+  </div>
+
+  <div class="group">
+    <div class="group-head"><h3>Voice &amp; Reflection</h3><p>Personal-brand storytelling and thought leadership in a calm, reflective register.</p></div>
+    <div class="g1">
+      <div class="tile">
+        <div class="pair"><div class="ph">Reflective carousel · uncertainty &amp; decisions</div><div class="ph">Long-form reflective caption</div></div>
+        <h4>Helen Heart Healer</h4>
+        <p>Wellness, growth and change, emotional intelligence, and a limited-time ceremonial cacao offer.</p>
+        <div class="row mono"><span>Instagram · Facebook</span><span class="pending">Role: to confirm</span></div>
+      </div>
+      <div class="tile">
+        <div class="ph">Guest speaker · emotional intelligence &amp; self-leadership module</div>
+        <h4>The Hearty Company</h4>
+        <p>Leadership questions, self-leadership and leadership in the age of AI.</p>
+        <div class="row mono"><span>Instagram</span><span class="pending">Role: to confirm</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-head"><h3>Expertise, Made Clear</h3><p>Technical, clinical and expert topics turned into posts a scrolling reader can follow.</p></div>
+    <div class="g2">
+      <div class="tile">
+        <div class="ph">Landed cost vs. unit price</div>
+        <h4>SourcingXpro</h4>
+        <p>B2B sourcing education, biotech merchandise, and a subtitled sourcing-risk video.</p>
+        <div class="row mono"><span>Facebook · Video</span><span class="pending">Role: to confirm</span></div>
+      </div>
+      <div class="tile">
+        <div class="ph">Essential fatty acids graphic</div>
+        <h4>Dr Sam White</h4>
+        <p>Health education graphics and a client testimonial.</p>
+        <div class="row mono"><span>Instagram</span><span class="pending">Role: to confirm</span></div>
+      </div>
+      <div class="tile">
+        <div class="ph">Expert quote · portrait cut-out on scenic background</div>
+        <h4>Lighthouse Declaration</h4>
+        <p>Expert profiles and quote graphics with a consistent brand footer.</p>
+        <div class="row mono"><span>Instagram</span><span class="pending">Role: to confirm</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-head"><h3>Visibility &amp; Events</h3><p>Promotion with a date on it: masterclasses, expos and podcast launches.</p></div>
+    <div class="g3">
+      <div class="tile">
+        <h4>Starrz PR</h4>
+        <p>Event details, speaker positioning, promotional copy and hashtags.</p>
+        <div class="row mono"><span>Facebook</span><span class="pending">Role: to confirm</span></div>
+      </div>
+      <div class="strip">
+        <div class="tile"><div class="ph">The AWAKE Method masterclass</div></div>
+        <div class="tile"><div class="ph">Wellness expo</div></div>
+        <div class="tile"><div class="ph">Not Over Just Different · podcast</div></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="curtain" id="back"><div class="wrap">
+  <h2>Back of house</h2>
+  <span class="mono">How the work gets made and shipped</span>
+</div></div>
+
+<section class="back"><div class="wrap">
+  <div>
+    <h3>From brief to feed</h3>
+    <p class="sub">The route a post takes, with repurposing feeding the next round.</p>
+    <div class="flow">
+      <div class="node"><span class="dot">A</span><b>Brief</b><span>Topic, offer or event</span></div>
+      <div class="node"><span class="dot">B</span><b>Draft</b><span>Graphics, captions, video</span></div>
+      <div class="node"><span class="dot">C</span><b>Review</b><span>Client or team sign-off</span></div>
+      <div class="node"><span class="dot">D</span><b>Schedule</b><span>Queued per platform</span></div>
+      <div class="node loop"><span class="dot">↻</span><b>Repurpose</b><span>One idea, more formats</span></div>
+      <div class="node"><span class="dot">E</span><b>Report</b><span>What went out, what's next</span></div>
+    </div>
+    <p style="margin-top:18px"><span class="pending">Workflow shown once Fran confirms it matches her process</span></p>
+  </div>
+  <div>
+    <h3>Marketing systems</h3>
+    <p class="sub">The operational side: the email, CRM, funnel and SEO work that sits around content.</p>
+    <div class="schem">
+      <div><h4>Email &amp; CRM</h4><p>Sequences, segmentation and tagging, behaviour-based automation, CRM workflows, SOPs.</p></div>
+      <div><h4>Funnels &amp; pages</h4><p>Landing, checkout, thank-you and membership flows; page updates and QA.</p></div>
+      <div><h4>Automation</h4><p>Connected workflows and troubleshooting across marketing tools.</p></div>
+      <div><h4>SEO &amp; analytics</h4><p>SEO research and operations, Google Analytics, Search Console.</p></div>
+    </div>
+    <p style="margin-top:14px"><span class="pending">Tool list by depth: to confirm</span></p>
+  </div>
+</div></section>
+
+<section class="contact" id="contact"><div class="wrap">
+  <div>
+    <h2>Let's talk content.</h2>
+    <div class="email" id="email">fran.f.crystal@gmail.com</div>
+  </div>
+  <button class="copy" id="copy" type="button">Copy email</button>
+</div></section>
+
+<footer><div class="wrap mono"><span>Fran C. · Philippines · Remote</span><span>Brands shown are selected content samples.</span></div></footer>
+
+<script>
+document.getElementById('copy').addEventListener('click', function () {
+  var b = this, el = document.getElementById('email');
+  function sel() { var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Selected, press copy'; }
+  try { navigator.clipboard.writeText(el.textContent).then(function () { b.textContent = 'Copied'; }, sel); } catch (e) { sel(); }
+});
+</script>

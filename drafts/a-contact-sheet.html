@@ -1,0 +1,307 @@
+<title>Fran C. Contact Sheet</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: a photographer's contact sheet. Each brand is a "roll" of frames; the hero is a sheet with one frame marked in grease pencil. */
+:root {
+  --paper: #E6E6E0;
+  --sheet: #F4F4EF;
+  --ink: #141414;
+  --muted: #5E5F58;
+  --rule: #C9C9C0;
+  --frame: #1E1E1C;
+  --grease: #D3402A;
+  --display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  --body: "Newsreader", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #121311; --sheet: #1B1C19; --ink: #EDEDE6; --muted: #A2A397; --rule: #33352F; --frame: #0A0A09; --grease: #F0644B; color-scheme: dark;
+} }
+:root[data-theme="dark"] {
+  --paper: #121311; --sheet: #1B1C19; --ink: #EDEDE6; --muted: #A2A397; --rule: #33352F; --frame: #0A0A09; --grease: #F0644B; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 18px; line-height: 1.55; }
+.wrap { max-width: 1240px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--grease); outline-offset: 3px; }
+.mono { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+
+.draft { background: var(--ink); color: var(--paper); }
+.draft .wrap { padding-block: 8px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+header.top .wrap { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-block: 22px; border-bottom: 1px solid var(--rule); }
+.logo { font-family: var(--display); font-weight: 800; font-stretch: 70%; font-size: 26px; letter-spacing: .02em; text-transform: uppercase; }
+nav { display: flex; gap: 22px; flex-wrap: wrap; }
+nav a { text-decoration: none; }
+nav a:hover { color: var(--grease); }
+
+/* Hero */
+.hero .wrap { display: grid; grid-template-columns: 1.15fr 1fr; gap: 48px; padding-block: 56px 72px; align-items: start; }
+.hero h1 { font-family: var(--display); font-weight: 800; font-stretch: 62%; text-transform: uppercase; font-size: clamp(56px, 8.6vw, 128px); line-height: .86; letter-spacing: -.01em; margin: 0; text-wrap: balance; }
+.hero h1 em { font-style: normal; color: var(--grease); }
+.hero .lede { max-width: 34ch; font-size: 21px; margin: 28px 0 22px; }
+.roles { display: flex; flex-wrap: wrap; gap: 8px; }
+.roles span { border: 1px solid var(--ink); padding: 6px 10px; }
+.meta { margin-top: 18px; color: var(--muted); }
+
+.sheet { background: var(--frame); padding: 14px; position: relative; }
+.sheet-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.sheet .edge { color: #E8C36A; display: flex; justify-content: space-between; padding: 0 2px 10px; }
+.sheet .edge.bottom { padding: 10px 2px 0; }
+.fr { position: relative; aspect-ratio: 4 / 5; }
+.fr .ph { position: absolute; inset: 0; }
+.fr .no { position: absolute; left: 6px; bottom: 5px; color: #E8C36A; font-family: var(--mono); font-size: 10px; }
+.mark { position: absolute; inset: -12px; pointer-events: none; overflow: visible; }
+.mark path { fill: none; stroke: var(--grease); stroke-width: 3.5; stroke-linecap: round; }
+.sheet-note { position: absolute; right: -6px; bottom: -34px; color: var(--grease); font-family: var(--mono); font-size: 12px; transform: rotate(-3deg); }
+
+/* placeholder imagery */
+.ph { background:
+  repeating-linear-gradient(135deg, transparent 0 9px, color-mix(in srgb, var(--muted) 18%, transparent) 9px 10px),
+  var(--sheet);
+  display: flex; align-items: flex-end; padding: 10px; color: var(--muted); font-family: var(--mono); font-size: 10.5px; line-height: 1.35; letter-spacing: .03em; }
+.sheet .ph { background: repeating-linear-gradient(135deg, transparent 0 9px, #ffffff10 9px 10px), #2B2B28; color: #9C9C92; padding-bottom: 22px; }
+
+/* Rolls */
+section { border-top: 1px solid var(--rule); }
+.sec-head .wrap { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; padding-block: 44px 28px; }
+.sec-head h2 { font-family: var(--display); font-weight: 800; font-stretch: 62%; text-transform: uppercase; font-size: clamp(40px, 5.4vw, 72px); line-height: .9; margin: 0; }
+.sec-head p { max-width: 46ch; margin: 0; color: var(--muted); }
+.roll .wrap { display: grid; grid-template-columns: 260px 1fr; gap: 32px; padding-block: 28px; border-top: 1px dashed var(--rule); }
+.roll h3 { font-family: var(--display); font-weight: 700; font-stretch: 85%; font-size: 30px; line-height: 1; margin: 6px 0 10px; }
+.roll .group { color: var(--grease); }
+.roll .info { display: grid; gap: 10px; align-content: start; }
+.roll .info p { margin: 0; font-size: 16px; color: var(--muted); }
+.pending { display: inline-block; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 7px; font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; }
+.strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.strip figure { margin: 0; display: grid; gap: 8px; }
+.strip figcaption { font-size: 15px; line-height: 1.4; }
+.strip .fr .no { color: var(--muted); }
+
+/* Loupe feature */
+.loupe .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; padding-block: 56px; }
+.loupe .big { aspect-ratio: 4 / 5; position: relative; }
+.loupe .big .ph { position: absolute; inset: 0; font-size: 12px; padding: 16px; }
+.notes { list-style: none; margin: 0; padding: 0; display: grid; gap: 22px; align-content: start; }
+.notes li { display: grid; grid-template-columns: 34px 1fr; gap: 12px; }
+.notes .pin { width: 30px; height: 30px; border: 2.5px solid var(--grease); border-radius: 50%; display: grid; place-items: center; color: var(--grease); font-family: var(--mono); font-size: 12px; font-weight: 600; }
+.notes h4 { margin: 2px 0 4px; font-family: var(--display); font-stretch: 85%; font-size: 20px; }
+.notes p { margin: 0; font-size: 16px; color: var(--muted); }
+.loupe h2 { font-family: var(--display); font-weight: 800; font-stretch: 62%; text-transform: uppercase; font-size: clamp(40px, 5vw, 64px); line-height: .9; margin: 8px 0 18px; }
+
+/* Process + systems */
+.process ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); border: 1px solid var(--ink); }
+.process li { padding: 16px 14px 20px; border-right: 1px solid var(--ink); display: grid; gap: 6px; }
+.process li:last-child { border-right: 0; }
+.process li b { font-family: var(--display); font-stretch: 75%; font-size: 24px; }
+.process li span { font-size: 14px; color: var(--muted); line-height: 1.4; }
+.process .wrap > .pending { margin-top: 14px; }
+.systems { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; padding-block: 36px 64px; }
+.systems h4 { margin: 0 0 8px; font-family: var(--display); font-stretch: 85%; font-size: 21px; }
+.systems p { margin: 0; font-size: 15.5px; color: var(--muted); }
+
+/* Contact */
+.contact .wrap { padding-block: 64px 80px; display: grid; gap: 18px; }
+.contact .email { font-family: var(--display); font-weight: 800; font-stretch: 62%; font-size: clamp(36px, 7vw, 104px); line-height: .95; overflow-wrap: anywhere; user-select: all; }
+.copy { justify-self: start; font: inherit; font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; background: var(--grease); color: #fff; border: 0; padding: 10px 14px; cursor: pointer; }
+footer .wrap { padding-block: 20px; border-top: 1px solid var(--rule); color: var(--muted); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+@media (max-width: 900px) {
+  .hero .wrap, .loupe .wrap { grid-template-columns: 1fr; }
+  .roll .wrap { grid-template-columns: 1fr; gap: 16px; }
+  .process ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .process li { border-bottom: 1px solid var(--ink); }
+  .systems { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 520px) {
+  .strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .strip figure:nth-child(3) { display: none; }
+  .systems { grid-template-columns: 1fr; }
+  nav { gap: 14px; }
+}
+</style>
+
+<div class="draft mono"><div class="wrap"><span>Draft A · Contact Sheet</span><span>Hatched frames = screenshots pending · dashed tags = facts to confirm</span></div></div>
+
+<header class="top"><div class="wrap">
+  <div class="logo">Fran C.</div>
+  <nav class="mono"><a href="#work">Work</a><a href="#feature">Feature</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+</div></header>
+
+<div class="hero"><div class="wrap">
+  <div>
+    <h1>Social-first content, carried all the way to <em>published.</em></h1>
+    <p class="lede">Content and digital marketing: carousels, short-form video and captions, plus the planning, publishing and marketing systems that keep them moving.</p>
+    <div class="roles mono"><span>Social Media Manager</span><span>Content Editor</span><span>Content Marketing</span></div>
+    <p class="meta mono">Philippines · Remote</p>
+  </div>
+  <div class="sheet" aria-label="Contact sheet of selected content samples">
+    <div class="edge mono"><span>Selected samples</span><span>Sheet 01</span></div>
+    <div class="sheet-grid">
+      <div class="fr"><div class="ph">Heart Healer · reflective carousel</div><span class="no">01</span></div>
+      <div class="fr"><div class="ph">Hearty Co. · internal compass</div><span class="no">02</span></div>
+      <div class="fr"><div class="ph">SourcingXpro · landed cost</div><span class="no">03</span>
+        <svg class="mark" viewBox="0 0 100 125" preserveAspectRatio="none" aria-hidden="true"><path d="M50 4 C82 2 98 30 96 64 C94 100 74 122 46 121 C16 120 3 92 4 60 C5 28 24 6 56 7"/></svg></div>
+      <div class="fr"><div class="ph">Starrz PR · masterclass</div><span class="no">04</span></div>
+      <div class="fr"><div class="ph">Dr Sam White · testimonial</div><span class="no">05</span></div>
+      <div class="fr"><div class="ph">Lighthouse Dec. · expert quote</div><span class="no">06</span></div>
+    </div>
+    <div class="edge bottom mono"><span>→ 6 brands</span><span>3 kinds of content</span></div>
+    <span class="sheet-note">pick of the sheet</span>
+  </div>
+</div></div>
+
+<section id="work">
+  <div class="sec-head"><div class="wrap">
+    <h2>Selected<br>content samples</h2>
+    <p>Published posts from brands Fran has contributed to. The accounts belong to the brands. Each roll lists what's visible in the work; Fran's exact role is added once confirmed.</p>
+  </div></div>
+
+  <div class="roll"><div class="wrap">
+    <div class="info">
+      <span class="mono group">Roll 01 · Voice &amp; Reflection</span>
+      <h3>Helen Heart Healer</h3>
+      <p>Wellness, personal-brand storytelling, thought leadership and product promotion.</p>
+      <span class="mono">Instagram · Facebook</span>
+      <span class="pending">Role: to confirm</span>
+    </div>
+    <div class="strip">
+      <figure><div class="fr"><div class="ph">Screenshot pending</div><span class="no">01A</span></div><figcaption>Reflective carousel on uncertainty and business decisions</figcaption></figure>
+      <figure><div class="fr"><div class="ph">Screenshot pending</div><span class="no">01B</span></div><figcaption>Ceremonial cacao, limited-time offer with promo code</figcaption></figure>
+      <figure><div class="fr"><div class="ph">Screenshot pending</div><span class="no">01C</span></div><figcaption>Long-form reflective caption with supporting imagery</figcaption></figure>
+    </div>
+  </div></div>
+
+  <div class="roll"><div class="wrap">
+    <div class="info">
+      <span class="mono group">Roll 02 · Voice &amp; Reflection</span>
+      <h3>The Hearty Company</h3>
+      <p>Leadership, emotional intelligence, coaching and thought leadership.</p>
+      <span class="mono">Instagram</span>
+      <span class="pending">Role: to confirm</span>
+    </div>
+    <div class="strip">
+      <figure><div class="fr"><div class="ph">Screenshot pending</div><span class="no">02A</span></div><figcaption>"How do you reset your internal compass?"</figcaption></figure>
+      <figure><div class="fr"><div class="ph">Screenshot pending</div><span class="no">02B</span></div><figcaption>When a team thinks the leader is the problem</figcaption></figure>
+      <figure><div class="fr"><div class="ph">Screenshot pending</div><span class="no">02C</span></div><figcaption>Guest speaker for an emotional intelligence module</figcaption></figure>
+    </div>
+  </div></div>
+
+  <div class="roll"><div class="wrap">
+    <div class="info">
+      <span class="mono group">Roll 03 · Expertise, Made Clear</span>
+      <h3>SourcingXpro</h3>
+      <p>B2B educational content, sourcing expertise, product storytelling and video.</p>
+      <span class="mono">Facebook · Video</span>
+      <span class="pending">Role: to confirm</span>
+    </div>
+    <div class="strip">
+      <figure><div class="fr"><div class="ph">Screenshot pending</div><span class="no">03A</span></div><figcaption>Unit price vs. total landed project cost</figcaption></figure>
+      <figure><div class="fr"><div class="ph">Screenshot pending</div><span class="no">03B</span></div><figcaption>Promotional products for biotech and life sciences</figcaption></figure>
+      <figure><div class="fr"><div class="ph">Video still pending</div><span class="no">03C</span></div><figcaption>Sourcing-risk framework video, presenter with subtitles</figcaption></figure>
+    </div>
+  </div></div>
+
+  <div class="roll"><div class="wrap">
+    <div class="info">
+      <span class="mono group">Roll 04 · Visibility &amp; Events</span>
+      <h3>Starrz PR</h3>
+      <p>PR, event promotion, podcast discovery and personal-brand visibility.</p>
+      <span class="mono">Facebook</span>
+      <span class="pending">Role: to confirm</span>
+    </div>
+    <div class="strip">
+      <figure><div class="fr"><div class="ph">Screenshot pending</div><span class="no">04A</span></div><figcaption>Masterclass promotion for The AWAKE Method</figcaption></figure>
+      <figure><div class="fr"><div class="ph">Screenshot pending</div><span class="no">04B</span></div><figcaption>Wellness expo promotion</figcaption></figure>
+      <figure><div class="fr"><div class="ph">Screenshot pending</div><span class="no">04C</span></div><figcaption>Podcast episode: Not Over Just Different</figcaption></figure>
+    </div>
+  </div></div>
+
+  <div class="roll"><div class="wrap">
+    <div class="info">
+      <span class="mono group">Roll 05 · Expertise, Made Clear</span>
+      <h3>Dr Sam White</h3>
+      <p>Health education, testimonial-led content and visual information design.</p>
+      <span class="mono">Instagram</span>
+      <span class="pending">Role: to confirm</span>
+    </div>
+    <div class="strip">
+      <figure><div class="fr"><div class="ph">Screenshot pending</div><span class="no">05A</span></div><figcaption>Client testimonial graphic</figcaption></figure>
+      <figure><div class="fr"><div class="ph">Screenshot pending</div><span class="no">05B</span></div><figcaption>Educational graphic on essential fatty acids</figcaption></figure>
+      <figure><div class="fr"><div class="ph">Screenshot pending</div><span class="no">05C</span></div><figcaption>Educational post on digestive health</figcaption></figure>
+    </div>
+  </div></div>
+
+  <div class="roll"><div class="wrap">
+    <div class="info">
+      <span class="mono group">Roll 06 · Expertise, Made Clear</span>
+      <h3>Lighthouse Declaration</h3>
+      <p>Expert profiles and quote-led content: portrait cut-outs, scenic backgrounds, brand footer.</p>
+      <span class="mono">Instagram</span>
+      <span class="pending">Role: to confirm</span>
+    </div>
+    <div class="strip">
+      <figure><div class="fr"><div class="ph">Screenshot pending</div><span class="no">06A</span></div><figcaption>Quote graphic, science educator</figcaption></figure>
+      <figure><div class="fr"><div class="ph">Screenshot pending</div><span class="no">06B</span></div><figcaption>Profile and quote, medical professional</figcaption></figure>
+      <figure><div class="fr"><div class="ph">Screenshot pending</div><span class="no">06C</span></div><figcaption>Expert quote with scenic background</figcaption></figure>
+    </div>
+  </div></div>
+</section>
+
+<section class="loupe" id="feature"><div class="wrap">
+  <div class="big"><div class="ph">Frame 03A under the loupe · SourcingXpro landed-cost post · screenshot pending</div></div>
+  <div>
+    <span class="mono" style="color:var(--grease)">Under the loupe · Frame 03A</span>
+    <h2>Turning a sourcing question into a scroll-stopper</h2>
+    <ol class="notes">
+      <li><span class="pin">1</span><div><h4>The hook</h4><p>Opens on a gap buyers already feel: the factory quote isn't the real cost.</p></div></li>
+      <li><span class="pin">2</span><div><h4>The explanation</h4><p>Explains why the unit price and the total landed project cost differ, in a format a B2B reader can follow on a phone.</p></div></li>
+      <li><span class="pin">3</span><div><h4>The wider set</h4><p>Sits alongside a sourcing-risk post and video, so the brand's expertise shows up in more than one format.</p></div></li>
+      <li><span class="pin">✓</span><div><h4>Fran's part</h4><p><span class="pending">Design / copy / scheduling: to confirm</span></p></div></li>
+    </ol>
+  </div>
+</div></section>
+
+<section class="process" id="process">
+  <div class="sec-head"><div class="wrap">
+    <h2>Behind<br>the frames</h2>
+    <p>How content moves from a brief to the feed, and the marketing systems around it.</p>
+  </div></div>
+  <div class="wrap">
+    <ol>
+      <li><b>Brief</b><span>Topic, offer or event to promote</span></li>
+      <li><b>Draft</b><span>Canva graphics, captions, video</span></li>
+      <li><b>Review</b><span>Client or team sign-off</span></li>
+      <li><b>Schedule</b><span>Queued per platform</span></li>
+      <li><b>Repurpose</b><span>One idea, several formats</span></li>
+      <li><b>Report</b><span>What went out, what's next</span></li>
+    </ol>
+    <span class="pending">Workflow shown once Fran confirms it matches her process</span>
+    <div class="systems">
+      <div><h4>Email &amp; CRM</h4><p>Sequences, segmentation and tagging, behaviour-based automation, CRM workflows, SOPs.</p></div>
+      <div><h4>Funnels &amp; pages</h4><p>Landing, checkout, thank-you and membership flows; page updates and QA.</p></div>
+      <div><h4>Automation</h4><p>Connected workflows and troubleshooting across marketing tools.</p></div>
+      <div><h4>SEO &amp; analytics</h4><p>SEO research and operations, Google Analytics, Search Console.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact"><div class="wrap">
+  <span class="mono">Contact</span>
+  <div class="email" id="email">fran.f.crystal@gmail.com</div>
+  <button class="copy" id="copy" type="button">Copy email</button>
+</div></section>
+
+<footer><div class="wrap mono"><span>Fran C. · Philippines · Remote</span><span>Brands shown are selected content samples, not accounts owned by Fran.</span></div></footer>
+
+<script>
+document.getElementById('copy').addEventListener('click', function () {
+  var b = this, t = document.getElementById('email').textContent;
+  function sel() { var r = document.createRange(); r.selectNodeContents(document.getElementById('email')); var s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Selected, press copy'; }
+  try { navigator.clipboard.writeText(t).then(function () { b.textContent = 'Copied'; }, sel); } catch (e) { sel(); }
+});
+</script>

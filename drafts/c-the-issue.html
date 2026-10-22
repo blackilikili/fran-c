@@ -1,0 +1,284 @@
+<title>Fran C. The Issue</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..700&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+/* Layout: a magazine issue. Masthead, a contents page, a feature per kind of content, a format spread that scrolls sideways like flipping pages, a cobalt "back section" for systems, and a colophon. */
+:root {
+  --page: #FBFAF7;
+  --ink: #111216;
+  --soft: #62646E;
+  --hair: #DCDCE2;
+  --cobalt: #2341D6;
+  --on-cobalt: #F4F5FF;
+  --blush: #F6DCE3;
+  --display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --body: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --page: #0F1015; --ink: #F1F1F4; --soft: #A0A2AE; --hair: #2A2C36; --cobalt: #6F86FF; --on-cobalt: #0B0D1A; --blush: #3A2630; color-scheme: dark;
+} }
+:root[data-theme="dark"] {
+  --page: #0F1015; --ink: #F1F1F4; --soft: #A0A2AE; --hair: #2A2C36; --cobalt: #6F86FF; --on-cobalt: #0B0D1A; --blush: #3A2630; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--page); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.6; }
+.wrap { max-width: 1240px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+a { color: inherit; }
+a:focus-visible, button:focus-visible, .formats:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 3px; }
+.kicker { font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+.pending { display: inline-block; border: 1px dashed var(--soft); color: var(--soft); padding: 2px 8px; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+
+.draftbar { border-bottom: 1px solid var(--hair); color: var(--soft); }
+.draftbar .wrap { padding-block: 8px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+/* Masthead */
+.masthead .wrap { padding-block: 24px 0; }
+.dateline { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-bottom: 1px solid var(--ink); padding-bottom: 10px; }
+.mast { font-family: var(--display); font-weight: 800; font-size: clamp(88px, 21vw, 300px); line-height: .82; letter-spacing: -.03em; margin: 18px 0 10px; }
+.mast i { font-weight: 400; color: var(--cobalt); }
+.under { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-top: 3px double var(--ink); padding-top: 10px; }
+
+/* Cover story */
+.cover .wrap { display: grid; grid-template-columns: 5fr 7fr; gap: 48px; padding-block: 56px 72px; }
+.cover blockquote { margin: 0; font-family: var(--display); font-style: italic; font-size: clamp(32px, 3.8vw, 52px); line-height: 1.08; text-wrap: balance; }
+.cover .lede { margin: 26px 0 18px; color: var(--soft); max-width: 42ch; }
+.roles { display: flex; gap: 8px; flex-wrap: wrap; }
+.roles span { background: var(--blush); padding: 6px 12px; }
+.coverimg { display: grid; gap: 8px; }
+.ph { background: repeating-linear-gradient(135deg, transparent 0 10px, color-mix(in srgb, var(--soft) 16%, transparent) 10px 11px), color-mix(in srgb, var(--blush) 55%, var(--page)); color: var(--soft); display: flex; align-items: flex-end; padding: 12px; font-size: 12px; line-height: 1.35; letter-spacing: .02em; }
+.coverimg .ph { aspect-ratio: 7 / 5; }
+.cap { font-size: 13px; color: var(--soft); }
+
+/* Contents */
+.contents { border-top: 1px solid var(--ink); }
+.contents .wrap { display: grid; grid-template-columns: 1fr 2fr; gap: 48px; padding-block: 44px 56px; }
+.contents h2 { font-family: var(--display); font-weight: 400; font-size: 64px; line-height: .95; margin: 0; }
+.toc { list-style: none; margin: 0; padding: 0; }
+.toc li { border-bottom: 1px solid var(--hair); }
+.toc a { display: grid; grid-template-columns: 60px 1fr auto; gap: 16px; align-items: baseline; padding: 14px 0; text-decoration: none; }
+.toc a:hover b { color: var(--cobalt); }
+.toc .n { font-family: var(--display); font-size: 28px; color: var(--cobalt); }
+.toc b { font-family: var(--display); font-weight: 500; font-size: 24px; }
+.toc span:last-child { color: var(--soft); font-size: 14px; text-align: right; }
+
+/* Features */
+.feature { border-top: 1px solid var(--ink); }
+.feature .wrap { padding-block: 56px; }
+.feature-head { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 36px; }
+.feature h2 { font-family: var(--display); font-weight: 700; font-size: clamp(44px, 6vw, 86px); line-height: .92; margin: 8px 0 0; letter-spacing: -.02em; }
+.feature h2 i { font-weight: 400; }
+.dek { margin: 0; font-size: 18px; max-width: 50ch; }
+.dek::first-letter { font-family: var(--display); font-weight: 700; float: left; font-size: 74px; line-height: .8; padding: 6px 10px 0 0; color: var(--cobalt); }
+.brand { display: grid; grid-template-columns: 220px 1fr; gap: 32px; padding: 26px 0; border-top: 1px solid var(--hair); }
+.brand h3 { font-family: var(--display); font-weight: 600; font-size: 28px; line-height: 1.05; margin: 0 0 8px; }
+.brand .side { display: grid; gap: 8px; align-content: start; }
+.brand .side p { margin: 0; font-size: 15px; color: var(--soft); }
+.plates { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 14px; }
+.plates.flip { grid-template-columns: 1fr 1fr 2fr; }
+.plates figure { margin: 0; display: grid; gap: 6px; align-content: start; }
+.plates .ph { aspect-ratio: 4 / 5; }
+.plates figure:first-child .ph { aspect-ratio: auto; height: 100%; min-height: 220px; }
+.plates.flip figure:first-child .ph { aspect-ratio: 4 / 5; height: auto; min-height: 0; }
+.plates.flip figure:last-child .ph { aspect-ratio: auto; height: 100%; min-height: 220px; }
+
+/* Pull quote between features */
+.pull .wrap { padding-block: 48px; text-align: center; }
+.pull p { margin: 0 auto; max-width: 24ch; font-family: var(--display); font-style: italic; font-size: clamp(28px, 3.6vw, 46px); line-height: 1.1; color: var(--cobalt); text-wrap: balance; }
+
+/* Formats strip */
+.formats-sec { border-top: 1px solid var(--ink); }
+.formats-sec .wrap { padding-block: 48px 64px; }
+.formats-sec h2 { font-family: var(--display); font-weight: 700; font-size: clamp(40px, 5vw, 64px); margin: 6px 0 24px; line-height: .95; }
+.formats { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(220px, 1fr); gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 12px; }
+.formats figure { margin: 0; scroll-snap-align: start; display: grid; gap: 8px; }
+.formats .ph { aspect-ratio: 4 / 5; }
+.formats b { font-family: var(--display); font-size: 20px; font-weight: 600; }
+.formats span { font-size: 13px; color: var(--soft); }
+
+/* Back section */
+.backsec { background: var(--cobalt); color: var(--on-cobalt); }
+.backsec .wrap { padding-block: 64px 72px; display: grid; grid-template-columns: 1fr 1.4fr; gap: 48px; }
+.backsec h2 { font-family: var(--display); font-weight: 700; font-size: clamp(44px, 5.6vw, 80px); line-height: .92; margin: 8px 0 18px; }
+.backsec p { margin: 0; opacity: .85; }
+.steps { list-style: none; margin: 0 0 32px; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 6px; align-items: center; font-family: var(--display); font-size: 24px; }
+.steps li:not(:last-child)::after { content: " →"; opacity: .6; }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 32px; }
+.cols h3 { margin: 0 0 4px; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; }
+.cols p { font-size: 15.5px; }
+.backsec .pending { color: var(--on-cobalt); border-color: var(--on-cobalt); opacity: .8; margin-top: 18px; }
+
+/* Colophon */
+.colophon .wrap { padding-block: 64px 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: end; }
+.colophon h2 { font-family: var(--display); font-weight: 400; font-style: italic; font-size: clamp(36px, 5vw, 64px); line-height: 1; margin: 0 0 16px; }
+.email { font-family: var(--display); font-size: clamp(22px, 3vw, 36px); user-select: all; overflow-wrap: anywhere; }
+.copy { font: inherit; font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; background: var(--ink); color: var(--page); border: 0; padding: 12px 18px; cursor: pointer; margin-top: 14px; }
+.fine { color: var(--soft); font-size: 14px; border-top: 1px solid var(--hair); padding-top: 14px; }
+
+@media (max-width: 900px) {
+  .cover .wrap, .contents .wrap, .feature-head, .backsec .wrap, .colophon .wrap { grid-template-columns: 1fr; gap: 28px; }
+  .brand { grid-template-columns: 1fr; gap: 14px; }
+}
+@media (max-width: 560px) {
+  .plates, .plates.flip { grid-template-columns: 1fr 1fr; }
+  .plates figure:first-child, .plates.flip figure:last-child { grid-column: 1 / -1; }
+  .plates figure:first-child .ph, .plates.flip figure:last-child .ph { aspect-ratio: 4 / 3; height: auto; min-height: 0; }
+  .cols { grid-template-columns: 1fr; }
+  .toc a { grid-template-columns: 44px 1fr; }
+  .toc span:last-child { grid-column: 2; text-align: left; }
+}
+</style>
+
+<div class="draftbar kicker"><div class="wrap"><span>Draft C · The Issue</span><span>Hatched plates = screenshots pending · dashed tags = facts to confirm</span></div></div>
+
+<header class="masthead"><div class="wrap">
+  <div class="dateline kicker"><span>Content &amp; Digital Marketing</span><span>Philippines · Remote</span></div>
+  <h1 class="mast">Fran <i>C.</i></h1>
+  <div class="under kicker"><span>Selected content samples</span><span>fran.f.crystal@gmail.com</span></div>
+</div></header>
+
+<section class="cover"><div class="wrap">
+  <div>
+    <span class="kicker" style="color:var(--cobalt)">Cover story</span>
+    <blockquote>Social-first content, carried all the way to published.</blockquote>
+    <p class="lede">Content and digital marketing: carousels, short-form video and captions, plus the planning, publishing and marketing systems that keep them moving.</p>
+    <div class="roles kicker"><span>Social Media Manager</span><span>Content Editor</span><span>Content Marketing</span></div>
+  </div>
+  <figure class="coverimg" style="margin:0">
+    <div class="ph">Cover plate · strongest single piece, chosen once screenshots arrive</div>
+    <figcaption class="cap">Cover plate to be chosen from the six brands below.</figcaption>
+  </figure>
+</div></section>
+
+<nav class="contents" aria-label="Contents"><div class="wrap">
+  <h2>In this<br>issue</h2>
+  <ol class="toc">
+    <li><a href="#voice"><span class="n">1</span><b>Voice &amp; Reflection</b><span>Helen Heart Healer · The Hearty Company</span></a></li>
+    <li><a href="#expertise"><span class="n">2</span><b>Expertise, Made Clear</b><span>SourcingXpro · Dr Sam White · Lighthouse Declaration</span></a></li>
+    <li><a href="#visibility"><span class="n">3</span><b>Visibility &amp; Events</b><span>Starrz PR</span></a></li>
+    <li><a href="#formats"><span class="n">4</span><b>Formats</b><span>Carousel to video</span></a></li>
+    <li><a href="#behind"><span class="n">5</span><b>Behind the Feed</b><span>Workflow &amp; systems</span></a></li>
+  </ol>
+</div></nav>
+
+<article class="feature" id="voice"><div class="wrap">
+  <div class="feature-head">
+    <div><span class="kicker" style="color:var(--cobalt)">Feature 1</span><h2>Voice &amp; <i>Reflection</i></h2></div>
+    <p class="dek">Personal brands in wellness and leadership speak in a quieter register: reflective carousels, long captions, questions that ask the reader to stop. These samples show that voice carried across posts, product offers and event promotion.</p>
+  </div>
+  <div class="brand">
+    <div class="side"><h3>Helen Heart Healer</h3><p>Wellness, growth and change, emotional intelligence, ceremonial cacao.</p><span class="kicker">Instagram · Facebook</span><span class="pending">Role: to confirm</span></div>
+    <div class="plates">
+      <figure><div class="ph">Reflective carousel on uncertainty and business decisions</div></figure>
+      <figure><div class="ph">Cacao offer with promo code</div></figure>
+      <figure><div class="ph">Long-form reflective post</div></figure>
+    </div>
+  </div>
+  <div class="brand">
+    <div class="side"><h3>The Hearty Company</h3><p>Leadership, emotional intelligence, coaching, leadership in the age of AI.</p><span class="kicker">Instagram</span><span class="pending">Role: to confirm</span></div>
+    <div class="plates flip">
+      <figure><div class="ph">"How do you reset your internal compass?"</div></figure>
+      <figure><div class="ph">When the team thinks the leader is the problem</div></figure>
+      <figure><div class="ph">Guest speaker · emotional intelligence module</div></figure>
+    </div>
+  </div>
+</div></article>
+
+<div class="pull"><div class="wrap"><p>One idea, shaped for the carousel, the caption and the video.</p></div></div>
+
+<article class="feature" id="expertise"><div class="wrap">
+  <div class="feature-head">
+    <div><span class="kicker" style="color:var(--cobalt)">Feature 2</span><h2>Expertise, <i>Made Clear</i></h2></div>
+    <p class="dek">Sourcing costs, nutrition and expert opinion are dense subjects. These samples break them into posts a reader can follow on a phone, from explainer graphics to a subtitled video and quote cards.</p>
+  </div>
+  <div class="brand">
+    <div class="side"><h3>SourcingXpro</h3><p>B2B sourcing education, biotech merchandise, sourcing-risk video.</p><span class="kicker">Facebook · Video</span><span class="pending">Role: to confirm</span></div>
+    <div class="plates">
+      <figure><div class="ph">Video still · sourcing-risk framework, presenter with subtitles</div></figure>
+      <figure><div class="ph">Unit price vs. landed cost</div></figure>
+      <figure><div class="ph">Biotech &amp; life sciences merch</div></figure>
+    </div>
+  </div>
+  <div class="brand">
+    <div class="side"><h3>Dr Sam White</h3><p>Health education graphics and testimonial content.</p><span class="kicker">Instagram</span><span class="pending">Role: to confirm</span></div>
+    <div class="plates flip">
+      <figure><div class="ph">Essential fatty acids</div></figure>
+      <figure><div class="ph">Digestive health</div></figure>
+      <figure><div class="ph">Client testimonial graphic</div></figure>
+    </div>
+  </div>
+  <div class="brand">
+    <div class="side"><h3>Lighthouse Declaration</h3><p>Expert profiles and quote cards with portrait cut-outs and a brand footer.</p><span class="kicker">Instagram</span><span class="pending">Role: to confirm</span></div>
+    <div class="plates">
+      <figure><div class="ph">Expert quote on scenic background</div></figure>
+      <figure><div class="ph">Science educator quote</div></figure>
+      <figure><div class="ph">Medical professional profile</div></figure>
+    </div>
+  </div>
+</div></article>
+
+<article class="feature" id="visibility"><div class="wrap">
+  <div class="feature-head">
+    <div><span class="kicker" style="color:var(--cobalt)">Feature 3</span><h2>Visibility &amp; <i>Events</i></h2></div>
+    <p class="dek">Promotion with a date attached: a masterclass, a wellness expo, a podcast episode. Each post has to carry the details, position the speaker and give a clear next step.</p>
+  </div>
+  <div class="brand">
+    <div class="side"><h3>Starrz PR</h3><p>Event promotion, speaker positioning, promotional copy and hashtags.</p><span class="kicker">Facebook</span><span class="pending">Role: to confirm</span></div>
+    <div class="plates flip">
+      <figure><div class="ph">Wellness expo</div></figure>
+      <figure><div class="ph">Not Over Just Different · podcast</div></figure>
+      <figure><div class="ph">The AWAKE Method masterclass</div></figure>
+    </div>
+  </div>
+</div></article>
+
+<section class="formats-sec" id="formats"><div class="wrap">
+  <span class="kicker" style="color:var(--cobalt)">4 · Formats</span>
+  <h2>Every format, one example each</h2>
+  <div class="formats" tabindex="0" aria-label="Formats, scroll sideways">
+    <figure><div class="ph">Plate pending</div><b>Carousel</b><span>Reflective, multi-slide</span></figure>
+    <figure><div class="ph">Plate pending</div><b>Static graphic</b><span>Educational explainer</span></figure>
+    <figure><div class="ph">Plate pending</div><b>Short-form video</b><span>Presenter with subtitles</span></figure>
+    <figure><div class="ph">Plate pending</div><b>Promotion</b><span>Offer with promo code</span></figure>
+    <figure><div class="ph">Plate pending</div><b>Event</b><span>Masterclass, expo, podcast</span></figure>
+    <figure><div class="ph">Plate pending</div><b>Quote card</b><span>Expert profile</span></figure>
+    <figure><div class="ph">Plate pending</div><b>Testimonial</b><span>Client voice</span></figure>
+  </div>
+</div></section>
+
+<section class="backsec" id="behind"><div class="wrap">
+  <div>
+    <span class="kicker">5 · Behind the Feed</span>
+    <h2>The systems that keep it moving</h2>
+    <p>Content is half the job. The other half is getting it planned, approved, published and connected to the rest of the marketing.</p>
+  </div>
+  <div>
+    <ol class="steps"><li>Brief</li><li>Draft</li><li>Review</li><li>Schedule</li><li>Repurpose</li><li>Report</li></ol>
+    <div class="cols">
+      <div><h3>Email &amp; CRM</h3><p>Sequences, segmentation and tagging, behaviour-based automation, CRM workflows, SOPs.</p></div>
+      <div><h3>Funnels &amp; pages</h3><p>Landing, checkout, thank-you and membership flows; page updates and QA.</p></div>
+      <div><h3>Automation</h3><p>Connected workflows and troubleshooting across marketing tools.</p></div>
+      <div><h3>SEO &amp; analytics</h3><p>SEO research and operations, Google Analytics, Search Console.</p></div>
+    </div>
+    <span class="pending">Workflow and tool depth: to confirm</span>
+  </div>
+</div></section>
+
+<footer class="colophon"><div class="wrap">
+  <div>
+    <span class="kicker" style="color:var(--cobalt)">Colophon</span>
+    <h2>Fran C.</h2>
+    <div class="email" id="email">fran.f.crystal@gmail.com</div>
+    <button class="copy" id="copy" type="button">Copy email</button>
+  </div>
+  <p class="fine">Philippines · Remote. Brands shown are selected content samples from projects Fran contributed to; the accounts belong to the brands.</p>
+</div></footer>
+
+<script>
+document.getElementById('copy').addEventListener('click', function () {
+  var b = this, el = document.getElementById('email');
+  function sel() { var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Selected, press copy'; }
+  try { navigator.clipboard.writeText(el.textContent).then(function () { b.textContent = 'Copied'; }, sel); } catch (e) { sel(); }
+});
+</script>
