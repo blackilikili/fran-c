@@ -51,6 +51,12 @@ a:focus-visible, button:focus-visible, .formats:focus-visible { outline: 2px sol
 .coverimg .ph { aspect-ratio: 7 / 5; }
 .cap { font-size: 13px; color: var(--soft); }
 
+img.ph { object-fit: contain; padding: 0; width: 100%; display: block; }
+.coverimg .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.coverimg .pair .ph { aspect-ratio: 4 / 5; }
+.role { display: inline-block; justify-self: start; background: var(--cobalt); color: var(--on-cobalt); padding: 2px 8px; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+.side .pending { justify-self: start; }
+
 /* Contents */
 .contents { border-top: 1px solid var(--ink); }
 .contents .wrap { display: grid; grid-template-columns: 1fr 2fr; gap: 48px; padding-block: 44px 56px; }
@@ -146,8 +152,8 @@ a:focus-visible, button:focus-visible, .formats:focus-visible { outline: 2px sol
     <div class="roles kicker"><span>Social Media Manager</span><span>Content Editor</span><span>Content Marketing</span></div>
   </div>
   <figure class="coverimg" style="margin:0">
-    <div class="ph">Cover plate · strongest single piece, chosen once screenshots arrive</div>
-    <figcaption class="cap">Cover plate to be chosen from the six brands below.</figcaption>
+    <div class="pair"><img class="ph" src="img/hearty-internal-compass.jpg" alt="The Hearty Company post: How do you reset your internal compass?" loading="lazy"><img class="ph" src="img/hearty-team-problem.jpg" alt="The Hearty Company post: What if your team thinks you are the problem, but they cannot tell you?" loading="lazy"></div>
+    <figcaption class="cap">The Hearty Company, Instagram, 2025. Design, captions and publishing by Fran.</figcaption>
   </figure>
 </div></section>
 
@@ -168,7 +174,7 @@ a:focus-visible, button:focus-visible, .formats:focus-visible { outline: 2px sol
     <p class="dek">Personal brands in wellness and leadership speak in a quieter register: reflective carousels, long captions, questions that ask the reader to stop. These samples show that voice carried across posts, product offers and event promotion.</p>
   </div>
   <div class="brand">
-    <div class="side"><h3>Helen Heart Healer</h3><p>Wellness, growth and change, emotional intelligence, ceremonial cacao.</p><span class="kicker">Instagram · Facebook</span><span class="pending">Role: to confirm</span></div>
+    <div class="side"><h3>Helen Heart Healer</h3><p>Wellness, growth and change, emotional intelligence, ceremonial cacao.</p><span class="kicker">Instagram · Facebook</span><span class="role">Fran: design, captions, publishing</span></div>
     <div class="plates">
       <figure><div class="ph">Reflective carousel on uncertainty and business decisions</div></figure>
       <figure><div class="ph">Cacao offer with promo code</div></figure>
@@ -176,11 +182,11 @@ a:focus-visible, button:focus-visible, .formats:focus-visible { outline: 2px sol
     </div>
   </div>
   <div class="brand">
-    <div class="side"><h3>The Hearty Company</h3><p>Leadership, emotional intelligence, coaching, leadership in the age of AI.</p><span class="kicker">Instagram</span><span class="pending">Role: to confirm</span></div>
+    <div class="side"><h3>The Hearty Company</h3><p>Helen Millar's company brand, alongside her personal brand above. Leadership, emotional intelligence, leadership in the age of AI.</p><span class="kicker">Instagram</span><span class="role">Fran: design, captions, publishing</span></div>
     <div class="plates flip">
-      <figure><div class="ph">"How do you reset your internal compass?"</div></figure>
-      <figure><div class="ph">When the team thinks the leader is the problem</div></figure>
-      <figure><div class="ph">Guest speaker · emotional intelligence module</div></figure>
+      <figure><img class="ph" src="img/hearty-internal-compass.jpg" alt="The Hearty Company post: How do you reset your internal compass?" loading="lazy"></figure>
+      <figure><img class="ph" src="img/hearty-team-problem.jpg" alt="The Hearty Company post: What if your team thinks you are the problem, but they cannot tell you?" loading="lazy"></figure>
+      <figure><img class="ph" src="img/hearty-g17-guest-speaker.jpg" alt="Guest speaker graphic for an emotional intelligence and self-leadership module" loading="lazy"></figure>
     </div>
   </div>
 </div></article>
@@ -193,27 +199,27 @@ a:focus-visible, button:focus-visible, .formats:focus-visible { outline: 2px sol
     <p class="dek">Sourcing costs, nutrition and expert opinion are dense subjects. These samples break them into posts a reader can follow on a phone, from explainer graphics to a subtitled video and quote cards.</p>
   </div>
   <div class="brand">
-    <div class="side"><h3>SourcingXpro</h3><p>B2B sourcing education, biotech merchandise, sourcing-risk video.</p><span class="kicker">Facebook · Video</span><span class="pending">Role: to confirm</span></div>
+    <div class="side"><h3>SourcingXpro</h3><p>B2B sourcing education, biotech merchandise, sourcing-risk video.</p><span class="kicker">Facebook · Video</span><span class="role">Fran: captions, video</span></div>
     <div class="plates">
       <figure><div class="ph">Video still · sourcing-risk framework, presenter with subtitles</div></figure>
-      <figure><div class="ph">Unit price vs. landed cost</div></figure>
+      <figure><img class="ph" src="img/sourcingxpro-landed-cost.jpg" alt="SourcingXpro Facebook post on unit price versus landed cost" loading="lazy"></figure>
       <figure><div class="ph">Biotech &amp; life sciences merch</div></figure>
     </div>
   </div>
   <div class="brand">
     <div class="side"><h3>Dr Sam White</h3><p>Health education graphics and testimonial content.</p><span class="kicker">Instagram</span><span class="pending">Role: to confirm</span></div>
     <div class="plates flip">
-      <figure><div class="ph">Essential fatty acids</div></figure>
-      <figure><div class="ph">Digestive health</div></figure>
-      <figure><div class="ph">Client testimonial graphic</div></figure>
+      <figure><img class="ph" src="img/drsamwhite-essential-fatty-acids.jpg" alt="Dr Sam White graphic on essential fatty acids" loading="lazy"></figure>
+      <figure><img class="ph" src="img/drsamwhite-leaky-gut.jpg" alt="Dr Sam White graphic on digestive health symptoms" loading="lazy"></figure>
+      <figure><img class="ph" src="img/drsamwhite-testimonial.jpg" alt="Dr Sam White client testimonial graphic" loading="lazy"></figure>
     </div>
   </div>
   <div class="brand">
     <div class="side"><h3>Lighthouse Declaration</h3><p>Expert profiles and quote cards with portrait cut-outs and a brand footer.</p><span class="kicker">Instagram</span><span class="pending">Role: to confirm</span></div>
     <div class="plates">
-      <figure><div class="ph">Expert quote on scenic background</div></figure>
-      <figure><div class="ph">Science educator quote</div></figure>
-      <figure><div class="ph">Medical professional profile</div></figure>
+      <figure><img class="ph" src="img/lighthouse-quote-doctor.jpg" alt="Lighthouse Declaration quote card, medical doctor, scenic background" loading="lazy"></figure>
+      <figure><img class="ph" src="img/lighthouse-quote-educator.jpg" alt="Lighthouse Declaration quote card, science educator" loading="lazy"></figure>
+      <figure><img class="ph" src="img/lighthouse-quote-doctor-uk.jpg" alt="Lighthouse Declaration quote card, medical doctor, lighthouse background" loading="lazy"></figure>
     </div>
   </div>
 </div></article>
@@ -224,7 +230,7 @@ a:focus-visible, button:focus-visible, .formats:focus-visible { outline: 2px sol
     <p class="dek">Promotion with a date attached: a masterclass, a wellness expo, a podcast episode. Each post has to carry the details, position the speaker and give a clear next step.</p>
   </div>
   <div class="brand">
-    <div class="side"><h3>Starrz PR</h3><p>Event promotion, speaker positioning, promotional copy and hashtags.</p><span class="kicker">Facebook</span><span class="pending">Role: to confirm</span></div>
+    <div class="side"><h3>Starrz PR</h3><p>Event promotion, speaker positioning, promotional copy and hashtags.</p><span class="kicker">Facebook</span><span class="role">Fran: graphics (headshots supplied)</span></div>
     <div class="plates flip">
       <figure><div class="ph">Wellness expo</div></figure>
       <figure><div class="ph">Not Over Just Different · podcast</div></figure>
@@ -238,12 +244,12 @@ a:focus-visible, button:focus-visible, .formats:focus-visible { outline: 2px sol
   <h2>Every format, one example each</h2>
   <div class="formats" tabindex="0" aria-label="Formats, scroll sideways">
     <figure><div class="ph">Plate pending</div><b>Carousel</b><span>Reflective, multi-slide</span></figure>
-    <figure><div class="ph">Plate pending</div><b>Static graphic</b><span>Educational explainer</span></figure>
+    <figure><img class="ph" src="img/drsamwhite-essential-fatty-acids.jpg" alt="Dr Sam White graphic on essential fatty acids" loading="lazy"><b>Static graphic</b><span>Educational explainer</span></figure>
     <figure><div class="ph">Plate pending</div><b>Short-form video</b><span>Presenter with subtitles</span></figure>
     <figure><div class="ph">Plate pending</div><b>Promotion</b><span>Offer with promo code</span></figure>
     <figure><div class="ph">Plate pending</div><b>Event</b><span>Masterclass, expo, podcast</span></figure>
-    <figure><div class="ph">Plate pending</div><b>Quote card</b><span>Expert profile</span></figure>
-    <figure><div class="ph">Plate pending</div><b>Testimonial</b><span>Client voice</span></figure>
+    <figure><img class="ph" src="img/lighthouse-quote-educator.jpg" alt="Lighthouse Declaration quote card, science educator" loading="lazy"><b>Quote card</b><span>Expert profile</span></figure>
+    <figure><img class="ph" src="img/drsamwhite-testimonial.jpg" alt="Dr Sam White client testimonial graphic" loading="lazy"><b>Testimonial</b><span>Client voice</span></figure>
   </div>
 </div></section>
 

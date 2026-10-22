@@ -51,6 +51,10 @@ nav a:hover { color: var(--marigold); }
 .card:nth-child(3) { right: 0; top: 70px; transform: rotate(8deg); }
 .ph { background: repeating-linear-gradient(135deg, transparent 0 10px, #ffffff0d 10px 11px), var(--plum-2); color: var(--blush-dim); display: flex; align-items: flex-end; padding: 14px; font-family: var(--mono); font-size: 11px; line-height: 1.4; border: 1px solid #ffffff14; }
 
+img.ph { width: 100%; height: auto; object-fit: contain; padding: 0; display: block; }
+.stage img.card { width: 58%; background: var(--plum-2); }
+.role { display: inline-block; background: var(--marigold); color: var(--plum); padding: 2px 8px; font-family: var(--mono); font-size: 11px; letter-spacing: .05em; text-transform: uppercase; }
+
 /* Work */
 .room-label { display: flex; align-items: center; gap: 14px; padding-block: 0 26px; color: var(--marigold); }
 .room-label::after { content: ""; flex: 1; height: 1px; background: currentColor; opacity: .4; }
@@ -138,9 +142,9 @@ footer .wrap { padding-block: 20px; border-top: 1px solid #ffffff1c; color: var(
     <div class="roles mono"><span>Social Media Manager</span><span>Content Editor</span><span>Content Marketing</span></div>
   </div>
   <div class="stage" aria-label="Three selected posts">
-    <div class="card ph">Heart Healer · cacao offer</div>
-    <div class="card ph">The Hearty Company · internal compass</div>
-    <div class="card ph">Starrz PR · podcast episode</div>
+    <img class="card ph" src="img/hearty-internal-compass.jpg" alt="The Hearty Company post: How do you reset your internal compass?">
+    <img class="card ph" src="img/hearty-team-problem.jpg" alt="The Hearty Company post: What if your team thinks you are the problem, but they cannot tell you?">
+    <img class="card ph" src="img/drsamwhite-testimonial.jpg" alt="Dr Sam White client testimonial graphic">
   </div>
 </div></div>
 
@@ -152,19 +156,19 @@ footer .wrap { padding-block: 20px; border-top: 1px solid #ffffff1c; color: var(
   </div>
 
   <div class="group">
-    <div class="group-head"><h3>Voice &amp; Reflection</h3><p>Personal-brand storytelling and thought leadership in a calm, reflective register.</p></div>
+    <div class="group-head"><h3>Voice &amp; Reflection</h3><p>Personal-brand storytelling and thought leadership in a calm, reflective register. Both brands belong to one founder, Helen Millar.</p></div>
     <div class="g1">
       <div class="tile">
         <div class="pair"><div class="ph">Reflective carousel · uncertainty &amp; decisions</div><div class="ph">Long-form reflective caption</div></div>
         <h4>Helen Heart Healer</h4>
         <p>Wellness, growth and change, emotional intelligence, and a limited-time ceremonial cacao offer.</p>
-        <div class="row mono"><span>Instagram · Facebook</span><span class="pending">Role: to confirm</span></div>
+        <div class="row mono"><span>Instagram · Facebook</span><span class="role">Fran: design, captions, publishing</span></div>
       </div>
       <div class="tile">
-        <div class="ph">Guest speaker · emotional intelligence &amp; self-leadership module</div>
+        <img class="ph" src="img/hearty-g17-guest-speaker.jpg" alt="Guest speaker graphic for an emotional intelligence and self-leadership module" loading="lazy">
         <h4>The Hearty Company</h4>
         <p>Leadership questions, self-leadership and leadership in the age of AI.</p>
-        <div class="row mono"><span>Instagram</span><span class="pending">Role: to confirm</span></div>
+        <div class="row mono"><span>Instagram</span><span class="role">Fran: design, captions, publishing</span></div>
       </div>
     </div>
   </div>
@@ -173,19 +177,19 @@ footer .wrap { padding-block: 20px; border-top: 1px solid #ffffff1c; color: var(
     <div class="group-head"><h3>Expertise, Made Clear</h3><p>Technical, clinical and expert topics turned into posts a scrolling reader can follow.</p></div>
     <div class="g2">
       <div class="tile">
-        <div class="ph">Landed cost vs. unit price</div>
+        <img class="ph" src="img/sourcingxpro-landed-cost.jpg" alt="SourcingXpro Facebook post on unit price versus landed cost" loading="lazy">
         <h4>SourcingXpro</h4>
         <p>B2B sourcing education, biotech merchandise, and a subtitled sourcing-risk video.</p>
-        <div class="row mono"><span>Facebook · Video</span><span class="pending">Role: to confirm</span></div>
+        <div class="row mono"><span>Facebook · Video</span><span class="role">Fran: captions, video</span></div>
       </div>
       <div class="tile">
-        <div class="ph">Essential fatty acids graphic</div>
+        <img class="ph" src="img/drsamwhite-essential-fatty-acids.jpg" alt="Dr Sam White graphic on essential fatty acids" loading="lazy">
         <h4>Dr Sam White</h4>
         <p>Health education graphics and a client testimonial.</p>
         <div class="row mono"><span>Instagram</span><span class="pending">Role: to confirm</span></div>
       </div>
       <div class="tile">
-        <div class="ph">Expert quote · portrait cut-out on scenic background</div>
+        <img class="ph" src="img/lighthouse-quote-doctor.jpg" alt="Lighthouse Declaration quote card, medical doctor, scenic background" loading="lazy">
         <h4>Lighthouse Declaration</h4>
         <p>Expert profiles and quote graphics with a consistent brand footer.</p>
         <div class="row mono"><span>Instagram</span><span class="pending">Role: to confirm</span></div>
@@ -199,7 +203,7 @@ footer .wrap { padding-block: 20px; border-top: 1px solid #ffffff1c; color: var(
       <div class="tile">
         <h4>Starrz PR</h4>
         <p>Event details, speaker positioning, promotional copy and hashtags.</p>
-        <div class="row mono"><span>Facebook</span><span class="pending">Role: to confirm</span></div>
+        <div class="row mono"><span>Facebook</span><span class="role">Fran: graphics (headshots supplied)</span></div>
       </div>
       <div class="strip">
         <div class="tile"><div class="ph">The AWAKE Method masterclass</div></div>

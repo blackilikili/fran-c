@@ -64,6 +64,10 @@ nav a:hover { color: var(--grease); }
   repeating-linear-gradient(135deg, transparent 0 9px, color-mix(in srgb, var(--muted) 18%, transparent) 9px 10px),
   var(--sheet);
   display: flex; align-items: flex-end; padding: 10px; color: var(--muted); font-family: var(--mono); font-size: 10.5px; line-height: 1.35; letter-spacing: .03em; }
+img.ph { width: 100%; height: 100%; object-fit: contain; padding: 0; display: block; }
+.sheet img.ph { background: #2B2B28; }
+.role { display: inline-block; justify-self: start; background: var(--grease); color: #fff; padding: 3px 7px; font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; }
+.info .pending { justify-self: start; }
 .sheet .ph { background: repeating-linear-gradient(135deg, transparent 0 9px, #ffffff10 9px 10px), #2B2B28; color: #9C9C92; padding-bottom: 22px; }
 
 /* Rolls */
@@ -143,12 +147,12 @@ footer .wrap { padding-block: 20px; border-top: 1px solid var(--rule); color: va
     <div class="edge mono"><span>Selected samples</span><span>Sheet 01</span></div>
     <div class="sheet-grid">
       <div class="fr"><div class="ph">Heart Healer · reflective carousel</div><span class="no">01</span></div>
-      <div class="fr"><div class="ph">Hearty Co. · internal compass</div><span class="no">02</span></div>
-      <div class="fr"><div class="ph">SourcingXpro · landed cost</div><span class="no">03</span>
+      <div class="fr"><img class="ph" src="img/hearty-internal-compass.jpg" alt="The Hearty Company post: How do you reset your internal compass?" loading="lazy"><span class="no">02</span>
         <svg class="mark" viewBox="0 0 100 125" preserveAspectRatio="none" aria-hidden="true"><path d="M50 4 C82 2 98 30 96 64 C94 100 74 122 46 121 C16 120 3 92 4 60 C5 28 24 6 56 7"/></svg></div>
+      <div class="fr"><img class="ph" src="img/sourcingxpro-landed-cost.jpg" alt="SourcingXpro Facebook post on unit price versus landed cost" loading="lazy"><span class="no">03</span></div>
       <div class="fr"><div class="ph">Starrz PR · masterclass</div><span class="no">04</span></div>
-      <div class="fr"><div class="ph">Dr Sam White · testimonial</div><span class="no">05</span></div>
-      <div class="fr"><div class="ph">Lighthouse Dec. · expert quote</div><span class="no">06</span></div>
+      <div class="fr"><img class="ph" src="img/drsamwhite-testimonial.jpg" alt="Dr Sam White client testimonial graphic" loading="lazy"><span class="no">05</span></div>
+      <div class="fr"><img class="ph" src="img/lighthouse-quote-educator.jpg" alt="Lighthouse Declaration quote card, science educator" loading="lazy"><span class="no">06</span></div>
     </div>
     <div class="edge bottom mono"><span>→ 6 brands</span><span>3 kinds of content</span></div>
     <span class="sheet-note">pick of the sheet</span>
@@ -167,7 +171,7 @@ footer .wrap { padding-block: 20px; border-top: 1px solid var(--rule); color: va
       <h3>Helen Heart Healer</h3>
       <p>Wellness, personal-brand storytelling, thought leadership and product promotion.</p>
       <span class="mono">Instagram · Facebook</span>
-      <span class="pending">Role: to confirm</span>
+      <span class="role">Fran: design, captions, publishing</span>
     </div>
     <div class="strip">
       <figure><div class="fr"><div class="ph">Screenshot pending</div><span class="no">01A</span></div><figcaption>Reflective carousel on uncertainty and business decisions</figcaption></figure>
@@ -180,14 +184,14 @@ footer .wrap { padding-block: 20px; border-top: 1px solid var(--rule); color: va
     <div class="info">
       <span class="mono group">Roll 02 · Voice &amp; Reflection</span>
       <h3>The Hearty Company</h3>
-      <p>Leadership, emotional intelligence, coaching and thought leadership.</p>
+      <p>Leadership, emotional intelligence, coaching and thought leadership. Helen Millar's company brand; Roll 01 is her personal brand.</p>
       <span class="mono">Instagram</span>
-      <span class="pending">Role: to confirm</span>
+      <span class="role">Fran: design, captions, publishing</span>
     </div>
     <div class="strip">
-      <figure><div class="fr"><div class="ph">Screenshot pending</div><span class="no">02A</span></div><figcaption>"How do you reset your internal compass?"</figcaption></figure>
-      <figure><div class="fr"><div class="ph">Screenshot pending</div><span class="no">02B</span></div><figcaption>When a team thinks the leader is the problem</figcaption></figure>
-      <figure><div class="fr"><div class="ph">Screenshot pending</div><span class="no">02C</span></div><figcaption>Guest speaker for an emotional intelligence module</figcaption></figure>
+      <figure><div class="fr"><img class="ph" src="img/hearty-internal-compass.jpg" alt="The Hearty Company post: How do you reset your internal compass?" loading="lazy"><span class="no">02A</span></div><figcaption>"How do you reset your internal compass?"</figcaption></figure>
+      <figure><div class="fr"><img class="ph" src="img/hearty-team-problem.jpg" alt="The Hearty Company post: What if your team thinks you are the problem, but they cannot tell you?" loading="lazy"><span class="no">02B</span></div><figcaption>When a team thinks the leader is the problem</figcaption></figure>
+      <figure><div class="fr"><img class="ph" src="img/hearty-g17-guest-speaker.jpg" alt="Guest speaker graphic for an emotional intelligence and self-leadership module" loading="lazy"><span class="no">02C</span></div><figcaption>Guest speaker for an emotional intelligence module</figcaption></figure>
     </div>
   </div></div>
 
@@ -197,10 +201,10 @@ footer .wrap { padding-block: 20px; border-top: 1px solid var(--rule); color: va
       <h3>SourcingXpro</h3>
       <p>B2B educational content, sourcing expertise, product storytelling and video.</p>
       <span class="mono">Facebook · Video</span>
-      <span class="pending">Role: to confirm</span>
+      <span class="role">Fran: captions, video</span>
     </div>
     <div class="strip">
-      <figure><div class="fr"><div class="ph">Screenshot pending</div><span class="no">03A</span></div><figcaption>Unit price vs. total landed project cost</figcaption></figure>
+      <figure><div class="fr"><img class="ph" src="img/sourcingxpro-landed-cost.jpg" alt="SourcingXpro Facebook post on unit price versus landed cost" loading="lazy"><span class="no">03A</span></div><figcaption>Unit price vs. total landed project cost</figcaption></figure>
       <figure><div class="fr"><div class="ph">Screenshot pending</div><span class="no">03B</span></div><figcaption>Promotional products for biotech and life sciences</figcaption></figure>
       <figure><div class="fr"><div class="ph">Video still pending</div><span class="no">03C</span></div><figcaption>Sourcing-risk framework video, presenter with subtitles</figcaption></figure>
     </div>
@@ -212,7 +216,7 @@ footer .wrap { padding-block: 20px; border-top: 1px solid var(--rule); color: va
       <h3>Starrz PR</h3>
       <p>PR, event promotion, podcast discovery and personal-brand visibility.</p>
       <span class="mono">Facebook</span>
-      <span class="pending">Role: to confirm</span>
+      <span class="role">Fran: graphics (headshots supplied)</span>
     </div>
     <div class="strip">
       <figure><div class="fr"><div class="ph">Screenshot pending</div><span class="no">04A</span></div><figcaption>Masterclass promotion for The AWAKE Method</figcaption></figure>
@@ -230,9 +234,9 @@ footer .wrap { padding-block: 20px; border-top: 1px solid var(--rule); color: va
       <span class="pending">Role: to confirm</span>
     </div>
     <div class="strip">
-      <figure><div class="fr"><div class="ph">Screenshot pending</div><span class="no">05A</span></div><figcaption>Client testimonial graphic</figcaption></figure>
-      <figure><div class="fr"><div class="ph">Screenshot pending</div><span class="no">05B</span></div><figcaption>Educational graphic on essential fatty acids</figcaption></figure>
-      <figure><div class="fr"><div class="ph">Screenshot pending</div><span class="no">05C</span></div><figcaption>Educational post on digestive health</figcaption></figure>
+      <figure><div class="fr"><img class="ph" src="img/drsamwhite-testimonial.jpg" alt="Dr Sam White client testimonial graphic" loading="lazy"><span class="no">05A</span></div><figcaption>Client testimonial graphic</figcaption></figure>
+      <figure><div class="fr"><img class="ph" src="img/drsamwhite-essential-fatty-acids.jpg" alt="Dr Sam White graphic on essential fatty acids" loading="lazy"><span class="no">05B</span></div><figcaption>Educational graphic on essential fatty acids</figcaption></figure>
+      <figure><div class="fr"><img class="ph" src="img/drsamwhite-leaky-gut.jpg" alt="Dr Sam White graphic on digestive health symptoms" loading="lazy"><span class="no">05C</span></div><figcaption>Educational post on digestive health</figcaption></figure>
     </div>
   </div></div>
 
@@ -245,15 +249,15 @@ footer .wrap { padding-block: 20px; border-top: 1px solid var(--rule); color: va
       <span class="pending">Role: to confirm</span>
     </div>
     <div class="strip">
-      <figure><div class="fr"><div class="ph">Screenshot pending</div><span class="no">06A</span></div><figcaption>Quote graphic, science educator</figcaption></figure>
-      <figure><div class="fr"><div class="ph">Screenshot pending</div><span class="no">06B</span></div><figcaption>Profile and quote, medical professional</figcaption></figure>
-      <figure><div class="fr"><div class="ph">Screenshot pending</div><span class="no">06C</span></div><figcaption>Expert quote with scenic background</figcaption></figure>
+      <figure><div class="fr"><img class="ph" src="img/lighthouse-quote-educator.jpg" alt="Lighthouse Declaration quote card, science educator" loading="lazy"><span class="no">06A</span></div><figcaption>Quote graphic, science educator</figcaption></figure>
+      <figure><div class="fr"><img class="ph" src="img/lighthouse-quote-doctor.jpg" alt="Lighthouse Declaration quote card, medical doctor, scenic background" loading="lazy"><span class="no">06B</span></div><figcaption>Profile and quote, medical professional</figcaption></figure>
+      <figure><div class="fr"><img class="ph" src="img/lighthouse-quote-doctor-uk.jpg" alt="Lighthouse Declaration quote card, medical doctor, lighthouse background" loading="lazy"><span class="no">06C</span></div><figcaption>Expert quote with scenic background</figcaption></figure>
     </div>
   </div></div>
 </section>
 
 <section class="loupe" id="feature"><div class="wrap">
-  <div class="big"><div class="ph">Frame 03A under the loupe · SourcingXpro landed-cost post · screenshot pending</div></div>
+  <div class="big" style="aspect-ratio:1366/1290"><img class="ph" src="img/sourcingxpro-landed-cost.jpg" alt="SourcingXpro Facebook post on unit price versus landed cost" loading="lazy"></div>
   <div>
     <span class="mono" style="color:var(--grease)">Under the loupe · Frame 03A</span>
     <h2>Turning a sourcing question into a scroll-stopper</h2>
@@ -261,7 +265,7 @@ footer .wrap { padding-block: 20px; border-top: 1px solid var(--rule); color: va
       <li><span class="pin">1</span><div><h4>The hook</h4><p>Opens on a gap buyers already feel: the factory quote isn't the real cost.</p></div></li>
       <li><span class="pin">2</span><div><h4>The explanation</h4><p>Explains why the unit price and the total landed project cost differ, in a format a B2B reader can follow on a phone.</p></div></li>
       <li><span class="pin">3</span><div><h4>The wider set</h4><p>Sits alongside a sourcing-risk post and video, so the brand's expertise shows up in more than one format.</p></div></li>
-      <li><span class="pin">✓</span><div><h4>Fran's part</h4><p><span class="pending">Design / copy / scheduling: to confirm</span></p></div></li>
+      <li><span class="pin">✓</span><div><h4>Fran's part</h4><p><span class="role">Wrote the caption</span></p></div></li>
     </ol>
   </div>
 </div></section>
