@@ -27,6 +27,8 @@ Both cards share one template system: quote panel, name/title/country block, fla
 
 Batch 2 adds a third card to this series:
 
+| File | Post | Date shown | What's visible |
+|---|---|---|---|
 | `lighthouse-quote-doctor-uk` | Quote card, medical doctor (UK) | 27 May 2025 | Same template: name/title header, gold-ringed portrait, bracketed quote, location label (Longships Lighthouse), Union flag, navy URL footer. Caption: sign-and-share call with advocacy hashtags. |
 
 ## The Hearty Company (Instagram, @theheartycompany)
