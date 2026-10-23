@@ -2,266 +2,476 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <style>
-/* Layout: two rooms. Navy bands frame the page (hero, contact) and hold the "competent, trustworthy" reading; the work sits on warm ivory so client colours read true; marigold is the single accent for energy and warmth; "Back of house" switches to cool drafting paper for workflow and systems. One fixed look by design, so it does not follow the viewer's theme. */
+/* Layout: theatre logic. "Front of house" is set in a display serif on navy and ivory: the published posts. "Back of house" is set in mono on blueprint paper: specs, workflow, wiring. Posts flip from one to the other. One fixed look by design, so it does not follow the viewer's theme. */
 :root {
   color-scheme: light;
-  --navy: #1B2A4A;      /* trust, competence: frame + text */
+  --navy: #1B2A4A;
   --navy-2: #26375C;
-  --navy-soft: #B9C4DA; /* secondary text on navy */
-  --ivory: #FAF6F0;     /* warm, open ground for the work */
-  --sand: #EFE7DC;      /* image wells and placeholders */
-  --ink-dim: #566176;   /* secondary text on ivory */
+  --navy-soft: #B9C4DA;
+  --ivory: #FAF6F0;
+  --sand: #EFE7DC;
+  --ink-dim: #566176;
   --rule: #E2D9CC;
-  --marigold: #F2B134;  /* energy, optimism: accent only */
-  --amber-ink: #8A5800; /* marigold-family text that passes contrast on ivory */
-  --paper: #EEF2F7;     /* cool drafting paper, systems */
+  --marigold: #F2B134;
+  --amber-ink: #8A5800;
+  --paper: #EEF2F7;
   --paper-line: #D8E0EB;
+  --hh-red: #6E1A24;
   --display: "Gloock", "DM Serif Display", Georgia, serif;
   --body: "Figtree", "Helvetica Neue", Arial, sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
 }
 * { box-sizing: border-box; }
-body { background: var(--ivory); color: var(--navy); font-family: var(--body); font-size: 17px; line-height: 1.6; }
+body { background: var(--ivory); color: var(--navy); font-family: var(--body); font-size: 17px; line-height: 1.6; overflow-x: hidden; }
 .wrap { max-width: 1240px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
 a { color: inherit; }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--marigold); outline-offset: 3px; }
 .mono { font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
+.blueprint { background-color: var(--paper); background-image: linear-gradient(var(--paper-line) 1px, transparent 1px), linear-gradient(90deg, var(--paper-line) 1px, transparent 1px); background-size: 24px 24px; color: var(--navy); }
 .pending { display: inline-block; border: 1px dashed currentColor; opacity: .8; padding: 2px 7px; font-family: var(--mono); font-size: 11px; letter-spacing: .05em; text-transform: uppercase; }
+.role { display: inline-block; background: var(--marigold); color: var(--navy); padding: 3px 8px; font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: .05em; text-transform: uppercase; }
+.ph { background: repeating-linear-gradient(135deg, transparent 0 10px, #1B2A4A12 10px 11px), var(--sand); color: var(--ink-dim); display: flex; align-items: flex-end; padding: 12px; font-family: var(--mono); font-size: 11px; line-height: 1.4; }
+img.ph { width: 100%; height: auto; object-fit: contain; padding: 0; display: block; }
+.eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--amber-ink); }
 
 .draftbar { background: var(--marigold); color: var(--navy); }
 .draftbar .wrap { padding-block: 7px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 
-header, .hero { background: var(--navy); color: var(--ivory); }
-header .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding-block: 22px; }
+/* ---------- Hero ---------- */
+.hero { background: var(--navy); color: var(--ivory); overflow: hidden; }
+.hero header { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding-block: 22px; }
 .logo { font-family: var(--display); font-size: 28px; }
 nav { display: flex; gap: 22px; flex-wrap: wrap; }
 nav a { text-decoration: none; color: var(--navy-soft); }
 nav a:hover { color: var(--marigold); }
+.hero h1 { margin: 40px 0 0; font-weight: 400; }
+.hero h1 .front { display: block; font-family: var(--display); font-size: clamp(54px, 9.6vw, 150px); line-height: .9; letter-spacing: -.02em; }
+.hero h1 .back { display: inline-block; margin-top: 18px; padding: 10px 16px; font-family: var(--mono); font-weight: 600; font-size: clamp(14px, 1.9vw, 24px); letter-spacing: .08em; text-transform: uppercase; transform: rotate(-1.2deg); box-shadow: 6px 6px 0 var(--marigold); }
+.hero-sub { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px 48px; align-items: end; margin-top: 34px; }
+.hero-sub p { margin: 0; max-width: 46ch; font-size: 19px; color: var(--navy-soft); }
+.roles { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+.roles span { border: 1px solid #ffffff33; padding: 6px 12px; border-radius: 999px; }
 
-/* Hero */
-.hero .wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; padding-block: 48px 96px; align-items: center; }
-.hero h1 { font-family: var(--display); font-weight: 400; font-size: clamp(48px, 7.4vw, 108px); line-height: .98; margin: 0; letter-spacing: -.01em; text-wrap: balance; }
-.hero h1 span { display: block; color: var(--marigold); }
-.hero .lede { max-width: 44ch; margin: 30px 0 22px; color: var(--navy-soft); font-size: 19px; }
-.roles { display: flex; gap: 10px; flex-wrap: wrap; }
-.roles span { background: var(--navy-2); padding: 7px 12px; border-radius: 999px; }
-.stage { position: relative; height: 480px; }
-.card { position: absolute; width: 58%; aspect-ratio: 4 / 5; border-radius: 6px; box-shadow: 0 30px 60px -20px #0A1224b3; }
-.card:nth-child(1) { left: 0; top: 40px; transform: rotate(-6deg); }
-.card:nth-child(2) { left: 22%; top: 0; transform: rotate(2deg); z-index: 2; }
-.card:nth-child(3) { right: 0; top: 70px; transform: rotate(8deg); }
-.ph { background: repeating-linear-gradient(135deg, transparent 0 10px, #1B2A4A12 10px 11px), var(--sand); color: var(--ink-dim); display: flex; align-items: flex-end; padding: 14px; font-family: var(--mono); font-size: 11px; line-height: 1.4; }
+.feed-wrap { margin-top: 48px; padding-bottom: 56px; }
+.feed-hint { color: var(--marigold); margin-bottom: 14px; }
+.feed { display: flex; gap: 22px; overflow-x: auto; padding: 8px 4px 18px; scroll-snap-type: x mandatory; scrollbar-color: var(--navy-2) transparent; }
+.flip { flex: 0 0 clamp(220px, 23vw, 290px); aspect-ratio: 4 / 5; perspective: 1400px; border: 0; padding: 0; background: none; cursor: pointer; color: inherit; font: inherit; text-align: left; scroll-snap-align: start; }
+.flip:nth-child(odd) { margin-top: 26px; }
+.flip .in { position: relative; display: block; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform .8s cubic-bezier(.2, .7, .2, 1); }
+.flip[aria-pressed="true"] .in { transform: rotateY(180deg); }
+.face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 6px; overflow: hidden; box-shadow: 0 26px 50px -24px #050b18; }
+.face.front { display: block; background: var(--sand); }
+.face.front img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.face.back { transform: rotateY(180deg); padding: 18px; display: grid; align-content: space-between; }
+.spec { margin: 0; display: grid; gap: 9px; font-family: var(--mono); font-size: 12px; line-height: 1.35; }
+.spec div { display: grid; grid-template-columns: 74px 1fr; gap: 8px; border-bottom: 1px solid var(--paper-line); padding-bottom: 7px; }
+.spec dt { text-transform: uppercase; letter-spacing: .06em; color: var(--ink-dim); font-size: 10.5px; padding-top: 1px; }
+.spec dd { margin: 0; }
+.back-title { display: block; font-family: var(--display); font-size: 19px; line-height: 1.15; margin: 0 0 12px; }
+.turn { font-family: var(--mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--amber-ink); }
 
-img.ph { width: 100%; height: auto; object-fit: contain; padding: 0; display: block; }
-.stage img.card { width: 58%; background: var(--navy-2); }
-.role { display: inline-block; background: var(--marigold); color: var(--navy); padding: 2px 8px; font-family: var(--mono); font-size: 11px; letter-spacing: .05em; text-transform: uppercase; }
+/* ---------- Ticker ---------- */
+.ticker { border-block: 1px solid var(--rule); overflow: hidden; background: var(--ivory); }
+.ticker .label { padding-block: 14px 0; }
+.track { display: flex; width: max-content; animation: tick 80s linear infinite; padding-block: 12px 18px; }
+.ticker:hover .track { animation-play-state: paused; }
+.track span { font-family: var(--display); font-size: clamp(22px, 2.6vw, 34px); white-space: nowrap; padding-right: 30px; }
+.track span::after { content: "●"; color: var(--marigold); font-size: .5em; vertical-align: middle; margin-left: 30px; }
+@keyframes tick { to { transform: translateX(-50%); } }
 
-/* Work */
-main { padding-block: 64px 24px; }
-.room-label { display: flex; align-items: center; gap: 14px; padding-block: 0 26px; color: var(--amber-ink); }
-.room-label::after { content: ""; flex: 1; height: 1px; background: currentColor; opacity: .4; }
-.intro { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding-block: 8px 56px; }
-.intro h2 { font-family: var(--display); font-weight: 400; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.02; margin: 0; }
-.intro p { margin: 0; color: var(--ink-dim); max-width: 52ch; }
+/* ---------- Programme ---------- */
+.programme .wrap { padding-block: 72px 40px; }
+.programme-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; margin-bottom: 18px; }
+.programme h2 { font-family: var(--display); font-weight: 400; font-size: clamp(40px, 5.6vw, 76px); line-height: .95; margin: 0; }
+.programme-head p { margin: 0; max-width: 46ch; color: var(--ink-dim); }
+.prog { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--navy); }
+.prog a { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.2fr) auto 28px; gap: 20px; align-items: center; padding: 18px 0; border-bottom: 1px solid var(--rule); text-decoration: none; transition: padding .3s; }
+.prog a:hover { padding-left: 12px; }
+.prog b { font-family: var(--display); font-weight: 400; font-size: clamp(26px, 3vw, 40px); line-height: 1; }
+.prog .what { color: var(--ink-dim); font-size: 15px; }
+.prog .arrow { font-size: 22px; color: var(--amber-ink); }
 
-.group { padding-block: 40px; border-top: 1px solid var(--rule); }
-.group-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 26px; }
-.group-head h3 { font-family: var(--display); font-weight: 400; font-size: 34px; margin: 0; }
-.group-head p { margin: 0; color: var(--ink-dim); max-width: 50ch; }
-.tile { display: grid; gap: 12px; align-content: start; }
-.tile .ph { aspect-ratio: 4 / 5; border-radius: 4px; }
-.tile.wide .ph { aspect-ratio: 16 / 10; }
-.tile h4 { font-family: var(--display); font-weight: 400; font-size: 24px; margin: 4px 0 0; }
-.tile p { margin: 0; font-size: 15px; color: var(--ink-dim); }
-.tile .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; color: var(--ink-dim); }
-.g1 { display: grid; grid-template-columns: 1.4fr 1fr; gap: 28px; }
-.g1 .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.g2 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
-.g3 { display: grid; grid-template-columns: 1fr 2fr; gap: 28px; align-items: end; }
-.g3 .strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+/* ---------- Cases ---------- */
+.case { padding-block: 80px; border-top: 1px solid var(--rule); }
+.case-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px 56px; align-items: end; margin-bottom: 40px; }
+.case h2 { font-family: var(--display); font-weight: 400; font-size: clamp(42px, 6vw, 88px); line-height: .92; margin: 10px 0 0; letter-spacing: -.01em; }
+.case-head p { margin: 0; color: var(--ink-dim); max-width: 52ch; }
+.case-head .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
 
-/* Back of house */
+/* Two voices */
+.voices { display: grid; grid-template-columns: 1fr 1fr; border-radius: 8px; overflow: hidden; }
+.voice { padding: 28px; display: grid; gap: 22px; align-content: start; color: var(--ivory); }
+.voice.hh { background: var(--hh-red); }
+.voice.hy { background: var(--navy); }
+.voice h3 { font-family: var(--display); font-weight: 400; font-size: clamp(28px, 3vw, 40px); margin: 0; line-height: 1; }
+.voice .meta { color: #ffffffb3; margin-top: 6px; }
+.voice .gal { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.voice .gal .ph { aspect-ratio: 4 / 5; background: repeating-linear-gradient(135deg, transparent 0 10px, #ffffff14 10px 11px), #ffffff12; color: #ffffffb3; border-radius: 3px; }
+.voice .gal img.ph { background: #00000026; }
+.voice .spec { color: var(--ivory); }
+.voice .spec div { border-color: #ffffff26; grid-template-columns: 96px 1fr; }
+.voice .spec dt { color: #ffffff99; }
+.split-label { text-align: center; margin-top: 14px; color: var(--ink-dim); }
+
+/* Copy first */
+.hook { position: relative; margin: 0 0 40px; padding-left: clamp(0px, 8vw, 110px); }
+.hook q { display: block; font-family: var(--display); font-size: clamp(34px, 5.4vw, 80px); line-height: 1.02; letter-spacing: -.01em; quotes: "\201C" "\201D"; text-wrap: balance; }
+.hook .note { position: absolute; left: 0; top: .6em; color: var(--amber-ink); writing-mode: vertical-rl; transform: rotate(180deg); }
+.copy-row { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 18px; align-items: start; }
+.copy-row figure { margin: 0; display: grid; gap: 10px; }
+.copy-row figcaption { font-size: 15px; color: var(--ink-dim); }
+.copy-row .ph { aspect-ratio: 4 / 5; }
+.copy-row img.ph { aspect-ratio: auto; border: 1px solid var(--rule); }
+.anatomy { list-style: none; margin: 34px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 2px solid var(--navy); }
+.anatomy li { padding: 16px 18px 0 0; display: grid; gap: 6px; }
+.anatomy b { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+.anatomy span { color: var(--ink-dim); font-size: 15.5px; }
+
+/* Template anatomy */
+.tmpl { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 48px; align-items: start; }
+.pinned { position: relative; }
+.pinned img { width: 100%; display: block; border-radius: 4px; }
+.pin { position: absolute; width: 30px; height: 30px; margin: -15px 0 0 -15px; border-radius: 50%; background: var(--marigold); color: var(--navy); display: grid; place-items: center; font-family: var(--mono); font-size: 12px; font-weight: 600; box-shadow: 0 0 0 4px #1B2A4A55; }
+.legend { list-style: none; margin: 0 0 28px; padding: 0; display: grid; gap: 12px; counter-reset: k; }
+.legend li { display: grid; grid-template-columns: 30px 1fr; gap: 12px; align-items: baseline; counter-increment: k; }
+.legend li::before { content: counter(k); width: 26px; height: 26px; border-radius: 50%; background: var(--marigold); display: grid; place-items: center; font-family: var(--mono); font-size: 11px; font-weight: 600; }
+.legend b { font-weight: 600; }
+.legend span span { color: var(--ink-dim); }
+.siblings { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.siblings figure { margin: 0; display: grid; gap: 6px; }
+.siblings figcaption { font-size: 13px; color: var(--ink-dim); }
+.caution { margin-top: 22px; font-size: 14px; color: var(--ink-dim); border-left: 3px solid var(--marigold); padding-left: 12px; }
+
+/* Also showing */
+.also { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.also h3 { font-family: var(--display); font-weight: 400; font-size: 34px; margin: 6px 0 6px; }
+.also p { margin: 0 0 14px; color: var(--ink-dim); }
+.also .row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
+.also .row .ph { aspect-ratio: 1; }
+
+/* ---------- Back of house ---------- */
 .curtain { background: var(--marigold); color: var(--navy); }
-.curtain .wrap { padding-block: 26px; display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
-.curtain h2 { font-family: var(--display); font-weight: 400; font-size: clamp(34px, 5vw, 64px); margin: 0; line-height: 1; }
-.back { background-color: var(--paper); color: var(--navy);
-  background-image: linear-gradient(var(--paper-line) 1px, transparent 1px), linear-gradient(90deg, var(--paper-line) 1px, transparent 1px);
-  background-size: 28px 28px; }
-.back .wrap { padding-block: 64px 80px; display: grid; gap: 56px; }
-.back h3 { font-family: var(--display); font-weight: 400; font-size: 34px; margin: 0 0 8px; }
-.back .sub { margin: 0; color: var(--ink-dim); max-width: 60ch; }
-.flow { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0; margin-top: 26px; }
-.node { position: relative; padding: 0 10px; display: grid; gap: 8px; justify-items: start; }
-.node .dot { width: 46px; height: 46px; border-radius: 50%; border: 1.5px solid var(--navy); background: var(--paper); display: grid; place-items: center; font-family: var(--mono); font-size: 12px; position: relative; z-index: 1; }
-.node:not(:last-child)::after { content: ""; position: absolute; top: 23px; left: 56px; right: -10px; border-top: 1.5px dashed var(--navy); }
-.node b { font-family: var(--display); font-weight: 400; font-size: 21px; }
-.node span { font-size: 14px; color: var(--ink-dim); line-height: 1.4; }
-.node.loop .dot { background: var(--marigold); border-color: var(--marigold); }
-.schem { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.5px; background: var(--navy); border: 1.5px solid var(--navy); margin-top: 22px; }
-.schem div { background: var(--paper); padding: 18px 16px 22px; display: grid; gap: 6px; align-content: start; }
-.schem h4 { margin: 0; font-family: var(--mono); font-weight: 500; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; }
-.schem p { margin: 0; font-size: 15px; color: var(--ink-dim); }
-.back .pending { color: var(--ink-dim); }
+.curtain .wrap { padding-block: 30px; display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+.curtain h2 { font-family: var(--display); font-weight: 400; font-size: clamp(44px, 7vw, 104px); margin: 0; line-height: .9; }
+.back-sec .wrap { padding-block: 72px 88px; display: grid; gap: 80px; }
+.back-sec h3 { font-family: var(--mono); font-weight: 600; font-size: clamp(18px, 2vw, 24px); letter-spacing: .04em; text-transform: uppercase; margin: 0 0 8px; }
+.back-sec .sub { margin: 0; color: var(--ink-dim); max-width: 62ch; }
+.run { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin-top: 34px; }
+.run::before { content: ""; position: absolute; left: 20px; right: 20px; top: 21px; border-top: 2px dashed var(--navy); }
+.stub { position: relative; background: var(--ivory); border: 1.5px solid var(--navy); border-radius: 6px; padding: 54px 16px 18px; display: grid; gap: 8px; align-content: start; }
+.stub .n { position: absolute; top: 6px; left: 14px; width: 30px; height: 30px; border-radius: 50%; background: var(--navy); color: var(--ivory); display: grid; place-items: center; font-family: var(--mono); font-size: 12px; }
+.stub b { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+.stub p { margin: 0; font-size: 15.5px; }
+.stub code { font-family: var(--mono); background: var(--sand); padding: 1px 5px; font-size: .92em; }
+.stamp { display: inline-block; margin-top: 6px; border: 2px solid var(--navy); color: var(--navy); padding: 6px 10px; font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; transform: rotate(-3deg); background: #FAF6F0cc; justify-self: start; }
+.wire { display: flex; flex-wrap: wrap; margin-top: 34px; }
+.node { flex: 1 1 180px; position: relative; padding: 0 22px 22px 0; display: grid; gap: 10px; align-content: start; }
+.node .port { display: flex; align-items: center; }
+.node .port i { width: 16px; height: 16px; border-radius: 50%; border: 2px solid var(--navy); background: var(--paper); flex: none; }
+.node .port::after { content: ""; flex: 1; border-top: 2px solid var(--navy); }
+.node:last-child .port::after { border-top-style: dashed; opacity: .4; }
+.node b { font-family: var(--mono); font-size: 13px; letter-spacing: .06em; text-transform: uppercase; }
+.node span { font-size: 15px; color: var(--ink-dim); line-height: 1.45; }
+.back-sec .pending { color: var(--ink-dim); margin-top: 18px; }
 
-/* Contact */
-.contact, footer { background: var(--navy); color: var(--ivory); }
-.contact .wrap { padding-block: 80px 96px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: end; }
-.contact h2 { font-family: var(--display); font-weight: 400; font-size: clamp(40px, 6vw, 84px); line-height: 1; margin: 0 0 18px; }
-.contact .email { font-size: clamp(20px, 2.6vw, 30px); user-select: all; overflow-wrap: anywhere; }
-.copy { font: inherit; font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; background: var(--marigold); color: var(--navy); border: 0; padding: 12px 16px; border-radius: 999px; cursor: pointer; }
-footer .wrap { padding-block: 20px; border-top: 1px solid #ffffff22; color: var(--navy-soft); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+/* ---------- Contact ---------- */
+.contact { background: var(--navy); color: var(--ivory); }
+.contact .wrap { padding-block: 88px 56px; }
+.contact .eyebrow { color: var(--marigold); }
+.contact .email { display: block; margin: 14px 0 26px; font-family: var(--display); font-size: clamp(30px, 6.6vw, 96px); line-height: 1; letter-spacing: -.01em; user-select: all; overflow-wrap: anywhere; }
+.contact-row { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+.contact-row p { margin: 0; color: var(--navy-soft); max-width: 52ch; }
+.copy { font: inherit; font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; background: var(--marigold); color: var(--navy); border: 0; padding: 12px 18px; border-radius: 999px; cursor: pointer; }
+footer { background: var(--navy); color: var(--navy-soft); }
+footer .wrap { padding-block: 20px; border-top: 1px solid #ffffff22; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 
+@media (prefers-reduced-motion: reduce) {
+  .flip .in { transition: none; }
+  .track { animation: none; flex-wrap: wrap; width: auto; }
+  .track span[aria-hidden] { display: none; }
+  .prog a { transition: none; }
+}
 @media (max-width: 900px) {
-  .hero .wrap, .intro, .g1, .g3 { grid-template-columns: 1fr; }
-  .stage { height: 380px; max-width: 460px; }
-  .g2 { grid-template-columns: 1fr 1fr; }
-  .flow { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 28px; }
-  .node:nth-child(3)::after { display: none; }
-  .schem { grid-template-columns: 1fr 1fr; }
-  .contact .wrap { grid-template-columns: 1fr; }
+  .hero-sub, .case-head, .tmpl, .also { grid-template-columns: 1fr; }
+  .roles { justify-content: flex-start; }
+  .voices { grid-template-columns: 1fr; }
+  .copy-row { grid-template-columns: 1fr 1fr; }
+  .copy-row figure:first-child { grid-column: 1 / -1; }
+  .run { grid-template-columns: 1fr 1fr; }
+  .run::before { display: none; }
+  .prog a { grid-template-columns: minmax(0, 1fr) 28px; gap: 6px 16px; }
+  .prog .what, .prog .tagcell { grid-column: 1; }
+  .prog .arrow { grid-row: 1; grid-column: 2; }
 }
 @media (max-width: 520px) {
-  .g2 { grid-template-columns: 1fr; }
-  .g3 .strip { grid-template-columns: 1fr 1fr; }
-  .g3 .strip .tile:nth-child(3) { display: none; }
-  .flow { grid-template-columns: 1fr 1fr; }
-  .node::after { display: none; }
-  .schem { grid-template-columns: 1fr; }
-  .stage { height: 300px; }
+  .flip:nth-child(odd) { margin-top: 0; }
+  .anatomy { grid-template-columns: 1fr; }
+  .anatomy li { padding-bottom: 14px; }
+  .run { grid-template-columns: 1fr; }
+  .voice { padding: 20px; }
+  .voice .spec div { grid-template-columns: 78px 1fr; }
+  .hook { padding-left: 0; }
+  .hook .note { position: static; writing-mode: horizontal-tb; transform: none; display: block; margin-bottom: 8px; }
 }
 </style>
 
-<div class="draftbar mono"><div class="wrap"><span>Draft B2 · Front &amp; Back of House · Navy &amp; Marigold</span><span>Hatched frames = screenshots pending · dashed tags = facts to confirm</span></div></div>
+<div class="draftbar mono"><div class="wrap"><span>Draft B3 · Front &amp; Back of House</span><span>Hatched frames = screenshots pending · dashed tags = facts to confirm</span></div></div>
 
-<header><div class="wrap">
-  <div class="logo">Fran C.</div>
-  <nav class="mono"><a href="#front">The work</a><a href="#back">Behind it</a><a href="#contact">Contact</a></nav>
-</div></header>
-
-<div class="hero"><div class="wrap">
-  <div>
-    <h1>The work you see, <span>and the work behind it.</span></h1>
-    <p class="lede">Content and digital marketing: carousels, short-form video and captions, plus the planning, publishing and marketing systems that keep them moving.</p>
+<section class="hero"><div class="wrap">
+  <header>
+    <div class="logo">Fran C.</div>
+    <nav class="mono"><a href="#programme">The work</a><a href="#back">Behind it</a><a href="#contact">Contact</a></nav>
+  </header>
+  <h1><span class="front">The work you see.</span><span class="back blueprint">+ The work behind it</span></h1>
+  <div class="hero-sub">
+    <p>Social-first content, carried all the way to published: carousels, short-form video and captions, plus the planning, publishing and marketing systems that keep them moving.</p>
     <div class="roles mono"><span>Social Media Manager</span><span>Content Editor</span><span>Content Marketing</span></div>
   </div>
-  <div class="stage" aria-label="Three selected posts">
-    <img class="card ph" src="img/hearty-internal-compass.jpg" alt="The Hearty Company post: How do you reset your internal compass?">
-    <img class="card ph" src="img/hearty-team-problem.jpg" alt="The Hearty Company post: What if your team thinks you are the problem, but they cannot tell you?">
-    <img class="card ph" src="img/drsamwhite-testimonial.jpg" alt="Dr Sam White client testimonial graphic">
+  <div class="feed-wrap">
+    <div class="feed-hint mono">Tap a post to see its back of house ↻</div>
+    <div class="feed">
+      <button class="flip" type="button" aria-pressed="false" aria-label="The Hearty Company post. Show details">
+        <span class="in">
+          <span class="face front"><img src="img/hearty-internal-compass.jpg" alt="The Hearty Company post: How do you reset your internal compass?"></span>
+          <span class="face back blueprint"><span><span class="back-title">How do you reset your internal compass?</span>
+            <dl class="spec"><div><dt>Brand</dt><dd>The Hearty Company</dd></div><div><dt>Channel</dt><dd>Instagram, single image 4:5</dd></div><div><dt>Fran</dt><dd>Design, caption, publishing</dd></div><div><dt>CTA</dt><dd>Question to the audience + link</dd></div><div><dt>Posted</dt><dd>1 Aug 2025</dd></div></dl></span>
+            <span class="turn">↻ Front of house</span></span>
+        </span>
+      </button>
+      <button class="flip" type="button" aria-pressed="true" aria-label="The Hearty Company post. Show the post">
+        <span class="in">
+          <span class="face front"><img src="img/hearty-team-problem.jpg" alt="The Hearty Company post: What if your team thinks you are the problem, but they cannot tell you?"></span>
+          <span class="face back blueprint"><span><span class="back-title">What if your team thinks you are the problem?</span>
+            <dl class="spec"><div><dt>Brand</dt><dd>The Hearty Company</dd></div><div><dt>Channel</dt><dd>Instagram, single image 4:5</dd></div><div><dt>Fran</dt><dd>Design, caption, publishing</dd></div><div><dt>CTA</dt><dd>Book a free call</dd></div><div><dt>Posted</dt><dd>6 Aug 2025</dd></div></dl></span>
+            <span class="turn">↻ Front of house</span></span>
+        </span>
+      </button>
+      <button class="flip" type="button" aria-pressed="false" aria-label="SourcingXpro post. Show details">
+        <span class="in">
+          <span class="face front"><img src="img/sourcingxpro-landed-cost.jpg" alt="SourcingXpro Facebook post on unit price versus landed cost"></span>
+          <span class="face back blueprint"><span><span class="back-title">A low factory unit price is not a usable budget.</span>
+            <dl class="spec"><div><dt>Brand</dt><dd>SourcingXpro</dd></div><div><dt>Channel</dt><dd>Facebook, copy-led post</dd></div><div><dt>Fran</dt><dd>Caption</dd></div><div><dt>CTA</dt><dd>Read the guide on sourcingxpro.com</dd></div><div><dt>Posted</dt><dd>8 Oct 2026</dd></div></dl></span>
+            <span class="turn">↻ Front of house</span></span>
+        </span>
+      </button>
+      <button class="flip" type="button" aria-pressed="false" aria-label="The Hearty Company event post. Show details">
+        <span class="in">
+          <span class="face front"><img src="img/hearty-g17-guest-speaker.jpg" alt="Guest speaker graphic for an emotional intelligence and self-leadership module"></span>
+          <span class="face back blueprint"><span><span class="back-title">Guest speaker: emotional intelligence &amp; self-leadership</span>
+            <dl class="spec"><div><dt>Brand</dt><dd>The Hearty Company</dd></div><div><dt>Channel</dt><dd>Instagram, event graphic</dd></div><div><dt>Fran</dt><dd>Design, caption, publishing</dd></div><div><dt>Angle</dt><dd>Post-event reflection, leadership in the age of AI</dd></div><div><dt>Posted</dt><dd>9 Feb 2026</dd></div></dl></span>
+            <span class="turn">↻ Front of house</span></span>
+        </span>
+      </button>
+    </div>
   </div>
-</div></div>
+</div></section>
 
-<main id="front" class="wrap">
-  <div class="room-label mono">Front of house · Selected content samples</div>
-  <div class="intro">
-    <h2>Six brands, three ways of talking to an audience.</h2>
-    <p>These are published posts from brands Fran has contributed to. The accounts belong to the brands. Each piece is described by what's visible in it; Fran's exact role on each brand is added once confirmed.</p>
+<section class="ticker" aria-label="Opening lines from captions Fran wrote">
+  <div class="wrap label eyebrow">Opening lines · from captions Fran wrote</div>
+  <div class="track">
+    <span>Your afternoon ritual, sorted.</span>
+    <span>The older I get, the less I believe every season of uncertainty needs to be fixed.</span>
+    <span>A low factory unit price is not the same as a usable project budget.</span>
+    <span>My 5-minute reset? Movement. Music. Mindset.</span>
+    <span>New York has a way of showing you who you are.</span>
+    <span>A biotech merch program does not need dozens of SKUs.</span>
+    <span>Artificial intelligence is accelerating. But inner intelligence?</span>
+    <span>Successful sourcing isn't about avoiding every problem.</span>
+    <span>We are always giving and receiving.</span>
+    <span aria-hidden="true">Your afternoon ritual, sorted.</span>
+    <span aria-hidden="true">The older I get, the less I believe every season of uncertainty needs to be fixed.</span>
+    <span aria-hidden="true">A low factory unit price is not the same as a usable project budget.</span>
+    <span aria-hidden="true">My 5-minute reset? Movement. Music. Mindset.</span>
+    <span aria-hidden="true">New York has a way of showing you who you are.</span>
+    <span aria-hidden="true">A biotech merch program does not need dozens of SKUs.</span>
+    <span aria-hidden="true">Artificial intelligence is accelerating. But inner intelligence?</span>
+    <span aria-hidden="true">Successful sourcing isn't about avoiding every problem.</span>
+    <span aria-hidden="true">We are always giving and receiving.</span>
   </div>
+</section>
 
-  <div class="group">
-    <div class="group-head"><h3>Voice &amp; Reflection</h3><p>Personal-brand storytelling and thought leadership in a calm, reflective register. Both brands belong to one founder, Helen Millar.</p></div>
-    <div class="g1">
-      <div class="tile">
-        <div class="pair"><div class="ph">Reflective carousel · uncertainty &amp; decisions</div><div class="ph">Long-form reflective caption</div></div>
-        <h4>Helen Heart Healer</h4>
-        <p>Wellness, growth and change, emotional intelligence, and a limited-time ceremonial cacao offer.</p>
-        <div class="row mono"><span>Instagram · Facebook</span><span class="role">Fran: design, captions, publishing</span></div>
+<section class="programme" id="programme"><div class="wrap">
+  <div class="programme-head">
+    <h2>Programme</h2>
+    <p>Selected content samples from brands Fran works or has worked with. The accounts belong to the brands.</p>
+  </div>
+  <ol class="prog">
+    <li><a href="#helen"><b>Helen Millar</b><span class="what">Heart Healer &amp; The Hearty Company · wellness, leadership, personal brand</span><span class="tagcell"><span class="role">Design · captions · publishing</span></span><span class="arrow">→</span></a></li>
+    <li><a href="#sourcing"><b>SourcingXpro</b><span class="what">B2B sourcing education · Facebook, video</span><span class="tagcell"><span class="role">Captions · video</span></span><span class="arrow">→</span></a></li>
+    <li><a href="#lighthouse"><b>Lighthouse Declaration</b><span class="what">Expert quote series · Instagram</span><span class="tagcell"><span class="pending">Role: to confirm</span></span><span class="arrow">→</span></a></li>
+    <li><a href="#also"><b>Dr Sam White</b><span class="what">Health education, testimonials · Instagram</span><span class="tagcell"><span class="pending">Role: to confirm</span></span><span class="arrow">→</span></a></li>
+    <li><a href="#also"><b>Starrz PR</b><span class="what">Events, masterclasses, podcasts · Facebook</span><span class="tagcell"><span class="role">Graphics</span></span><span class="arrow">→</span></a></li>
+  </ol>
+</div></section>
+
+<section class="case" id="helen"><div class="wrap">
+  <div class="case-head">
+    <div><span class="eyebrow">Lead project · wellness &amp; leadership</span><h2>One founder, two voices.</h2></div>
+    <div>
+      <p>Helen Millar runs a personal brand, Heart Healer, and a leadership company, The Hearty Company. Fran designs the posts, writes the captions and publishes for both, keeping each brand's voice distinct.</p>
+      <div class="tags"><span class="role">Design · captions · publishing</span><span class="mono" style="color:var(--ink-dim)">Instagram · Facebook</span></div>
+    </div>
+  </div>
+  <div class="voices">
+    <div class="voice hh">
+      <div><h3>Heart Healer</h3><div class="meta mono">Personal brand · @helenhearthealer</div></div>
+      <div class="gal"><div class="ph">Reel cover · "What I do when I have no idea what the next move in my business is…"</div><div class="ph">Carousel · "Here's what I know now"</div></div>
+      <dl class="spec">
+        <div><dt>Voice</dt><dd>First person, reflective, intimate</dd></div>
+        <div><dt>Type</dt><dd>Classic serif on deep red textured panels</dd></div>
+        <div><dt>Signature</dt><dd>Arrow pill and @handle on every frame</dd></div>
+        <div><dt>CTAs</dt><dd>Comment a keyword, discount codes, programme launches</dd></div>
+      </dl>
+    </div>
+    <div class="voice hy">
+      <div><h3>The Hearty Company</h3><div class="meta mono">Leadership company · @theheartycompany</div></div>
+      <div class="gal"><img class="ph" src="img/hearty-internal-compass.jpg" alt="The Hearty Company post: How do you reset your internal compass?"><img class="ph" src="img/hearty-team-problem.jpg" alt="The Hearty Company post: What if your team thinks you are the problem?"></div>
+      <dl class="spec">
+        <div><dt>Voice</dt><dd>Direct questions to leaders, client stories</dd></div>
+        <div><dt>Type</dt><dd>Condensed serif or heavy rounded sans over tinted photo and texture</dd></div>
+        <div><dt>Signature</dt><dd>Spaced HEARTY.COMPANY wordmark</dd></div>
+        <div><dt>CTAs</dt><dd>Book a free call, visit hearty.company</dd></div>
+      </dl>
+    </div>
+  </div>
+  <div class="split-label mono">Same founder · two registers · one person behind both feeds</div>
+</div></section>
+
+<section class="case" id="sourcing"><div class="wrap">
+  <div class="case-head">
+    <div><span class="eyebrow">B2B content marketing</span><h2>Copy first.</h2></div>
+    <div>
+      <p>SourcingXpro helps buyers source products from China. The posts open on a buyer's problem, explain it in plain terms, then send readers to a full guide or video.</p>
+      <div class="tags"><span class="role">Captions · video</span><span class="mono" style="color:var(--ink-dim)">Facebook · video</span></div>
+    </div>
+  </div>
+  <blockquote class="hook"><span class="note mono">The hook</span><q>A low factory unit price is not the same as a usable project budget.</q></blockquote>
+  <div class="copy-row">
+    <figure><img class="ph" src="img/sourcingxpro-landed-cost.jpg" alt="SourcingXpro Facebook post on unit price versus landed cost"><figcaption>Landed cost explained, linking to a new guide. 8 Oct 2026.</figcaption></figure>
+    <figure><div class="ph">Screenshot pending · biotech merch programme</div><figcaption>A four-item merch system for biotech brands, linking to a guide. 7 Oct 2026.</figcaption></figure>
+    <figure><div class="ph">Video still pending · sourcing-risk framework, 4:03</div><figcaption>Presenter-led video with burned-in subtitles. 12 Jul 2026.</figcaption></figure>
+  </div>
+  <ol class="anatomy">
+    <li><b>Hook</b><span>One plain sentence that names the buyer's mistake.</span></li>
+    <li><b>Explain</b><span>What's actually inside the number, in a few short lines.</span></li>
+    <li><b>Send</b><span>A link to the full guide on the website, or a follow for daily tips.</span></li>
+  </ol>
+</div></section>
+
+<section class="case" id="lighthouse"><div class="wrap">
+  <div class="case-head">
+    <div><span class="eyebrow">Template series</span><h2>One layout, many experts.</h2></div>
+    <div>
+      <p>A quote-card series built from one consistent layout, so every expert's card is recognisable in the feed at a glance.</p>
+      <div class="tags"><span class="pending">Role: to confirm</span><span class="mono" style="color:var(--ink-dim)">Instagram · 2025</span></div>
+    </div>
+  </div>
+  <div class="tmpl">
+    <div class="pinned">
+      <img src="img/lighthouse-quote-doctor-uk.jpg" alt="Lighthouse Declaration quote card with a lighthouse background">
+      <span class="pin" style="left:5%;top:6%">1</span>
+      <span class="pin" style="left:74%;top:24%">2</span>
+      <span class="pin" style="left:60%;top:58%">3</span>
+      <span class="pin" style="left:91%;top:6%">4</span>
+      <span class="pin" style="left:5%;top:62%">5</span>
+      <span class="pin" style="left:50%;top:95%">6</span>
+    </div>
+    <div>
+      <ol class="legend">
+        <li><span><b>Name and title</b> <span>set large on a solid band, so the expert reads first.</span></span></li>
+        <li><span><b>Portrait</b> <span>in a gold ring that overlaps the quote panel.</span></span></li>
+        <li><span><b>Quote panel</b> <span>translucent, bracketed, with oversized quote marks.</span></span></li>
+        <li><span><b>Country flag</b> <span>in the same corner on every card.</span></span></li>
+        <li><span><b>Location label</b> <span>names the landmark in the background photo.</span></span></li>
+        <li><span><b>Footer band</b> <span>carries the campaign URL in the brand colours.</span></span></li>
+      </ol>
+      <div class="siblings">
+        <figure><img class="ph" src="img/lighthouse-quote-doctor.jpg" alt="Lighthouse Declaration quote card, medical doctor, scenic background"><figcaption>Same layout, Ireland</figcaption></figure>
+        <figure><img class="ph" src="img/lighthouse-quote-educator.jpg" alt="Lighthouse Declaration quote card, science educator"><figcaption>Variant without portrait, Netherlands</figcaption></figure>
       </div>
-      <div class="tile">
-        <img class="ph" src="img/hearty-g17-guest-speaker.jpg" alt="Guest speaker graphic for an emotional intelligence and self-leadership module" loading="lazy">
-        <h4>The Hearty Company</h4>
-        <p>Leadership questions, self-leadership and leadership in the age of AI.</p>
-        <div class="row mono"><span>Instagram</span><span class="role">Fran: design, captions, publishing</span></div>
+      <p class="caution">Shown as design work. The views in the quotes belong to the people quoted.</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="case" id="also"><div class="wrap">
+  <div class="also">
+    <div>
+      <span class="eyebrow">Health education</span>
+      <h3>Dr Sam White</h3>
+      <p>Testimonial and educational graphics for a functional medicine practice.</p>
+      <span class="pending">Role: to confirm</span>
+      <div class="row">
+        <img class="ph" src="img/drsamwhite-testimonial.jpg" alt="Dr Sam White client testimonial graphic">
+        <img class="ph" src="img/drsamwhite-essential-fatty-acids.jpg" alt="Dr Sam White graphic on essential fatty acids">
+        <img class="ph" src="img/drsamwhite-leaky-gut.jpg" alt="Dr Sam White graphic on digestive health symptoms">
+      </div>
+    </div>
+    <div>
+      <span class="eyebrow">Events &amp; podcasts</span>
+      <h3>Starrz PR</h3>
+      <p>Graphics for a masterclass, a wellness expo and a podcast episode. Headshots supplied by the client.</p>
+      <span class="role">Graphics</span>
+      <div class="row">
+        <div class="ph">The AWAKE Method</div>
+        <div class="ph">Wellness expo</div>
+        <div class="ph">Podcast ep. 181</div>
       </div>
     </div>
   </div>
-
-  <div class="group">
-    <div class="group-head"><h3>Expertise, Made Clear</h3><p>Technical, clinical and expert topics turned into posts a scrolling reader can follow.</p></div>
-    <div class="g2">
-      <div class="tile">
-        <img class="ph" src="img/sourcingxpro-landed-cost.jpg" alt="SourcingXpro Facebook post on unit price versus landed cost" loading="lazy">
-        <h4>SourcingXpro</h4>
-        <p>B2B sourcing education, biotech merchandise, and a subtitled sourcing-risk video.</p>
-        <div class="row mono"><span>Facebook · Video</span><span class="role">Fran: captions, video</span></div>
-      </div>
-      <div class="tile">
-        <img class="ph" src="img/drsamwhite-essential-fatty-acids.jpg" alt="Dr Sam White graphic on essential fatty acids" loading="lazy">
-        <h4>Dr Sam White</h4>
-        <p>Health education graphics and a client testimonial.</p>
-        <div class="row mono"><span>Instagram</span><span class="pending">Role: to confirm</span></div>
-      </div>
-      <div class="tile">
-        <img class="ph" src="img/lighthouse-quote-doctor.jpg" alt="Lighthouse Declaration quote card, medical doctor, scenic background" loading="lazy">
-        <h4>Lighthouse Declaration</h4>
-        <p>Expert profiles and quote graphics with a consistent brand footer.</p>
-        <div class="row mono"><span>Instagram</span><span class="pending">Role: to confirm</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="group">
-    <div class="group-head"><h3>Visibility &amp; Events</h3><p>Promotion with a date on it: masterclasses, expos and podcast launches.</p></div>
-    <div class="g3">
-      <div class="tile">
-        <h4>Starrz PR</h4>
-        <p>Event details, speaker positioning, promotional copy and hashtags.</p>
-        <div class="row mono"><span>Facebook</span><span class="role">Fran: graphics (headshots supplied)</span></div>
-      </div>
-      <div class="strip">
-        <div class="tile"><div class="ph">The AWAKE Method masterclass</div></div>
-        <div class="tile"><div class="ph">Wellness expo</div></div>
-        <div class="tile"><div class="ph">Not Over Just Different · podcast</div></div>
-      </div>
-    </div>
-  </div>
-</main>
+</div></section>
 
 <div class="curtain" id="back"><div class="wrap">
   <h2>Back of house</h2>
-  <span class="mono">How the work gets made and shipped</span>
+  <span class="mono">How the work gets made, shipped and connected</span>
 </div></div>
 
-<section class="back"><div class="wrap">
+<section class="back-sec blueprint"><div class="wrap">
   <div>
-    <h3>From brief to feed</h3>
-    <p class="sub">The route a post takes, with repurposing feeding the next round.</p>
-    <div class="flow">
-      <div class="node"><span class="dot">A</span><b>Brief</b><span>Topic, offer or event</span></div>
-      <div class="node"><span class="dot">B</span><b>Draft</b><span>Graphics, captions, video</span></div>
-      <div class="node"><span class="dot">C</span><b>Review</b><span>Client or team sign-off</span></div>
-      <div class="node"><span class="dot">D</span><b>Schedule</b><span>Queued per platform</span></div>
-      <div class="node loop"><span class="dot">↻</span><b>Repurpose</b><span>One idea, more formats</span></div>
-      <div class="node"><span class="dot">E</span><b>Report</b><span>What went out, what's next</span></div>
+    <h3>One offer, start to finish</h3>
+    <p class="sub">A four-day cacao promotion for Heart Healer, from offer to published post. Fran handled every step.</p>
+    <div class="run">
+      <div class="stub"><span class="n">1</span><b>Offer</b><p>15% off everything, 19 to 22 October.</p></div>
+      <div class="stub"><span class="n">2</span><b>Design</b><p>Three portrait frames: product photography, serif captions, the brand's arrow and handle.</p></div>
+      <div class="stub"><span class="n">3</span><b>Copy</b><p>"Your afternoon ritual, sorted." Code <code>IGOTTHIS</code> and a link to the product page.</p></div>
+      <div class="stub"><span class="n">4</span><b>Publish</b><p>Heart Healer on Facebook.</p><span class="stamp">Published by Frannie Crystal</span></div>
     </div>
-    <p style="margin-top:18px"><span class="pending">Workflow shown once Fran confirms it matches her process</span></p>
   </div>
   <div>
-    <h3>Marketing systems</h3>
-    <p class="sub">The operational side: the email, CRM, funnel and SEO work that sits around content.</p>
-    <div class="schem">
-      <div><h4>Email &amp; CRM</h4><p>Sequences, segmentation and tagging, behaviour-based automation, CRM workflows, SOPs.</p></div>
-      <div><h4>Funnels &amp; pages</h4><p>Landing, checkout, thank-you and membership flows; page updates and QA.</p></div>
-      <div><h4>Automation</h4><p>Connected workflows and troubleshooting across marketing tools.</p></div>
-      <div><h4>SEO &amp; analytics</h4><p>SEO research and operations, Google Analytics, Search Console.</p></div>
+    <h3>Wiring</h3>
+    <p class="sub">Beyond the feed: the marketing systems Fran has worked in, in the order a reader meets them.</p>
+    <div class="wire">
+      <div class="node"><span class="port"><i></i></span><b>Post</b><span>Content planning, scheduling, repurposing across channels.</span></div>
+      <div class="node"><span class="port"><i></i></span><b>Page</b><span>Landing, checkout, thank-you and membership flows; page updates and QA.</span></div>
+      <div class="node"><span class="port"><i></i></span><b>Email</b><span>Sequences, campaigns, behaviour-based automation.</span></div>
+      <div class="node"><span class="port"><i></i></span><b>CRM</b><span>Segmentation, tagging, workflows and SOPs.</span></div>
+      <div class="node"><span class="port"><i></i></span><b>Measure</b><span>Google Analytics, Search Console, SEO research.</span></div>
     </div>
-    <p style="margin-top:14px"><span class="pending">Tool list by depth: to confirm</span></p>
+    <span class="pending">Tools and depth per tool: to confirm</span>
   </div>
 </div></section>
 
 <section class="contact" id="contact"><div class="wrap">
-  <div>
-    <h2>Let's talk content.</h2>
-    <div class="email" id="email">fran.f.crystal@gmail.com</div>
+  <span class="eyebrow">Stage door</span>
+  <span class="email" id="email">fran.f.crystal@gmail.com</span>
+  <div class="contact-row">
+    <p>Remote, based in the Philippines. Open to Social Media Manager, Content Editor and Content Marketing roles.</p>
+    <button class="copy" id="copy" type="button">Copy email</button>
   </div>
-  <button class="copy" id="copy" type="button">Copy email</button>
 </div></section>
 
-<footer><div class="wrap mono"><span>Fran C. · Philippines · Remote</span><span>Brands shown are selected content samples.</span></div></footer>
+<footer><div class="wrap mono"><span>Fran C.</span><span>Brands shown are selected content samples.</span></div></footer>
 
 <script>
+document.querySelectorAll('.flip').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var on = b.getAttribute('aria-pressed') !== 'true';
+    b.setAttribute('aria-pressed', on);
+    b.setAttribute('aria-label', b.getAttribute('aria-label').replace(/Show (details|the post)$/, on ? 'Show the post' : 'Show details'));
+  });
+});
 document.getElementById('copy').addEventListener('click', function () {
   var b = this, el = document.getElementById('email');
   function sel() { var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Selected, press copy'; }
