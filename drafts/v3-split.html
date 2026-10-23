@@ -80,6 +80,12 @@ nav a:hover { background: var(--sky); }
 .behind h3 { font-family: var(--display); font-weight: 600; font-size: 24px; margin: 0 0 6px; }
 .behind .sub { margin: 0 0 24px; color: #B8C7D8; }
 .lane { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-bottom: 72px; }
+.lane.five { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.kit { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-bottom: 72px; }
+.kit > div { background: #ffffff10; border: 1px solid #ffffff22; border-radius: 14px; padding: 20px; display: grid; gap: 14px; align-content: start; }
+.kit strong { font-family: var(--display); font-weight: 600; font-size: 19px; }
+.kit ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.kit li { font-size: 15px; font-weight: 500; padding: 6px 13px; border-radius: 999px; background: #fff; color: var(--blue); }
 .lane div { background: #ffffff10; border: 1px solid #ffffff22; border-radius: 14px; padding: 20px; display: grid; gap: 8px; align-content: start; }
 .lane b { font-family: var(--display); font-weight: 800; font-size: 34px; color: var(--coral); line-height: 1; }
 .lane strong { font-weight: 600; }
@@ -91,7 +97,8 @@ nav a:hover { background: var(--sky); }
 
 /* Contact */
 .contact .wrap { padding-block: 104px 56px; display: grid; gap: 24px; }
-.contact .email { font-family: var(--display); font-weight: 800; font-size: clamp(32px, 7.4vw, 112px); line-height: .95; letter-spacing: -.035em; overflow-wrap: anywhere; user-select: all; }
+.contact h2 { font-family: var(--display); font-weight: 800; font-size: clamp(32px, 4.4vw, 56px); line-height: 1; letter-spacing: -.03em; margin: 0; }
+.contact .email { font-family: var(--display); font-weight: 600; font-size: clamp(19px, 2vw, 24px); letter-spacing: -.01em; overflow-wrap: anywhere; user-select: all; }
 .row { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; align-items: center; }
 .btn { font: inherit; font-size: 15px; font-weight: 600; background: var(--coral); color: #fff; border: 0; padding: 13px 22px; border-radius: 999px; cursor: pointer; }
 footer .wrap { padding-block: 22px; border-top: 1px solid var(--line); font-size: 13px; color: var(--slate); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
@@ -100,12 +107,13 @@ footer .wrap { padding-block: 22px; border-top: 1px solid var(--line); font-size
   .hero .wrap, .story .wrap { grid-template-columns: 1fr; }
   .tell { position: static; }
   .hero .thumbs { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .lane { grid-template-columns: 1fr 1fr; }
+  .lane, .lane.five { grid-template-columns: 1fr 1fr; }
+  .kit { grid-template-columns: 1fr; }
   .sys { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 560px) {
   .show.two figure.lift { margin-top: 36px; }
-  .lane, .sys { grid-template-columns: 1fr; }
+  .lane, .lane.five, .sys { grid-template-columns: 1fr; }
   .hook { padding: 20px; }
 }
 </style>
@@ -153,15 +161,15 @@ footer .wrap { padding-block: 22px; border-top: 1px solid var(--line); font-size
   </div>
   <div class="show two">
     <h3 class="sub">Heart Healer <span>personal brand · Instagram &amp; Facebook</span></h3>
-    <figure><img src="img/hh-carousel-know-now.jpg" alt="Heart Healer carousel: Here's what I know now. When you're truly stuck, you don't think your way out of it."><figcaption>Carousel opener · Apr 2026</figcaption></figure>
-    <figure class="lift"><img src="img/hh-carousel-islam-ei.jpg" alt="Heart Healer carousel: What if Islam mapped emotional intelligence centuries before psychology did?"><figcaption>Carousel opener · Mar 2026 · comment-keyword CTA</figcaption></figure>
-    <figure><img src="img/hh-reel-next-move.jpg" alt="Heart Healer reel cover: What I do when I have no idea what the next move in my business is"><figcaption>Reel cover · Jun 2026</figcaption></figure>
-    <figure class="lift"><img src="img/hh-fb-cacao-offer.jpg" alt="Heart Healer Facebook post for a ceremonial cacao offer, published by Frannie Crystal"><figcaption>Cacao offer · Facebook · Oct 2026 · published by Fran</figcaption></figure>
-    <figure class="wide"><img src="img/hh-fb-not-about-money.jpg" alt="Heart Healer Facebook post counting down to the Not About The Money programme" style="max-width:72%"><figcaption>Programme launch countdown · Facebook · Jul 2026</figcaption></figure>
+    <figure><img src="img/hh-carousel-know-now.jpg" alt="Heart Healer carousel: Here's what I know now. When you're truly stuck, you don't think your way out of it."><figcaption>Carousel opener</figcaption></figure>
+    <figure class="lift"><img src="img/hh-carousel-islam-ei.jpg" alt="Heart Healer carousel: What if Islam mapped emotional intelligence centuries before psychology did?"><figcaption>Carousel opener · comment-keyword CTA</figcaption></figure>
+    <figure><img src="img/hh-reel-next-move.jpg" alt="Heart Healer reel cover: What I do when I have no idea what the next move in my business is"><figcaption>Reel cover</figcaption></figure>
+    <figure class="lift"><img src="img/hh-fb-cacao-offer.jpg" alt="Heart Healer Facebook post for a ceremonial cacao offer, published by Frannie Crystal"><figcaption>Cacao offer · Facebook · published by Fran</figcaption></figure>
+    <figure class="wide"><img src="img/hh-fb-not-about-money.jpg" alt="Heart Healer Facebook post counting down to the Not About The Money programme" style="max-width:72%"><figcaption>Programme launch countdown · Facebook</figcaption></figure>
     <h3 class="sub">The Hearty Company <span>leadership company · Instagram</span></h3>
-    <figure><img src="img/hearty-internal-compass.jpg" alt="The Hearty Company post: How do you reset your internal compass?"><figcaption>Reflective question · Aug 2025</figcaption></figure>
-    <figure class="lift"><img src="img/hearty-team-problem.jpg" alt="The Hearty Company post: What if your team thinks you are the problem?"><figcaption>Leadership question · Aug 2025</figcaption></figure>
-    <figure class="wide"><img src="img/hearty-g17-guest-speaker.jpg" alt="Guest speaker graphic for an emotional intelligence and self-leadership module" style="max-width:70%"><figcaption>Guest speaker announcement · Feb 2026</figcaption></figure>
+    <figure><img src="img/hearty-internal-compass.jpg" alt="The Hearty Company post: How do you reset your internal compass?"><figcaption>Reflective question</figcaption></figure>
+    <figure class="lift"><img src="img/hearty-team-problem.jpg" alt="The Hearty Company post: What if your team thinks you are the problem?"><figcaption>Leadership question</figcaption></figure>
+    <figure class="wide"><img src="img/hearty-g17-guest-speaker.jpg" alt="Guest speaker graphic for an emotional intelligence and self-leadership module" style="max-width:70%"><figcaption>Guest speaker announcement</figcaption></figure>
   </div>
 </div></section>
 
@@ -172,15 +180,15 @@ footer .wrap { padding-block: 22px; border-top: 1px solid var(--line); font-size
     <p>Posts open on a buyer's problem, explain it plainly, then link to a full guide on the website.</p>
     <div class="pills"><span>Captions</span><span>Video</span></div>
     <ul class="points">
-      <li>Two posts that send readers to new website guides, October 2026.</li>
+      <li>Posts that send readers to new guides on the website.</li>
       <li>A four-minute sourcing-risk video with burned-in subtitles.</li>
     </ul>
   </div>
   <div class="show">
     <p class="hook">"A low factory unit price is not the same as a usable project budget."</p>
-    <figure><img src="img/sourcingxpro-landed-cost.jpg" alt="SourcingXpro Facebook post on unit price versus landed cost"><figcaption>Landed-cost explainer, links to a new guide · Facebook · Oct 2026</figcaption></figure>
-    <figure><img src="img/sourcingxpro-biotech-merch.jpg" alt="SourcingXpro Facebook post on building a small biotech merch programme"><figcaption>Biotech merch programme, links to a guide · Facebook · Oct 2026</figcaption></figure>
-    <figure><img src="img/sourcingxpro-risk-video.jpg" alt="SourcingXpro Facebook video: how professional buyers reduce sourcing risk"><figcaption>Sourcing-risk video, 4:03, burned-in subtitles · Facebook · Jul 2026</figcaption></figure>
+    <figure><img src="img/sourcingxpro-landed-cost.jpg" alt="SourcingXpro Facebook post on unit price versus landed cost"><figcaption>Landed-cost explainer, links to a new guide · Facebook</figcaption></figure>
+    <figure><img src="img/sourcingxpro-biotech-merch.jpg" alt="SourcingXpro Facebook post on building a small biotech merch programme"><figcaption>Biotech merch programme, links to a guide · Facebook</figcaption></figure>
+    <figure><img src="img/sourcingxpro-risk-video.jpg" alt="SourcingXpro Facebook video: how professional buyers reduce sourcing risk"><figcaption>Sourcing-risk video, 4:03, burned-in subtitles · Facebook</figcaption></figure>
   </div>
 </div></section>
 
@@ -192,9 +200,9 @@ footer .wrap { padding-block: 22px; border-top: 1px solid var(--line); font-size
     <div class="pills"><span>Graphics</span><span>Captions</span></div>
   </div>
   <div class="show two">
-    <figure class="wide"><img src="img/drsamwhite-testimonial.jpg" alt="Dr Sam White client testimonial graphic" style="max-width:80%"><figcaption>Client testimonial · 2025</figcaption></figure>
-    <figure><img src="img/drsamwhite-essential-fatty-acids.jpg" alt="Dr Sam White graphic on essential fatty acids"><figcaption>Carousel opener · 2023</figcaption></figure>
-    <figure><img src="img/drsamwhite-leaky-gut.jpg" alt="Dr Sam White graphic on digestive health symptoms"><figcaption>Carousel opener · 2023</figcaption></figure>
+    <figure class="wide"><img src="img/drsamwhite-testimonial.jpg" alt="Dr Sam White client testimonial graphic" style="max-width:80%"><figcaption>Client testimonial</figcaption></figure>
+    <figure><img src="img/drsamwhite-essential-fatty-acids.jpg" alt="Dr Sam White graphic on essential fatty acids"><figcaption>Carousel opener</figcaption></figure>
+    <figure><img src="img/drsamwhite-leaky-gut.jpg" alt="Dr Sam White graphic on digestive health symptoms"><figcaption>Carousel opener</figcaption></figure>
   </div>
 </div></section>
 
@@ -219,24 +227,32 @@ footer .wrap { padding-block: 22px; border-top: 1px solid var(--line); font-size
     <div class="pills"><span>Graphics</span></div>
   </div>
   <div class="show two">
-    <figure class="wide"><img src="img/starrz-awake-masterclass.jpg" alt="Starrz PR graphic for a free masterclass, The AWAKE Method"><figcaption>Masterclass promotion · Facebook · Oct 2024</figcaption></figure>
-    <figure><img src="img/starrz-wellness-expo.jpg" alt="Starrz PR graphic for the Las Vegas Total Wellness Expo"><figcaption>Wellness expo · Facebook · May 2024</figcaption></figure>
-    <figure class="lift"><img src="img/starrz-podcast-ep181.jpg" alt="Starrz PR graphic for podcast episode 181 of Not Over Just Different"><figcaption>Podcast episode promo · Facebook · Jul 2023</figcaption></figure>
+    <figure class="wide"><img src="img/starrz-awake-masterclass.jpg" alt="Starrz PR graphic for a free masterclass, The AWAKE Method"><figcaption>Masterclass promotion · Facebook</figcaption></figure>
+    <figure><img src="img/starrz-wellness-expo.jpg" alt="Starrz PR graphic for the Las Vegas Total Wellness Expo"><figcaption>Wellness expo · Facebook</figcaption></figure>
+    <figure class="lift"><img src="img/starrz-podcast-ep181.jpg" alt="Starrz PR graphic for podcast episode 181 of Not Over Just Different"><figcaption>Podcast episode promo · Facebook</figcaption></figure>
   </div>
 </div></section>
 
 <section class="behind" id="behind"><div class="wrap">
   <h2>The work <span>behind</span> the work</h2>
-  <h3>One offer, start to finish</h3>
-  <p class="sub">Heart Healer cacao promotion, handled end to end by Fran.</p>
-  <div class="lane">
-    <div><b>1</b><strong>Offer</strong><span>15% off everything, 19 to 22 October.</span></div>
-    <div><b>2</b><strong>Design</strong><span>Three portrait frames, serif captions, the brand's handle.</span></div>
-    <div><b>3</b><strong>Copy</strong><span>"Your afternoon ritual, sorted." Code IGOTTHIS and a product link.</span></div>
-    <div><b>4</b><strong>Publish</strong><span>Facebook, published under Fran's name.</span></div>
+  <h3>How a post gets made</h3>
+  <p class="sub">The social media process Fran runs, from idea to published and beyond.</p>
+  <div class="lane five">
+    <div><b>1</b><strong>Plan</strong><span>Content themes, a calendar and a clear brief for each post.</span></div>
+    <div><b>2</b><strong>Create</strong><span>Graphics and carousels in Canva; short-form video edited in CapCut.</span></div>
+    <div><b>3</b><strong>Write</strong><span>Hooks, captions, hashtags and a clear call to action.</span></div>
+    <div><b>4</b><strong>Schedule</strong><span>Queued and published for each platform.</span></div>
+    <div><b>5</b><strong>Repurpose</strong><span>One idea reshaped into posts, reels and clips across channels.</span></div>
+  </div>
+  <h3>Tools &amp; skills</h3>
+  <p class="sub">What Fran works with day to day.</p>
+  <div class="kit">
+    <div><strong>Creative tools</strong><ul><li>Canva</li><li>CapCut</li><li>HeyGen</li><li>OpusClip</li></ul></div>
+    <div><strong>Platforms</strong><ul><li>Instagram</li><li>Facebook</li><li>LinkedIn</li><li>Pinterest</li><li>YouTube</li></ul></div>
+    <div><strong>Skills</strong><ul><li>Content creation</li><li>Video editing</li><li>Content repurposing</li><li>Social media scheduling</li></ul></div>
   </div>
   <h3>Systems</h3>
-  <p class="sub">Where content goes after it's posted. Tool-by-tool depth to be added.</p>
+  <p class="sub">Where content goes after it's posted: the wider marketing systems Fran has worked in.</p>
   <div class="sys">
     <div><strong>Publishing</strong><span>Planning, scheduling, repurposing.</span></div>
     <div><strong>Pages</strong><span>Landing, checkout and membership flows.</span></div>
@@ -248,6 +264,7 @@ footer .wrap { padding-block: 22px; border-top: 1px solid var(--line); font-size
 
 <section class="contact" id="contact"><div class="wrap">
   <span class="tag">Contact</span>
+  <h2>Let's work together.</h2>
   <span class="email" id="email">fran.f.crystal@gmail.com</span>
   <div class="row"><span style="color:var(--slate)">Remote, based in the Philippines.</span><button class="btn" id="copy" type="button">Copy email</button></div>
 </div></section>
