@@ -32,7 +32,10 @@ Source of truth: `BRIEF.md` plus Fran's answers in the working session. Only ite
 
 Confirmed from Fran's brief for this site: ~15 years corporate experience; background in digital marketing implementation, CRM workflows, funnel building, email marketing, website management, business operations. Tools worked with or used in project environment: GoHighLevel, HubSpot, Kajabi, Kit, Kartra, Wix, Vercel, GitHub, Neon, Claude Code, Zoom.
 
+Decisions for the systems site:
+- Fran built all six projects end to end: pages, assessment/booking steps, CRM fields and tags, email automation, calendar connections, QA and maintenance (confirmed).
+- Clients described, not named; no links to client sites; no per-project tools (the Tools page covers them).
+
 Still open for the systems site:
-- The six reference sites (Courage Type, The Four Worlds, Zipline assessment, Riana Malia ELI, Powerhouse Profile, SalesClosers) could not be loaded from the build environment (DNS blocked). Nothing about them is described beyond Fran's own brief. All case-study fields show "To be confirmed".
-- For each project: Fran's role, pages/funnels worked on, CRM/email/integration components, problem, deliverable, tools; permission to name and screenshot.
+- The six reference sites (Courage Type, The Four Worlds, Zipline assessment, Riana Malia ELI, Powerhouse Profile, SalesClosers) could not be loaded from the build environment (DNS blocked). Nothing about them is described beyond Fran's own brief. 
 - Hands-on depth per tool (not shown until confirmed).
