@@ -9,6 +9,7 @@ Source of truth: `BRIEF.md` plus Fran's answers in the working session. Only ite
 - **Helen Millar (Helen Heart Healer + The Hearty Company):** Fran does all of it: designs the post layouts, makes the posts, writes captions, schedules and publishes. Evidence: Heart Healer Facebook post "Published by Frannie Crystal"; admin view on @helenhearthealer.
 - **SourcingXpro:** Fran wrote the captions and worked on the video.
 - **Starrz PR:** Fran made the graphics; headshots were supplied by the client.
+- **Dr Sam White:** Fran made the graphics and wrote the captions.
 
 ## Decisions
 
@@ -17,7 +18,6 @@ Source of truth: `BRIEF.md` plus Fran's answers in the working session. Only ite
 
 ## Still open
 
-- Dr Sam White: Fran's role.
 - Lighthouse Declaration: Fran's role; did she build the quote-card template?
 - Starrz PR: did Fran write the captions?
 - SourcingXpro video: editing, or a wider production role?

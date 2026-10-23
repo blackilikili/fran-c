@@ -1,0 +1,242 @@
+<title>Fran C. Gallery</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Karla:wght@400;500;600&display=swap">
+<style>
+/* Layout: a quiet gallery. Warm white walls, navy type, one marigold accent. Each client is a room: a large image wall, a short label beside it. No placeholders; unsupplied work is listed in text. Single light look by design. */
+:root {
+  color-scheme: light;
+  --wall: #F7F4EE;
+  --ink: #16233F;      /* navy: competence, trust */
+  --stone: #6B6F7A;
+  --line: #E3DDD2;
+  --mat: #ECE6DB;
+  --gold: #E9A23B;     /* marigold: warmth, energy */
+  --gold-ink: #8A5A10;
+  --display: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+  --body: "Karla", "Helvetica Neue", Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--wall); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.65; }
+.wrap { max-width: 1200px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+img { display: block; width: 100%; height: auto; }
+.label { font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-ink); }
+.role { font-size: 13px; font-weight: 600; letter-spacing: .04em; color: var(--ink); border-bottom: 2px solid var(--gold); padding-bottom: 2px; }
+.muted { color: var(--stone); }
+.ver { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--stone); border-bottom: 1px solid var(--line); }
+.ver .wrap { padding-block: 8px; }
+
+header .wrap { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; padding-block: 26px; }
+.logo { font-family: var(--display); font-size: 30px; font-weight: 600; }
+nav { display: flex; gap: 26px; font-size: 15px; }
+nav a { text-decoration: none; color: var(--stone); }
+nav a:hover { color: var(--ink); }
+
+/* Hero */
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; padding-block: 40px 96px; align-items: center; }
+.hero h1 { font-family: var(--display); font-weight: 600; font-size: clamp(46px, 6.4vw, 92px); line-height: 1; letter-spacing: -.01em; margin: 18px 0 28px; text-wrap: balance; }
+.hero h1 em { font-weight: 500; color: var(--gold-ink); }
+.hero p { margin: 0 0 26px; max-width: 42ch; font-size: 19px; color: var(--stone); }
+.roles { font-size: 15px; font-weight: 500; }
+.roles span + span::before { content: "  ·  "; color: var(--gold); white-space: pre; }
+.collage { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: start; }
+.collage img { box-shadow: 0 30px 60px -36px #16233F80; }
+.collage img:nth-child(2) { margin-top: 64px; }
+.collage img:nth-child(3) { grid-column: 1 / 2; width: 72%; margin: -40px 0 0 auto; }
+
+/* Rooms */
+.room { padding-block: 96px; border-top: 1px solid var(--line); }
+.room-head { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 24px 64px; align-items: end; margin-bottom: 48px; }
+.room h2 { font-family: var(--display); font-weight: 600; font-size: clamp(44px, 5.4vw, 76px); line-height: .98; margin: 10px 0 0; }
+.room h2 small { display: block; font-size: .42em; font-weight: 500; font-style: italic; color: var(--stone); margin-top: 10px; }
+.room-head p { margin: 0 0 14px; }
+.wall { display: grid; gap: 22px; align-items: start; }
+.wall.helen { grid-template-columns: 1fr 1fr .9fr; }
+.wall.helen img:nth-child(3) { margin-top: 120px; }
+.wall.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+figure { margin: 0; display: grid; gap: 10px; }
+figcaption { font-size: 14px; color: var(--stone); }
+.note { margin-top: 26px; font-size: 14px; color: var(--stone); font-style: italic; }
+
+.copy { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 64px; align-items: center; }
+.copy blockquote { margin: 0; font-family: var(--display); font-style: italic; font-weight: 500; font-size: clamp(32px, 3.8vw, 54px); line-height: 1.12; text-wrap: balance; }
+.copy blockquote::before { content: "\201C"; display: block; font-size: 2.2em; line-height: .6; color: var(--gold); }
+.copy .after { margin-top: 22px; color: var(--stone); font-size: 15px; }
+.copy img { border: 1px solid var(--line); }
+
+.also { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 64px; }
+.also h3 { font-family: var(--display); font-weight: 600; font-size: 40px; margin: 8px 0 12px; line-height: 1; }
+
+/* Behind */
+.behind { background: var(--ink); color: var(--wall); }
+.behind .wrap { padding-block: 96px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 72px; }
+.behind h2 { font-family: var(--display); font-weight: 600; font-size: clamp(44px, 5vw, 70px); line-height: 1; margin: 0 0 14px; grid-column: 1 / -1; }
+.behind h3 { font-family: var(--display); font-weight: 600; font-size: 30px; margin: 0 0 6px; }
+.behind .label { color: var(--gold); }
+.behind .muted { color: #B7BFD0; }
+.steps { list-style: none; margin: 22px 0 0; padding: 0; counter-reset: s; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 44px 1fr; gap: 12px; padding: 14px 0; border-top: 1px solid #ffffff22; }
+.steps li::before { content: counter(s, decimal-leading-zero); font-family: var(--display); font-size: 24px; color: var(--gold); line-height: 1.2; }
+.steps b { font-weight: 600; }
+.steps em { font-family: var(--display); font-size: 1.15em; }
+.sys { margin: 22px 0 0; display: grid; gap: 0; }
+.sys div { display: grid; grid-template-columns: 110px 1fr; gap: 12px; padding: 14px 0; border-top: 1px solid #ffffff22; }
+.sys dt { font-weight: 600; }
+.sys dd { margin: 0; color: #B7BFD0; }
+
+/* Contact */
+.contact .wrap { padding-block: 104px 64px; }
+.contact .email { display: block; font-family: var(--display); font-weight: 600; font-size: clamp(34px, 7vw, 104px); line-height: 1; margin: 16px 0 28px; overflow-wrap: anywhere; user-select: all; }
+.contact-row { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; align-items: center; }
+.btn { font: inherit; font-size: 14px; font-weight: 600; background: var(--ink); color: var(--wall); border: 0; padding: 12px 20px; cursor: pointer; }
+footer .wrap { padding-block: 22px; border-top: 1px solid var(--line); font-size: 13px; color: var(--stone); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+@media (max-width: 900px) {
+  .hero .wrap, .room-head, .copy, .also, .behind .wrap { grid-template-columns: 1fr; gap: 36px; }
+  .wall.helen { grid-template-columns: 1fr 1fr; }
+  .wall.helen img:nth-child(3) { margin-top: 0; grid-column: 1 / -1; width: 70%; }
+}
+@media (max-width: 560px) {
+  .wall.three { grid-template-columns: 1fr 1fr; }
+  .wall.three figure:nth-child(3) { grid-column: 1 / -1; }
+  .collage img:nth-child(2) { margin-top: 36px; }
+  .sys div { grid-template-columns: 1fr; gap: 2px; }
+}
+</style>
+
+<div class="ver"><div class="wrap">Version 1 of 3 · Gallery</div></div>
+
+<header><div class="wrap">
+  <div class="logo">Fran C.</div>
+  <nav><a href="#work">Work</a><a href="#behind">Behind the work</a><a href="#contact">Contact</a></nav>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <div>
+    <span class="label">Content &amp; digital marketing</span>
+    <h1>Social-first content, carried all the way to <em>published.</em></h1>
+    <p>Carousels, short-form video and captions, plus the planning, publishing and marketing systems that keep them moving.</p>
+    <div class="roles"><span>Social Media Manager</span><span>Content Editor</span><span>Content Marketing</span></div>
+  </div>
+  <div class="collage">
+    <img src="img/hearty-internal-compass.jpg" alt="The Hearty Company post: How do you reset your internal compass?">
+    <img src="img/hearty-team-problem.jpg" alt="The Hearty Company post: What if your team thinks you are the problem, but they cannot tell you?">
+    <img src="img/drsamwhite-testimonial.jpg" alt="Dr Sam White client testimonial graphic">
+  </div>
+</div></section>
+
+<section class="room" id="work"><div class="wrap">
+  <div class="room-head">
+    <div><span class="label">Wellness &amp; leadership</span><h2>Helen Millar<small>Heart Healer &amp; The Hearty Company</small></h2></div>
+    <div>
+      <p>One founder, two brands: a reflective personal brand and a leadership company. Fran designs the posts, writes the captions and publishes for both, keeping each voice distinct.</p>
+      <span class="role">Design · captions · publishing</span>
+    </div>
+  </div>
+  <div class="wall helen">
+    <figure><img src="img/hearty-internal-compass.jpg" alt="The Hearty Company post: How do you reset your internal compass?"><figcaption>The Hearty Company · Instagram · 2025</figcaption></figure>
+    <figure><img src="img/hearty-team-problem.jpg" alt="The Hearty Company post: What if your team thinks you are the problem?"><figcaption>Leadership question post · CTA: book a free call</figcaption></figure>
+    <figure><img src="img/hearty-g17-guest-speaker.jpg" alt="Guest speaker graphic for an emotional intelligence and self-leadership module"><figcaption>Guest speaker announcement · 2026</figcaption></figure>
+  </div>
+  <p class="note">Heart Healer reels, carousels and the cacao offer are being added.</p>
+</div></section>
+
+<section class="room"><div class="wrap">
+  <div class="room-head">
+    <div><span class="label">B2B content marketing</span><h2>SourcingXpro<small>China sourcing, explained plainly</small></h2></div>
+    <div>
+      <p>Posts open on a buyer's problem, explain it in a few lines, then send readers to a full guide on the website. Fran writes the captions and works on the video.</p>
+      <span class="role">Captions · video</span>
+    </div>
+  </div>
+  <div class="copy">
+    <div>
+      <blockquote>A low factory unit price is not the same as a usable project budget.</blockquote>
+      <p class="after">Opening line of a Facebook post, October 2026. Also in the series: a biotech merch guide and a four-minute sourcing-risk video with subtitles.</p>
+    </div>
+    <img src="img/sourcingxpro-landed-cost.jpg" alt="SourcingXpro Facebook post on unit price versus landed cost">
+  </div>
+</div></section>
+
+<section class="room"><div class="wrap">
+  <div class="room-head">
+    <div><span class="label">Health education</span><h2>Dr Sam White<small>Functional medicine practice</small></h2></div>
+    <div>
+      <p>Testimonial and education graphics, written and designed to be read on a phone: one idea per post, a clear headline, a booking link in the footer.</p>
+      <span class="role">Graphics · captions</span>
+    </div>
+  </div>
+  <div class="wall three">
+    <figure><img src="img/drsamwhite-testimonial.jpg" alt="Dr Sam White client testimonial graphic"><figcaption>Client testimonial · 2025</figcaption></figure>
+    <figure><img src="img/drsamwhite-essential-fatty-acids.jpg" alt="Dr Sam White graphic on essential fatty acids"><figcaption>Carousel opener · 2023</figcaption></figure>
+    <figure><img src="img/drsamwhite-leaky-gut.jpg" alt="Dr Sam White graphic on digestive health symptoms"><figcaption>Carousel opener · 2023</figcaption></figure>
+  </div>
+</div></section>
+
+<section class="room"><div class="wrap">
+  <div class="room-head">
+    <div><span class="label">Quote-card series</span><h2>Lighthouse Declaration<small>One layout, many experts</small></h2></div>
+    <div>
+      <p>A series built on one consistent layout: name band, portrait ring, quote panel, flag and URL footer, so each card is recognisable at a glance. Views quoted belong to the people quoted.</p>
+      <span class="role muted" style="border-color:var(--line)">Role to confirm</span>
+    </div>
+  </div>
+  <div class="wall three">
+    <figure><img src="img/lighthouse-quote-doctor-uk.jpg" alt="Lighthouse Declaration quote card with a lighthouse background"><figcaption>United Kingdom</figcaption></figure>
+    <figure><img src="img/lighthouse-quote-doctor.jpg" alt="Lighthouse Declaration quote card, scenic background"><figcaption>Ireland</figcaption></figure>
+    <figure><img src="img/lighthouse-quote-educator.jpg" alt="Lighthouse Declaration quote card, science educator"><figcaption>Netherlands</figcaption></figure>
+  </div>
+</div></section>
+
+<section class="room"><div class="wrap">
+  <div class="also">
+    <div><span class="label">Also</span><h3>Starrz PR</h3><p>Graphics for a masterclass, a wellness expo and a podcast episode, built around headshots supplied by the client.</p></div>
+    <div><span class="role">Graphics</span></div>
+  </div>
+</div></section>
+
+<section class="behind" id="behind"><div class="wrap">
+  <h2>Behind the work</h2>
+  <div>
+    <span class="label">One offer, start to finish</span>
+    <h3>Heart Healer cacao promotion</h3>
+    <p class="muted">Handled end to end by Fran.</p>
+    <ol class="steps">
+      <li><span><b>Offer.</b> 15% off everything, 19 to 22 October.</span></li>
+      <li><span><b>Design.</b> Three portrait frames: product photography, serif captions, the brand's arrow and handle.</span></li>
+      <li><span><b>Copy.</b> <em>"Your afternoon ritual, sorted."</em> Code IGOTTHIS and a product link.</span></li>
+      <li><span><b>Publish.</b> Facebook, published under Fran's name on the Heart Healer page.</span></li>
+    </ol>
+  </div>
+  <div>
+    <span class="label">Systems</span>
+    <h3>Where the content goes next</h3>
+    <p class="muted">Marketing systems Fran has worked in. Tool-by-tool depth to be added.</p>
+    <dl class="sys">
+      <div><dt>Publishing</dt><dd>Planning, scheduling and repurposing across channels.</dd></div>
+      <div><dt>Pages</dt><dd>Landing, checkout, thank-you and membership flows.</dd></div>
+      <div><dt>Email</dt><dd>Sequences, campaigns, behaviour-based automation.</dd></div>
+      <div><dt>CRM</dt><dd>Segmentation, tagging, workflows and SOPs.</dd></div>
+      <div><dt>Measure</dt><dd>Google Analytics, Search Console, SEO research.</dd></div>
+    </dl>
+  </div>
+</div></section>
+
+<section class="contact" id="contact"><div class="wrap">
+  <span class="label">Contact</span>
+  <span class="email" id="email">fran.f.crystal@gmail.com</span>
+  <div class="contact-row"><p class="muted" style="margin:0">Remote, based in the Philippines.</p><button class="btn" id="copy" type="button">Copy email</button></div>
+</div></section>
+
+<footer><div class="wrap"><span>Fran C.</span><span>Brands shown are selected content samples; accounts belong to the brands.</span></div></footer>
+
+<script>
+document.getElementById('copy').addEventListener('click', function () {
+  var b = this, el = document.getElementById('email');
+  function sel() { var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Selected, press copy'; }
+  try { navigator.clipboard.writeText(el.textContent).then(function () { b.textContent = 'Copied'; }, sel); } catch (e) { sel(); }
+});
+</script>
