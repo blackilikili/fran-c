@@ -459,7 +459,7 @@ dialog.case::backdrop { background: #0F2E4A99; backdrop-filter: blur(3px); }
 .svc-grid span { color: #C9D5E3; font-size: 15.5px; }
 .two-col { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 56px; align-items: start; }
 .tool-rows { display: grid; gap: 0; border-top: 2px solid var(--blue); }
-.tool-rows > div { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 16px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.tool-rows > div { display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 16px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--line); }
 .tool-rows h3 { font-size: 17px; }
 .tool-rows .chip { font-size: 13px; padding: 5px 12px; }
 .email-big { margin-top: 18px !important; font-family: var(--display); font-weight: 600; font-size: clamp(20px, 2.4vw, 28px); color: #fff !important; }
@@ -479,3 +479,6 @@ dialog.case::backdrop { background: #0F2E4A99; backdrop-filter: blur(3px); }
   .pill:not(:last-child) { margin-bottom: 34px; }
   .tabs button { flex: 1 1 auto; }
 }
+
+#tools .two-col > div:first-child { position: sticky; top: 90px; }
+@media (max-width: 900px) { #tools .two-col > div:first-child { position: static; } }

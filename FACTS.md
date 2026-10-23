@@ -31,6 +31,7 @@ Source of truth: `BRIEF.md` plus Fran's answers in the working session. Only ite
 ## Systems portfolio (/systems/)
 
 Confirmed from Fran's brief for this site: ~15 years corporate experience; background in digital marketing implementation, CRM workflows, funnel building, email marketing, website management, business operations. Tools worked with or used in project environment: GoHighLevel, HubSpot, Kajabi, Kit, Kartra, Wix, Vercel, GitHub, Neon, Claude Code, Zoom.
+- Full tools & tech stack confirmed from Fran's stack graphic (see TOOLS in src/systems/data/make_page.py).
 
 Decisions for the systems site:
 - Fran built all six projects end to end: pages, assessment/booking steps, CRM fields and tags, email automation, calendar connections, QA and maintenance (confirmed).

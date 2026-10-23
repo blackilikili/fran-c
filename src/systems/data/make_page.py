@@ -125,9 +125,17 @@ tabs = "".join(
     f'<button role="tab" id="ftab-{f["id"]}" aria-controls="flow-{f["id"]}" aria-selected="{"true" if i == 0 else "false"}" tabindex="{0 if i == 0 else -1}" type="button">{e(f["name"])}</button>'
     for i, f in enumerate(FLOWS))
 
-TOOLS = [("CRM & automation", ["GoHighLevel", "HubSpot"]), ("Funnels & courses", ["Kajabi", "Kartra", "GoHighLevel"]),
-         ("Email marketing", ["Kit (ConvertKit)", "GoHighLevel", "HubSpot"]), ("Websites & deployment", ["Wix", "Vercel", "GitHub", "Neon", "Claude Code"]),
-         ("Events", ["Zoom"])]
+TOOLS = [
+    ("Marketing, CRM & automation", ["GoHighLevel", "HubSpot", "Kajabi", "Kit (ConvertKit)", "Kartra", "Ahrefs", "Google Analytics",
+                                     "Google Search Console", "Instagram", "LinkedIn", "Pinterest", "Substack"]),
+    ("Web, development & deployment", ["Vercel", "GitHub", "Git", "Neon", "Claude Code", "Wix", "HTML", "CSS", "JavaScript"]),
+    ("AI & automation", ["Claude", "ChatGPT (OpenAI)", "Prompt engineering", "AI-assisted content", "Workflow automation"]),
+    ("Data & analytics", ["Google Sheets", "Microsoft Excel", "Airtable", "SQL (basic)", "Neon (PostgreSQL)"]),
+    ("Productivity & operations", ["Google Workspace", "Slack", "Zoom", "Notion", "Airtable"]),
+    ("Design & content", ["Canva", "Figma", "CapCut", "Loom"]),
+    ("Business & client operations", ["Client onboarding", "Reporting & dashboards", "Automated messaging", "Funnel building",
+                                      "Sales pipeline management", "SOPs & documentation"]),
+]
 tools = "".join(f'<div><h3>{e(c)}</h3><div class="chips">{"".join(f"<span class=\"chip\">{e(t)}</span>" for t in ts)}</div></div>' for c, ts in TOOLS)
 
 html = f"""<section class="hero" id="intro">
@@ -209,7 +217,7 @@ html = f"""<section class="hero" id="intro">
 
 <section class="section" id="tools">
   <div class="wrap two-col">
-    <div><span class="eyebrow">Tools</span><h2 style="margin-top:12px">Platforms I work in</h2><p class="lede" style="margin-top:14px">Not every tool is used on every project. I work with what your business already has.</p></div>
+    <div><span class="eyebrow">Tools &amp; tech stack</span><h2 style="margin-top:12px">Give me the tool or software, and <span class="accent">I'll make it work.</span></h2><p class="lede" style="margin-top:14px">I'm a fast learner and highly adaptable. This is a selection of the tools I've worked with, not a limit. If there's a new system, I'll get up to speed.</p></div>
     <div class="tool-rows">{tools}</div>
   </div>
 </section>
