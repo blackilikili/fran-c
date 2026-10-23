@@ -24,7 +24,7 @@ Preview locally: `cd docs && python3 -m http.server 8000`, then open http://loca
 
 ## Deploy (Netlify)
 
-Drag the `docs` folder (or a zip of its contents, unzipped) onto the site's **Deploys** page in Netlify. `index.html` must be at the top level of what you upload.
+Drag the `docs` folder (or a zip of its contents, unzipped) onto the site's **Deploys** page in Netlify. `_redirects` and the `systems` folder must be at the top level of what you upload.
 
 Link previews use absolute URLs on `https://fran-c-portfolio.netlify.app`. If the domain changes, update `SITE` in both build scripts.
 
