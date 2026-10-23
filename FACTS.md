@@ -23,4 +23,4 @@ Source of truth: `BRIEF.md` plus Fran's answers in the working session. Only ite
 - SourcingXpro video: editing, or a wider production role?
 - "Published by cacao calling" on a Heart Healer Facebook post: another publisher or a tool?
 - Ten screenshots received inline only; files needed (see `assets/CATALOGUE.md`).
-- Design direction: draft A, B or C.
+- Design direction: chosen. Version 3, Split story (`drafts/v3-split.html`).
