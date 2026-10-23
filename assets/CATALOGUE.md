@@ -45,6 +45,16 @@ Batch 2 adds a third card to this series:
 |---|---|---|---|
 | `sourcingxpro-landed-cost` | Unit price vs usable project budget | 8 Oct (2026) | Copy-led post: hook line, breakdown of landed-cost components, link to a new guide on sourcingxpro.com, hashtags. Stock warehouse photo. Page name displays as "SouringXpro" (missing c). |
 
+## Helen Heart Healer / Heart Healer (Instagram @helenhearthealer, Facebook)
+
+| File | Post | Date shown | What's visible |
+|---|---|---|---|
+| `hh-reel-next-move` | Reel: "What I do when I have no idea what the next move in my business is..." | 6 Jun 2026 | Rose image, white band with red serif text, arrow pill, handle. Admin UI cropped out. |
+| `hh-carousel-know-now` | Carousel: "Here's what I know now" | 14 Apr 2026 | Photo top, red textured panel, serif type, arrow pill, handle. |
+| `hh-carousel-islam-ei` | Carousel: "What if Islam mapped emotional intelligence centuries before psychology did?" | 2 Mar 2026 | Same red-panel template. Caption: mastermind, comment PLENTY. Small collab badge visible bottom-left. |
+| `hh-fb-cacao-offer` | Facebook: ceremonial cacao, 15% off, code IGOTTHIS | ~19 Oct 2026 | "Published by Frannie Crystal". Insights/boost bar cropped out. |
+| `hh-fb-not-about-money` | Facebook: Not About The Money / Plenty Mastermind | 4 Jul 2026 | "Published by cacao calling". Campfire image set, closing red panel, comment MONEY CTA. |
+
 ## Seen in chat, files still needed
 
 These were sent as inline images and did not arrive as files. Re-send as files (or drop them in `assets/raw/`).
@@ -56,10 +66,5 @@ These were sent as inline images and did not arrive as files. Re-send as files (
 | Starrz PR | The AWAKE Method free masterclass | 17 Oct 2024 | Purple/orange event graphic with speaker photo; first-person promotional caption. |
 | Starrz PR | Las Vegas Total Wellness Expo | 27 May 2024 | Nomination/award announcement, Eventbrite link, venue details. Expo graphic. |
 | Starrz PR | Not Over Just Different, episode 181 | 2 Jul 2023 | 1:00 video promo, podcast cover art, Buzzsprout link. |
-| Helen Heart Healer (IG) | "What I do when I have no idea what the next move in my business is..." | 6 Jun (2026) | Reel. Rose image, white band with serif red text, arrow-pill icon, handle. Screenshot shows "View insights" and "Boost reel", so it was taken from an account with admin access. |
-| Helen Heart Healer (IG) | "Here's what I know now" | 14 Apr (2026) | Carousel (4 slides). Photo top, red textured panel with serif type, arrow-pill icon, handle. Admin view. |
-| Helen Heart Healer (IG) | "What if Islam mapped emotional intelligence centuries before psychology did?" | 2 Mar (2026) | Carousel (9+ slides). Same red-panel template. Caption promotes a private mastermind, comment-keyword CTA ("PLENTY"). Admin view. |
-| Heart Healer (FB) | Ceremonial cacao, 15% off, code IGOTTHIS | ~19 Oct 2026 ("3 days ago") | **"Published by Frannie Crystal."** Three-image story/post set with serif captions, arrow-pill icon, handle; link to hearthealer.co.uk product page. |
-| Heart Healer (FB) | Not About The Money / Plenty Mastermind | 4 Jul (2026) | "Published by cacao calling." Multi-image campfire set with serif captions, closing red panel with comment-keyword CTA. |
 
 Dates without a year are shown by the platform as current-year; year in brackets is inferred.

@@ -62,7 +62,10 @@ nav a:hover { background: var(--sky); }
 .points li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--coral); margin-top: 8px; }
 .show { display: grid; gap: 20px; }
 .show.two { grid-template-columns: 1fr 1fr; align-items: start; }
-.show.two figure:nth-child(2) { margin-top: 72px; }
+.show.two figure.lift { margin-top: 72px; }
+.show h3.sub { grid-column: 1 / -1; margin: 24px 0 0; font-family: var(--display); font-weight: 600; font-size: 24px; letter-spacing: -.01em; display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap; border-top: 2px solid var(--blue); padding-top: 14px; }
+.show h3.sub:first-child { margin-top: 0; }
+.show h3.sub span { font-family: var(--body); font-weight: 500; font-size: 14px; color: var(--slate); }
 .show figure { margin: 0; display: grid; gap: 8px; }
 .show figcaption { font-size: 14px; color: var(--slate); }
 .wide { grid-column: 1 / -1; }
@@ -101,7 +104,7 @@ footer .wrap { padding-block: 22px; border-top: 1px solid var(--line); font-size
   .sys { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 560px) {
-  .show.two figure:nth-child(2) { margin-top: 36px; }
+  .show.two figure.lift { margin-top: 36px; }
   .lane, .sys { grid-template-columns: 1fr; }
   .hook { padding: 20px; }
 }
@@ -128,11 +131,11 @@ footer .wrap { padding-block: 22px; border-top: 1px solid var(--line); font-size
   </div>
   <div class="wrap thumbs" aria-label="Selected posts">
     <img src="img/hearty-internal-compass.jpg" alt="The Hearty Company post: How do you reset your internal compass?">
-    <img src="img/hearty-team-problem.jpg" alt="The Hearty Company post: What if your team thinks you are the problem?">
+    <img src="img/hh-reel-next-move.jpg" alt="Heart Healer reel cover">
     <img src="img/drsamwhite-testimonial.jpg" alt="Dr Sam White client testimonial graphic">
     <img src="img/sourcingxpro-landed-cost.jpg" alt="SourcingXpro Facebook post on unit price versus landed cost">
-    <img src="img/drsamwhite-essential-fatty-acids.jpg" alt="Dr Sam White graphic on essential fatty acids">
-    <img src="img/lighthouse-quote-doctor-uk.jpg" alt="Lighthouse Declaration quote card with a lighthouse background">
+    <img src="img/hh-carousel-know-now.jpg" alt="Heart Healer carousel: Here's what I know now">
+    <img src="img/hh-carousel-islam-ei.jpg" alt="Heart Healer carousel: What if Islam mapped emotional intelligence centuries before psychology did?">
   </div>
 </section>
 
@@ -145,14 +148,20 @@ footer .wrap { padding-block: 22px; border-top: 1px solid var(--line); font-size
     <ul class="points">
       <li>Heart Healer: first-person reflection, serif type on deep red panels.</li>
       <li>The Hearty Company: direct questions to leaders, bold type over texture and tinted photos.</li>
-      <li>Calls to action range from "book a free call" to discount codes and launches.</li>
+      <li>Calls to action range from "book a free call" to comment keywords, discount codes and launch countdowns.</li>
     </ul>
   </div>
   <div class="show two">
-    <figure><img src="img/hearty-internal-compass.jpg" alt="The Hearty Company post: How do you reset your internal compass?"><figcaption>The Hearty Company · Aug 2025</figcaption></figure>
-    <figure><img src="img/hearty-team-problem.jpg" alt="The Hearty Company post: What if your team thinks you are the problem?"><figcaption>Leadership question · Aug 2025</figcaption></figure>
+    <h3 class="sub">Heart Healer <span>personal brand · Instagram &amp; Facebook</span></h3>
+    <figure><img src="img/hh-carousel-know-now.jpg" alt="Heart Healer carousel: Here's what I know now. When you're truly stuck, you don't think your way out of it."><figcaption>Carousel opener · Apr 2026</figcaption></figure>
+    <figure class="lift"><img src="img/hh-carousel-islam-ei.jpg" alt="Heart Healer carousel: What if Islam mapped emotional intelligence centuries before psychology did?"><figcaption>Carousel opener · Mar 2026 · comment-keyword CTA</figcaption></figure>
+    <figure><img src="img/hh-reel-next-move.jpg" alt="Heart Healer reel cover: What I do when I have no idea what the next move in my business is"><figcaption>Reel cover · Jun 2026</figcaption></figure>
+    <figure class="lift"><img src="img/hh-fb-cacao-offer.jpg" alt="Heart Healer Facebook post for a ceremonial cacao offer, published by Frannie Crystal"><figcaption>Cacao offer · Facebook · Oct 2026 · published by Fran</figcaption></figure>
+    <figure class="wide"><img src="img/hh-fb-not-about-money.jpg" alt="Heart Healer Facebook post counting down to the Not About The Money programme" style="max-width:72%"><figcaption>Programme launch countdown · Facebook · Jul 2026</figcaption></figure>
+    <h3 class="sub">The Hearty Company <span>leadership company · Instagram</span></h3>
+    <figure><img src="img/hearty-internal-compass.jpg" alt="The Hearty Company post: How do you reset your internal compass?"><figcaption>Reflective question · Aug 2025</figcaption></figure>
+    <figure class="lift"><img src="img/hearty-team-problem.jpg" alt="The Hearty Company post: What if your team thinks you are the problem?"><figcaption>Leadership question · Aug 2025</figcaption></figure>
     <figure class="wide"><img src="img/hearty-g17-guest-speaker.jpg" alt="Guest speaker graphic for an emotional intelligence and self-leadership module" style="max-width:70%"><figcaption>Guest speaker announcement · Feb 2026</figcaption></figure>
-    <p class="soon wide">Heart Healer reels, carousels and the cacao offer are being added.</p>
   </div>
 </div></section>
 
