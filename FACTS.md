@@ -27,3 +27,12 @@ Source of truth: `BRIEF.md` plus Fran's answers in the working session. Only ite
 
 - "Published by cacao calling" on a Heart Healer Facebook post: another publisher or a tool?
 - Design direction: chosen. Version 3, Split story (`drafts/v3-split.html`).
+
+## Systems portfolio (/systems/)
+
+Confirmed from Fran's brief for this site: ~15 years corporate experience; background in digital marketing implementation, CRM workflows, funnel building, email marketing, website management, business operations. Tools worked with or used in project environment: GoHighLevel, HubSpot, Kajabi, Kit, Kartra, Wix, Vercel, GitHub, Neon, Claude Code, Zoom.
+
+Still open for the systems site:
+- The six reference sites (Courage Type, The Four Worlds, Zipline assessment, Riana Malia ELI, Powerhouse Profile, SalesClosers) could not be loaded from the build environment (DNS blocked). Nothing about them is described beyond Fran's own brief. All case-study fields show "To be confirmed".
+- For each project: Fran's role, pages/funnels worked on, CRM/email/integration components, problem, deliverable, tools; permission to name and screenshot.
+- Hands-on depth per tool (not shown until confirmed).

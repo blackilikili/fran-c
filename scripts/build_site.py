@@ -38,6 +38,16 @@ used = sorted(set(re.findall(r"img/([\w-]+)\.jpg", content)))
 for old in used:
     content = content.replace(f"img/{old}.jpg", f"img/{RENAME[old]}.jpg")
 
+# Link to the systems portfolio (public site only; the Claude preview has no systems/ folder).
+content = content.replace(
+    '<nav><a href="#work">Work</a><a href="#behind">Behind it</a><a href="#contact">Contact</a></nav>',
+    '<nav><a href="#work">Work</a><a href="#behind">Behind it</a><a href="systems/">Funnels &amp; CRM</a><a href="#contact">Contact</a></nav>', 1)
+content = content.replace(
+    "<p class=\"sub\">Where content goes after it's posted: the wider marketing systems Fran has worked in.</p>",
+    "<p class=\"sub\">Where content goes after it's posted: the wider marketing systems Fran has worked in. "
+    "<a href=\"systems/\" style=\"color:#fff;font-weight:600\">See the funnel &amp; CRM portfolio →</a></p>", 1)
+assert 'href="systems/"' in content, "systems link not inserted"
+
 head = f"""<!doctype html>
 <html lang="en">
 <head>
@@ -64,12 +74,9 @@ head = f"""<!doctype html>
 </html>
 """
 
-og = OUT / "og.jpg"
-og_bytes = og.read_bytes() if og.exists() else None
-shutil.rmtree(OUT, ignore_errors=True)
+# Only replace this site's own files; docs/systems/ (the systems portfolio) is built separately.
+shutil.rmtree(OUT / "img", ignore_errors=True)
 (OUT / "img").mkdir(parents=True)
-if og_bytes:
-    og.write_bytes(og_bytes)
 (OUT / ".nojekyll").touch()
 (OUT / "index.html").write_text(head)
 for old in used:

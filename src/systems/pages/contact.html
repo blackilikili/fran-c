@@ -1,0 +1,53 @@
+<section class="page-hero">
+  <div class="wrap">
+    <span class="eyebrow">Contact</span>
+    <h1>Let's talk about your <span class="accent">funnel or CRM.</span></h1>
+    <p class="lede">Funnel builds, CRM integration, marketing automation or ongoing implementation support. Tell me a little about the project and I'll reply by email.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:8px">
+  <div class="wrap contact-grid">
+    <div class="stack" style="gap:22px">
+      <div class="box">
+        <h2 style="font-size:24px">Email me directly</h2>
+        <div class="email-line"><span id="email-addr">fran.f.crystal@gmail.com</span><button class="copy-btn" type="button" data-copy="fran.f.crystal@gmail.com" data-target="email-addr">Copy</button></div>
+        <p class="muted" style="font-size:15px">Remote, based in the Philippines.</p>
+      </div>
+      <div class="box note">
+        <h2 style="font-size:20px">Useful to include</h2>
+        <ul>
+          <li>The platforms you use now (CRM, email, funnel builder, calendar)</li>
+          <li>What should happen in the journey, and what's happening instead</li>
+          <li>Any launch or event date you're working towards</li>
+        </ul>
+      </div>
+    </div>
+
+    <form class="form box" name="project-inquiry" method="POST" action="thanks.html" data-netlify="true" netlify-honeypot="website">
+      <input type="hidden" name="form-name" value="project-inquiry">
+      <p class="hp"><label>Leave this empty: <input name="website" tabindex="-1" autocomplete="off"></label></p>
+      <div class="two">
+        <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+      </div>
+      <div class="field"><label for="f-business">Business or website</label><input id="f-business" name="business" autocomplete="organization"></div>
+      <div class="field"><label for="f-type">Project type</label>
+        <select id="f-type" name="project_type" required>
+          <option value="">Choose one</option>
+          <option>Funnel build</option>
+          <option>Assessment funnel</option>
+          <option>CRM setup or integration</option>
+          <option>Email automation</option>
+          <option>Webinar or masterclass system</option>
+          <option>Troubleshooting or QA</option>
+          <option>Ongoing implementation support</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div class="field"><label for="f-desc">Project description</label><span class="hint" id="f-desc-hint">What you're building or fixing, and the tools involved.</span><textarea id="f-desc" name="description" aria-describedby="f-desc-hint" required></textarea></div>
+      <div class="btn-row" style="align-items:center"><button class="btn btn-primary" type="submit">Send enquiry</button></div>
+      <p class="form-note">This form is delivered by Netlify Forms. If it doesn't send, please email <a href="mailto:fran.f.crystal@gmail.com">fran.f.crystal@gmail.com</a> directly.</p>
+    </form>
+  </div>
+</section>
