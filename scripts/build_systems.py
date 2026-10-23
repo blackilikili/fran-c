@@ -14,45 +14,22 @@ SITE = "https://fran-c-portfolio.netlify.app"
 BASE = SITE + "/systems/systems/"
 EMAIL = "fran.f.crystal@gmail.com"
 
-# slug: (nav label or None, <title>, meta description)
+# One-page site: slug -> (unused, <title>, meta description)
 PAGES = {
-    "index": ("Home", "Fran C. · Funnel, CRM & Marketing Automation Specialist",
-              "Funnel builder and CRM integration specialist. Fran C. connects landing pages, assessments, CRM records, "
-              "email automation and booking workflows into one working customer journey."),
-    "services": ("Services", "Services · Funnels, CRM, Email Automation & Marketing Ops · Fran C.",
-                 "Funnel architecture, CRM setup and integration, email marketing automation and marketing operations "
-                 "support for coaches, consultants, course creators and agencies."),
-    "blueprints": ("Blueprints", "Funnel Blueprints · Assessment, VSL, Webinar & Enrollment Funnels · Fran C.",
-                   "Five funnel builds mapped step by step: assessment, masterclass, book-a-call, application and lead "
-                   "gathering funnels."),
-    "projects": ("Builds", "Funnel Builds · Assessment, Masterclass, Book-a-Call, Application & Lead Funnels · Fran C.",
-                 "Client funnel builds grouped by type: assessment, masterclass, book-a-call, application and lead "
-                 "gathering funnels, each built end to end by Fran C."),
-    "tools": ("Tools", "Tools & Platforms · GoHighLevel, HubSpot, Kajabi, Kit, Kartra · Fran C.",
-              "The CRM, funnel, email and website platforms Fran C. works with, organised by the part of the customer "
-              "journey they support."),
-    "about": ("About", "About · Fran C., Marketing Operations Specialist",
-              "15 years of professional experience, remote since 2016. Fran C. combines marketing implementation "
-              "with operational thinking."),
-    "contact": (None, "Contact · Discuss Your Funnel or CRM Project · Fran C.",
-                "Get in touch about a funnel build, CRM integration, marketing automation or ongoing implementation support."),
-    "thanks": (None, "Message sent · Fran C.", "Thank you for getting in touch."),
+    "index": ("Home", "Fran C. · Funnel Builder, CRM & Marketing Automation Specialist",
+              "Funnel builder and CRM integration specialist. Fran C. builds assessment, masterclass, book-a-call, "
+              "application and lead gathering funnels, connected to CRM records and email automation."),
 }
+
+SECTIONS = [("builds", "Builds"), ("funnels", "Funnels"), ("services", "Services"), ("tools", "Tools"), ("about", "About")]
 
 FONTS = ("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800"
          "&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap")
 
 
 def nav(current):
-    links = []
-    for slug, (label, _, _) in PAGES.items():
-        if not label:
-            continue
-        href = "index.html" if slug == "index" else f"{slug}.html"
-        cur = ' aria-current="page"' if slug == current else ""
-        links.append(f'<a href="{href}"{cur}>{label}</a>')
-    cta_cur = ' aria-current="page"' if current == "contact" else ""
-    links.append(f'<a class="nav-cta" href="contact.html"{cta_cur}>Let\'s talk</a>')
+    links = [f'<a href="#{sid}">{label}</a>' for sid, label in SECTIONS]
+    links.append('<a class="nav-cta" href="#contact">Let\'s talk</a>')
     return "\n      ".join(links)
 
 
@@ -89,11 +66,11 @@ def layout(slug, body):
 <link rel="stylesheet" href="assets/systems.css">
 <script src="assets/systems.js" defer></script>
 </head>
-<body>
+<body id="top">
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-head">
   <div class="wrap">
-    <a class="logo" href="index.html">Fran C<i>.</i> <small>Systems</small></a>
+    <a class="logo" href="#top">Fran C<i>.</i> <small>Systems</small></a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav id="site-nav" class="nav" aria-label="Main">
       {nav(slug)}
@@ -107,12 +84,12 @@ def layout(slug, body):
   <div class="wrap">
     <div class="foot-top">
       <div>
-        <a class="logo" href="index.html">Fran C<i>.</i></a>
+        <a class="logo" href="#top">Fran C<i>.</i></a>
         <p style="margin-top:8px;max-width:46ch">Funnels, CRM records, email automation and booking workflows, connected into one customer journey.</p>
       </div>
       <nav class="foot-nav" aria-label="Footer">
-        <a href="services.html">Services</a><a href="blueprints.html">Blueprints</a><a href="projects.html">Builds</a>
-        <a href="tools.html">Tools</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+        <a href="#builds">Builds</a><a href="#funnels">Funnels</a><a href="#services">Services</a>
+        <a href="#tools">Tools</a><a href="#about">About</a><a href="#contact">Contact</a>
       </nav>
     </div>
     <div class="foot-bottom">
@@ -127,6 +104,7 @@ def layout(slug, body):
 
 
 def main():
+    shutil.rmtree(OUT, ignore_errors=True)
     OUT.mkdir(parents=True, exist_ok=True)
     shutil.copytree(SRC / "assets", OUT / "assets", dirs_exist_ok=True)
     shutil.copytree(SRC / "img", OUT / "img", dirs_exist_ok=True)

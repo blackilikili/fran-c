@@ -14,8 +14,7 @@ Plain HTML, CSS and a little JavaScript. No framework, no database, no API keys.
 Requires Python 3 and Pillow (`pip install pillow`).
 
 ```bash
-python3 src/systems/data/make_blueprints.py   # only after editing funnel data
-python3 src/systems/data/make_projects.py     # only after editing project data
+python3 src/systems/data/make_page.py        # systems page: builds, funnel flows, services, tools
 python3 scripts/build_site.py                 # social site -> docs/systems/socialmedia/
 python3 scripts/build_systems.py              # systems site -> docs/systems/systems/, plus favicons and _redirects at docs/
 ```
@@ -28,13 +27,9 @@ Drag the `docs` folder (or a zip of its contents, unzipped) onto the site's **De
 
 Link previews use absolute URLs on `https://fran-c-portfolio.netlify.app`. If the domain changes, update `SITE` in both build scripts.
 
-## Contact form
+## Systems page
 
-`/systems/systems/contact.html` uses **Netlify Forms** (`data-netlify="true"`). Netlify detects it automatically on deploy. To receive submissions by email: Netlify → Site → Forms → enable form detection if prompted, then add an email notification for `project-inquiry`. The form only works on Netlify; on any other host, visitors are told to email directly.
-
-## Updating project case studies
-
-Edit `PROJECTS` in `src/systems/data/make_projects.py`. Any field left as `None` shows "To be confirmed". Fill in only details Fran has confirmed, then re-run the generator and build.
+The systems portfolio is a single page (`docs/systems/systems/index.html`). Edit its content in `src/systems/data/make_page.py`: `PROJECTS` (client builds), `FLOWS` (the five funnel flow charts) and `TOOLS`. Contact is by email only. Old multi-page URLs redirect to the matching section via `src/root/_redirects`.
 
 ## Content rules
 

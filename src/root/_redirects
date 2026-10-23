@@ -4,3 +4,10 @@
 /systems/         /systems/systems/       302
 /socialmedia      /systems/socialmedia/   301
 /socialmedia/     /systems/socialmedia/   301
+/systems/systems/services.html    /systems/systems/#services   301
+/systems/systems/blueprints.html  /systems/systems/#funnels    301
+/systems/systems/projects.html    /systems/systems/#builds     301
+/systems/systems/tools.html       /systems/systems/#tools      301
+/systems/systems/about.html       /systems/systems/#about      301
+/systems/systems/contact.html     /systems/systems/#contact    301
+/systems/systems/thanks.html      /systems/systems/#contact    301

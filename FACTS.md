@@ -46,3 +46,7 @@ Still open for the systems site:
 - Client builds from supplied screenshots: 5 assessment funnels (non-profit board effectiveness, courage profile, relationship pattern diagnostic, four-worlds inner map, emotional pattern profile) and 1 book-a-call funnel (fractional sales talent agency). Built end to end by Fran.
 - Masterclass, application and lead gathering: no client samples supplied yet; shown as blueprints with "examples on request".
 - Supplied screenshots are low resolution (300-600px wide); sharper top-of-page screenshots would improve the previews.
+
+## Systems site: one page (current)
+
+- Single page: hero, six client builds (not categorised), five funnel flow charts (assessment, masterclass, book a call, application, lead gathering), services, tools, about, email contact. No contact form.

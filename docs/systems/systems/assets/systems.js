@@ -18,8 +18,9 @@
     });
   }
 
-  /* ---------- Blueprint tabs ---------- */
+  /* ---------- Funnel flow tabs ---------- */
   var tablist = document.querySelector('[role="tablist"]');
+  var selectFlow = function () {};
   if (tablist) {
     var tabs = Array.prototype.slice.call(tablist.querySelectorAll('[role="tab"]'));
     var panels = tabs.map(function (t) { return document.getElementById(t.getAttribute('aria-controls')); });
@@ -31,7 +32,6 @@
         panels[j].hidden = !on;
       });
       if (focus) tabs[i].focus();
-      if (history.replaceState) history.replaceState(null, '', '#' + panels[i].id);
     }
     tabs.forEach(function (t, i) {
       t.addEventListener('click', function () { select(i, false); });
@@ -43,11 +43,18 @@
         if (k === 'End') { e.preventDefault(); select(n - 1, true); }
       });
     });
-    var start = 0;
-    panels.forEach(function (p, i) { if (location.hash === '#' + p.id) start = i; });
-    select(start, false);
-    if (location.hash) { var top = tablist.getBoundingClientRect().top + window.scrollY - 90; window.scrollTo(0, top); }
+    selectFlow = function (id) { panels.forEach(function (p, i) { if (p.id === 'flow-' + id) select(i, false); }); };
   }
+  document.querySelectorAll('[data-flow]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var dlg = a.closest('dialog');
+      if (dlg) dlg.close();
+      selectFlow(a.dataset.flow);
+      var target = document.getElementById('funnels');
+      if (target) target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+  });
 
   /* ---------- Assessment demo (sample data only) ---------- */
   var demo = document.getElementById('assessment-demo');
