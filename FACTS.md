@@ -22,5 +22,4 @@ Source of truth: `BRIEF.md` plus Fran's answers in the working session. Only ite
 - Starrz PR: did Fran write the captions?
 - SourcingXpro video: editing, or a wider production role?
 - "Published by cacao calling" on a Heart Healer Facebook post: another publisher or a tool?
-- Five screenshots still needed as files: SourcingXpro biotech merch and sourcing-risk video; Starrz PR x3 (see `assets/CATALOGUE.md`).
 - Design direction: chosen. Version 3, Split story (`drafts/v3-split.html`).

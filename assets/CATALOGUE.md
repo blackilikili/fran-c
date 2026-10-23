@@ -55,16 +55,23 @@ Batch 2 adds a third card to this series:
 | `hh-fb-cacao-offer` | Facebook: ceremonial cacao, 15% off, code IGOTTHIS | ~19 Oct 2026 | "Published by Frannie Crystal". Insights/boost bar cropped out. |
 | `hh-fb-not-about-money` | Facebook: Not About The Money / Plenty Mastermind | 4 Jul 2026 | "Published by cacao calling". Campfire image set, closing red panel, comment MONEY CTA. |
 
-## Seen in chat, files still needed
+## SourcingXpro (Facebook), batch 3
 
-These were sent as inline images and did not arrive as files. Re-send as files (or drop them in `assets/raw/`).
-
-| Brand | Post | Date shown | Notes |
+| File | Post | Date shown | What's visible |
 |---|---|---|---|
-| SourcingXpro | Biotech merch programme | 7 Oct (2026) | Copy on a four-item merch system, link to biotech promotional-products guide. Flat-lay product image. |
-| SourcingXpro | Sourcing-risk framework video | 12 Jul (2026) | 4:03 video, presenter in warehouse, yellow title bar, burned-in subtitles. Caption invites follows for daily sourcing tips. |
-| Starrz PR | The AWAKE Method free masterclass | 17 Oct 2024 | Purple/orange event graphic with speaker photo; first-person promotional caption. |
-| Starrz PR | Las Vegas Total Wellness Expo | 27 May 2024 | Nomination/award announcement, Eventbrite link, venue details. Expo graphic. |
-| Starrz PR | Not Over Just Different, episode 181 | 2 Jul 2023 | 1:00 video promo, podcast cover art, Buzzsprout link. |
+| `sourcingxpro-biotech-merch` | Biotech merch programme | 7 Oct 2026 | Copy on a four-item merch system, link to biotech promotional-products guide, flat-lay product image. |
+| `sourcingxpro-risk-video` | Sourcing-risk framework video | 12 Jul 2026 | 4:03 video, presenter in warehouse, yellow title bar, burned-in subtitles. |
+
+## Starrz PR (Facebook)
+
+Cropped to the graphic only: Fran made the graphics; who wrote the captions is unconfirmed.
+
+| File | Post | Date shown | What's visible |
+|---|---|---|---|
+| `starrz-awake-masterclass` | The AWAKE Method free masterclass | 17 Oct 2024 | Purple/orange event graphic with speaker photo and signature. |
+| `starrz-wellness-expo` | Las Vegas Total Wellness Expo | 27 May 2024 | "nominated." expo graphic with event details and speaker photo. |
+| `starrz-podcast-ep181` | Not Over Just Different, episode 181 | 2 Jul 2023 | Podcast video cover; player controls visible at the bottom. |
+
+Batches 4 and 5 (files 21-29) were duplicates of posts already catalogued.
 
 Dates without a year are shown by the platform as current-year; year in brackets is inferred.
