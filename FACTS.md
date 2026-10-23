@@ -39,3 +39,10 @@ Decisions for the systems site:
 Still open for the systems site:
 - The six reference sites (Courage Type, The Four Worlds, Zipline assessment, Riana Malia ELI, Powerhouse Profile, SalesClosers) could not be loaded from the build environment (DNS blocked). Nothing about them is described beyond Fran's own brief. 
 - Hands-on depth per tool (not shown until confirmed).
+
+## Systems site build types (confirmed)
+
+- Build types: Assessment, Masterclass, Book a call, Application, Lead gathering (enrollment blueprint removed).
+- Client builds from supplied screenshots: 5 assessment funnels (non-profit board effectiveness, courage profile, relationship pattern diagnostic, four-worlds inner map, emotional pattern profile) and 1 book-a-call funnel (fractional sales talent agency). Built end to end by Fran.
+- Masterclass, application and lead gathering: no client samples supplied yet; shown as blueprints with "examples on request".
+- Supplied screenshots are low resolution (300-600px wide); sharper top-of-page screenshots would improve the previews.

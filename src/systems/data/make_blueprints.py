@@ -2,8 +2,8 @@
 from pathlib import Path
 from html import escape as e
 
-FUNNELS = [
- dict(id="assessment", tab="Assessment", title="Assessment → personalised results → CRM → email automation",
+FUNNELS_RAW = [
+ dict(id="assessment", tab="Assessment", title="Assessment funnel: questions → personalised results → CRM → email",
   intro="A personality profile, readiness check or business diagnostic that captures answers, classifies an outcome and sends each person down the follow-up that matches their result.",
   systems=["Landing page", "Assessment tool", "CRM", "Email automation", "Calendar"],
   steps=[("Traffic","Traffic or referral"),("Page","Assessment landing page"),("Form","Assessment questions"),("Form","Lead capture: name and email"),
@@ -14,7 +14,7 @@ FUNNELS = [
   qa=["Complete the assessment once per outcome with a test contact.","Check fields, tags and workflow enrolment on each test record.","Retake with the same email: confirm no duplicate contact or second sequence.","Check every result link and booking link."],
   note="Automatic scoring calculates the outcome instantly. Manual review holds the result until a person checks the answers, then a tag or field change releases the right email. They're built differently, so I confirm which one the business uses first.",
   cta=("Discuss an assessment funnel","contact.html")),
- dict(id="vsl", tab="VSL to booked call", title="Landing page → VSL → booked call → CRM → follow-up",
+ dict(id="vsl", tab="Book a call", title="Book-a-call funnel: landing page → VSL → booked call → follow-up",
   intro="A sales page with a video sales letter that moves interested people to a booked call, with the CRM and reminders handling everything around the appointment.",
   systems=["Landing page", "Video", "Booking calendar", "CRM / pipeline", "Email & SMS reminders"],
   steps=[("Traffic","Traffic or referral"),("Page","Sales landing page"),("Page","Video sales letter"),("Page","CTA: book a call",1),("Calendar","Booking calendar with intake questions"),("Email","Booking confirmation"),
@@ -24,7 +24,7 @@ FUNNELS = [
   qa=["Book, reschedule and cancel with a test contact.","Check reminder timing in two different time zones.","Mark a test call as no-show and confirm the right sequence starts.","Confirm the closer receives the notification with the intake answers."],
   note="This journey is where marketing hands over to sales. The aim is that the person taking the call already has the context, and nobody falls through the gap between booked and attended.",
   cta=("See how I'd set up your booking flow","contact.html")),
- dict(id="masterclass", tab="Masterclass & webinar", title="Masterclass, webinar or virtual event",
+ dict(id="masterclass", tab="Masterclass", title="Masterclass funnel: registration → reminders → live event → replay → offer",
   intro="From promotion to replay: registration, reminders in the right time zone, attendance-based follow-up and a clear next step after the event.",
   systems=["Event page", "Registration form", "CRM", "Email automation", "Zoom or event platform"],
   steps=[("Page","Promotional landing page"),("Form","Registration form"),("CRM","Contact created or updated"),("CRM","Event registration tag"),("Email","Confirmation with joining details"),("Calendar","Add-to-calendar link"),
@@ -34,7 +34,7 @@ FUNNELS = [
   qa=["Register test contacts in different time zones.","Check each reminder's send time and joining link.","Simulate attended and not-attended contacts after the event.","Confirm buyers stop receiving the offer emails."],
   note="If the event platform doesn't report attendance, everyone receives the replay version. I'd say so plainly rather than pretend the follow-up is more personalised than it is.",
   cta=("Explore event systems","contact.html")),
- dict(id="leadmagnet", tab="Lead magnet", title="Lead magnet → CRM → nurture → conversion",
+ dict(id="leadmagnet", tab="Lead gathering", title="Lead gathering funnel: opt-in → CRM → nurture → conversion",
   intro="A free resource that brings people in, delivers what was promised immediately, then nurtures them toward one clear next step, and stops when they take it.",
   systems=["Opt-in page", "Form", "CRM", "Email automation"],
   steps=[("Page","Lead magnet landing page"),("Form","Opt-in form"),("CRM","Contact captured"),("CRM","Source and interest tags"),("Email","Asset delivery",1),("Email","Welcome sequence"),
@@ -44,7 +44,7 @@ FUNNELS = [
   qa=["Opt in with a new email and an existing one.","Check the delivery email and the download link.","Trigger the conversion action and confirm the nurture stops."],
   note="The most common gap I see here is the missing exit: people keep receiving 'ready to start?' emails after they've already bought.",
   cta=("Get help with your nurture sequence","contact.html")),
- dict(id="application", tab="Application", title="Application and qualification funnel",
+ dict(id="application", tab="Application", title="Application funnel: multi-step application → review → qualified call",
   intro="For high-ticket offers: a multi-step application that captures the right information, routes each applicant appropriately and only invites qualified people to book.",
   systems=["Application page", "Multi-step form", "CRM", "Email", "Booking calendar"],
   steps=[("Page","Application landing page"),("Form","Multi-step application"),("CRM","Contact and application data captured"),("CRM","Segment by answers"),("Logic","Qualification rules or manual review",1),("Email","Internal notification"),
@@ -53,18 +53,11 @@ FUNNELS = [
   logic=["Capture contact details on the first step so incomplete applications can be followed up.","Store each answer in its own field for review and reporting.","Automatic qualification only where clear rules have been agreed; otherwise manual review.","Booking link sent only to qualified applicants.","Status field records the decision, so reporting stays accurate."],
   qa=["Submit one qualified, one unqualified and one incomplete test application.","Confirm each lands in the right segment and gets the right email.","Check the reviewer's notification includes the answers."],
   note="I don't assume automated qualification. Many businesses review applications by hand, and the system should support that rather than guess.",
-  cta=("Discuss your application funnel","contact.html")),
- dict(id="enrollment", tab="Enrollment & onboarding", title="Course or programme enrollment and onboarding",
-  intro="What happens after someone says yes: access, welcome, orientation and the first milestones, with checks for the things that commonly go wrong.",
-  systems=["Sales / enrollment page", "Course or membership platform", "CRM", "Email automation"],
-  steps=[("Page","Sales or enrollment page"),("Page","Purchase or enrollment action",1),("CRM","CRM and email platform sync"),("CRM","Enrolled tag"),("Email","Welcome and onboarding sequence"),("Email","Access instructions"),
-         ("Email","Internal team notification"),("Email","Orientation and milestone emails"),("Email","Engagement or support follow-up",1)],
-  branch=("Things that go wrong",[("No access received","Check for the enrolled tag; resend access; alert the team if the sync failed."),("Duplicate contact","Merge records so progress and purchase history stay together."),("Sync incomplete","Enrolled in the course platform but not the CRM, or the other way round: caught by a reconciliation check."),("Payment issue","Handled by the payment or course platform's own flow, where it supports one.")]),
-  logic=["One enrolled tag or field drives every onboarding email.","Prospects in a sales sequence are removed from it at enrollment.","Access instructions sent even if the course platform's own email is missed.","Team notified about new enrollments that need a personal touch."],
-  qa=["Enrol a test student and follow every onboarding email.","Check the student exists once, in both platforms.","Confirm sales emails stop at enrollment."],
-  note="Payment handling depends on the platforms a business uses. I list it as a branch to plan for, not as an integration I've built.",
-  cta=("Discuss your onboarding flow","contact.html")),
+  cta=("Discuss your application funnel","contact.html"))
 ]
+
+ORDER = ["assessment", "masterclass", "vsl", "application", "leadmagnet"]
+FUNNELS = sorted(FUNNELS_RAW, key=lambda f: ORDER.index(f["id"]))
 
 def chip(layer): return f'<span class="chip layer">{e(layer)}</span>'
 
@@ -104,7 +97,7 @@ tabs = "".join(
 html = f"""<section class="page-hero">
   <div class="wrap">
     <span class="eyebrow">Systems &amp; funnel blueprints</span>
-    <h1>Six journeys, mapped <span class="accent">end to end.</span></h1>
+    <h1>Five builds, mapped <span class="accent">end to end.</span></h1>
     <p class="lede">Each blueprint shows the steps a person goes through, the system behind each step, how the journey branches and what I check before it goes live. These are representative builds, not diagrams of a specific client's account.</p>
     <div class="chips" style="margin-top:20px"><span class="status blueprint">Representative blueprints</span></div>
   </div>

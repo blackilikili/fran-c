@@ -23,11 +23,11 @@ PAGES = {
                  "Funnel architecture, CRM setup and integration, email marketing automation and marketing operations "
                  "support for coaches, consultants, course creators and agencies."),
     "blueprints": ("Blueprints", "Funnel Blueprints · Assessment, VSL, Webinar & Enrollment Funnels · Fran C.",
-                   "Six funnel architectures mapped step by step: assessment funnels, VSL booking funnels, masterclass "
-                   "and webinar funnels, lead magnets, applications and course enrollment."),
-    "projects": ("Projects", "Projects · Fran C.",
-                 "Assessment experiences, profile-based offers and sales funnels Fran C. has worked on, with each "
-                 "claim marked as verified, to be confirmed or representative."),
+                   "Five funnel builds mapped step by step: assessment, masterclass, book-a-call, application and lead "
+                   "gathering funnels."),
+    "projects": ("Builds", "Funnel Builds · Assessment, Masterclass, Book-a-Call, Application & Lead Funnels · Fran C.",
+                 "Client funnel builds grouped by type: assessment, masterclass, book-a-call, application and lead "
+                 "gathering funnels, each built end to end by Fran C."),
     "tools": ("Tools", "Tools & Platforms · GoHighLevel, HubSpot, Kajabi, Kit, Kartra · Fran C.",
               "The CRM, funnel, email and website platforms Fran C. works with, organised by the part of the customer "
               "journey they support."),
@@ -111,7 +111,7 @@ def layout(slug, body):
         <p style="margin-top:8px;max-width:46ch">Funnels, CRM records, email automation and booking workflows, connected into one customer journey.</p>
       </div>
       <nav class="foot-nav" aria-label="Footer">
-        <a href="services.html">Services</a><a href="blueprints.html">Blueprints</a><a href="projects.html">Projects</a>
+        <a href="services.html">Services</a><a href="blueprints.html">Blueprints</a><a href="projects.html">Builds</a>
         <a href="tools.html">Tools</a><a href="about.html">About</a><a href="contact.html">Contact</a>
       </nav>
     </div>
@@ -129,6 +129,7 @@ def layout(slug, body):
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     shutil.copytree(SRC / "assets", OUT / "assets", dirs_exist_ok=True)
+    shutil.copytree(SRC / "img", OUT / "img", dirs_exist_ok=True)
     og = SRC / "og.jpg"
     if og.exists():
         shutil.copy(og, OUT / "og.jpg")
