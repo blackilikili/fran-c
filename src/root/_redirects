@@ -1,0 +1,6 @@
+# Netlify redirects (Fran C. portfolio)
+/                 /systems/socialmedia/   302
+/systems          /systems/systems/       302
+/systems/         /systems/systems/       302
+/socialmedia      /systems/socialmedia/   301
+/socialmedia/     /systems/socialmedia/   301

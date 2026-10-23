@@ -9,8 +9,9 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "drafts" / "v3-split.html"
-OUT = ROOT / "docs"
-SITE = "https://fran-c-sm-portfolio.netlify.app"
+OUT = ROOT / "docs" / "systems" / "socialmedia"
+SITE = "https://fran-c-portfolio.netlify.app"
+PAGE = SITE + "/systems/socialmedia/"
 
 RENAME = {
     "hh-carousel-know-now": "personal-brand-01", "hh-carousel-islam-ei": "personal-brand-02",
@@ -41,30 +42,35 @@ for old in used:
 # Link to the systems portfolio (public site only; the Claude preview has no systems/ folder).
 content = content.replace(
     '<nav><a href="#work">Work</a><a href="#behind">Behind it</a><a href="#contact">Contact</a></nav>',
-    '<nav><a href="#work">Work</a><a href="#behind">Behind it</a><a href="systems/">Funnels &amp; CRM</a><a href="#contact">Contact</a></nav>', 1)
+    '<nav><a href="#work">Work</a><a href="#behind">Behind it</a><a href="../systems/">Funnels &amp; CRM</a><a href="#contact">Contact</a></nav>', 1)
 content = content.replace(
     "<p class=\"sub\">Where content goes after it's posted: the wider marketing systems Fran has worked in.</p>",
     "<p class=\"sub\">Where content goes after it's posted: the wider marketing systems Fran has worked in. "
-    "<a href=\"systems/\" style=\"color:#fff;font-weight:600\">See the funnel &amp; CRM portfolio →</a></p>", 1)
-assert 'href="systems/"' in content, "systems link not inserted"
+    "<a href=\"../systems/\" style=\"color:#fff;font-weight:600\">See the funnel &amp; CRM portfolio →</a></p>", 1)
+assert 'href="../systems/"' in content, "systems link not inserted"
 
 head = f"""<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="/systems/socialmedia/">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="shortcut icon" href="/favicon.ico">
 <title>{TITLE}</title>
 <meta name="description" content="{DESC}">
 <meta property="og:title" content="{TITLE}">
 <meta property="og:description" content="{DESC}">
 <meta property="og:type" content="website">
-<meta property="og:url" content="{SITE}/">
-<meta property="og:image" content="{SITE}/og.jpg">
+<meta property="og:url" content="{PAGE}">
+<link rel="canonical" href="{PAGE}">
+<meta property="og:image" content="{PAGE}og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Fran C. Social-first content, carried all the way to published. Social Media Manager, Content Editor, Content Marketing.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="{SITE}/og.jpg">
+<meta name="twitter:image" content="{PAGE}og.jpg">
 {links.strip()}
 {style}
 </head>
@@ -76,8 +82,9 @@ head = f"""<!doctype html>
 
 # Only replace this site's own files; docs/systems/ (the systems portfolio) is built separately.
 shutil.rmtree(OUT / "img", ignore_errors=True)
-(OUT / "img").mkdir(parents=True)
+(OUT / "img").mkdir(parents=True, exist_ok=True)
 (OUT / ".nojekyll").touch()
+shutil.copy(ROOT / "src" / "social" / "og.jpg", OUT / "og.jpg")
 (OUT / "index.html").write_text(head)
 for old in used:
     im = Image.open(ROOT / "drafts" / "img" / f"{old}.jpg")

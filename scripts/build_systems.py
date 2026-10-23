@@ -9,9 +9,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "src" / "systems"
-OUT = ROOT / "docs" / "systems"
-SITE = "https://fran-c-sm-portfolio.netlify.app"
-BASE = SITE + "/systems/"
+OUT = ROOT / "docs" / "systems" / "systems"
+SITE = "https://fran-c-portfolio.netlify.app"
+BASE = SITE + "/systems/systems/"
 EMAIL = "fran.f.crystal@gmail.com"
 
 # slug: (nav label or None, <title>, meta description)
@@ -59,12 +59,17 @@ def nav(current):
 def layout(slug, body):
     _, title, desc = PAGES[slug]
     url = BASE if slug == "index" else f"{BASE}{slug}.html"
+    # Only the home page is reached at a folder URL, so only it needs a base for relative links.
+    base = '<base href="/systems/systems/">\n' if slug == "index" else ""
     robots = '<meta name="robots" content="noindex">\n' if slug == "thanks" else ""
     return f"""<!doctype html>
 <html lang="en" class="no-js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+{base}<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="shortcut icon" href="/favicon.ico">
 <title>{title}</title>
 <meta name="description" content="{desc}">
 {robots}<link rel="canonical" href="{url}">
@@ -112,7 +117,7 @@ def layout(slug, body):
     </div>
     <div class="foot-bottom">
       <span>{EMAIL} · Remote, based in the Philippines</span>
-      <span>Also see my <a href="../">social media &amp; content portfolio</a></span>
+      <span>Also see my <a href="../socialmedia/">social media &amp; content portfolio</a></span>
     </div>
   </div>
 </footer>
@@ -127,6 +132,9 @@ def main():
     og = SRC / "og.jpg"
     if og.exists():
         shutil.copy(og, OUT / "og.jpg")
+    # Site-wide files (favicons, Netlify redirects) live at the deploy root.
+    for f in (ROOT / "src" / "root").iterdir():
+        shutil.copy(f, ROOT / "docs" / f.name)
     for slug in PAGES:
         body = (SRC / "pages" / f"{slug}.html").read_text()
         (OUT / f"{slug}.html").write_text(layout(slug, body))
